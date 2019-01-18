@@ -126,18 +126,18 @@
 }
 
 .cards-container {
-  background: #3b2f58;
+  // background: #3b2f58;
   min-height: 300px;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
 
-  -webkit-box-shadow: -9px -8px 62px -11px #423366;
-  -moz-box-shadow: -9px -8px 62px -11px #423366;
-  box-shadow: -9px -8px 62px -11px #423366;
+  // -webkit-box-shadow: -9px -8px 62px -11px #423366;
+  // -moz-box-shadow: -9px -8px 62px -11px #423366;
+  // box-shadow: -9px -8px 62px -11px #423366;
 
   .card {
-    border-right: 1px solid lighten(#3b2f58, 5%);
+    border-right: 1px solid #f4f0ff;
     width: 24%;
     padding: 1em;
 
@@ -147,7 +147,7 @@
     
     .title {
       background: none;
-      color: #beb2d5;
+      color: #7d69d5;
       border: none;
       padding: 0;
       font-weight: normal;
