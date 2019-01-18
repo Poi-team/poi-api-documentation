@@ -20,6 +20,9 @@ set :js_dir, 'javascripts'
 set :images_dir, 'images'
 set :fonts_dir, 'fonts'
 
+page  "/api", :layout => :api
+proxy "/api", "/api.html", :ignore => true
+
 # Activate the syntax highlighter
 activate :syntax
 ready do

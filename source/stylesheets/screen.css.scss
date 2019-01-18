@@ -36,6 +36,16 @@ html, body {
   -webkit-text-size-adjust: none; /* Never autoresize text */
 }
 
+a {
+  color: #6d6dfc;
+  text-decoration: none;
+  transition: color 0.4s;
+
+  &:hover {
+    color: darken(#6d6dfc, 7%);
+  }
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // TABLE OF CONTENTS
 ////////////////////////////////////////////////////////////////////////////////
@@ -60,7 +70,8 @@ html, body {
   width: $nav-width;
   background-color: $nav-bg;
   font-size: 13px;
-  font-weight: bold;
+  font-weight: 500;
+  border-right: 1px solid $borders-color;
 
   // language selector for mobile devices
   .lang-selector {
@@ -72,33 +83,39 @@ html, body {
   }
 
   // This is the logo at the top of the ToC
+  .logo-container {
+    border-bottom: 1px solid #f0f4f7;
+  }
+
   .logo {
-    display: block;
+    display: inline-block;
     max-width: 100%;
-    margin-bottom: $logo-margin;
+    max-height: 3.1em;
+    margin: 0.6em 1em;
+    vertical-align: middle;
   }
 
   &>.search {
     position: relative;
+    border-bottom: 1px solid $borders-color;
+    background: rgba(240, 244, 247, 0.32);
 
     input {
-      background: $nav-bg;
-      border-width: 0 0 1px 0;
-      border-color: $search-box-border-color;
-      padding: 6px 0 6px 20px;
+      background: transparent;
+      border-width: 0;
       box-sizing: border-box;
-      margin: $nav-v-padding $nav-padding;
-      width: $nav-width - ($nav-padding*2);
+      margin: 0.6em 1em 0.6em 3em;
+      width: 100%;
       outline: none;
-      color: $nav-text;
+      color: lighten($nav-text, 20%);
       border-radius: 0; /* ios has a default border radius */
     }
 
     &:before {
       position: absolute;
-      top: 17px;
+      top: 10px;
       left: $nav-padding;
-      color: $nav-text;
+      color: lighten(#6d6dfc, 10%);
       @extend %icon-search;
     }
   }
@@ -157,6 +174,11 @@ html, body {
     color: $nav-active-text;
   }
 
+  .toc-h2.toc-link.active {
+    background-color: transparent;
+    color: $sub-nav-active-text;
+  }
+
   // this is parent links of the currently selected ToC entry
   .toc-link.active-parent {
     background-color: $nav-active-parent-bg;
@@ -177,10 +199,10 @@ html, body {
   .toc-footer {
     padding: 1em 0;
     margin-top: 1em;
-    border-top: 1px dashed $nav-footer-border-color;
+    border-top: 1px solid $borders-color;
 
     li,a {
-      color: $nav-text;
+      color: lighten($nav-text, 35%);
       text-decoration: none;
     }
 
@@ -197,7 +219,7 @@ html, body {
 }
 
 .toc-link, .toc-footer li {
-  padding: 0 $nav-padding 0 $nav-padding;
+  padding: 5px $nav-padding 5px $nav-padding;
   display: block;
   overflow-x: hidden;
   white-space: nowrap;
@@ -207,6 +229,7 @@ html, body {
   transition-property: background;
   transition-timing-function: linear;
   transition-duration: 130ms;
+  font-size: 1.1em;
 }
 
 // button to show navigation on mobile devices
@@ -273,31 +296,44 @@ html, body {
   .lang-selector {
     position: fixed;
     z-index: 50;
-    border-bottom: 5px solid $lang-select-active-bg;
+    border-bottom: 2px solid $lang-select-active-bg;
+    padding: 0.7em 1.8em;
   }
 }
 
 .lang-selector {
   background-color: $lang-select-bg;
   width: 100%;
-  font-weight: bold;
+  font-weight: 500;
   a {
     display: block;
     float:left;
     color: $lang-select-text;
+    border: 1px solid transparent;
     text-decoration: none;
-    padding: 0 10px;
+    padding: 0 13px;
+    margin: 0 0.2em;
     line-height: 30px;
     outline: 0;
+    border-radius: 5px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
 
     &:active, &:focus {
       background-color: $lang-select-pressed-bg;
       color: $lang-select-pressed-text;
+      border-color: $lang-select-active-bg !important;
     }
 
     &.active {
       background-color: $lang-select-active-bg;
       color: $lang-select-active-text;
+      border-color: $lang-select-active-bg !important;
+    }
+
+    &:hover {
+      border: 1px solid #3d3d3d;
     }
   }
 
@@ -346,14 +382,15 @@ html, body {
 
   h1 {
     @extend %header-font;
-    font-size: 25px;
+    font-size: 1.85em;
+    font-family: Nunito;
+    font-weight: 500;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    background-color: #fdfdfd;
+    //border-top: 1px solid $borders-color;
+    border-bottom: 1px solid $borders-color
   }
 
   h1:first-child, div:first-child + h1 {
@@ -450,7 +487,7 @@ html, body {
 
   code {
     background-color: rgba(0,0,0,0.05);
-    padding: 3px;
+    padding: 5px 10px;
     border-radius: 3px;
     @extend %break-words;
     @extend %code-font;
@@ -467,6 +504,7 @@ html, body {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
+    color: white;
     line-height: 1.6;
 
     &.warning {
@@ -513,7 +551,7 @@ html, body {
 .content {
   pre, blockquote {
     background-color: $code-bg;
-    color: #fff;
+    color: $code-sidebar-color;
 
     margin: 0;
     width: $examples-width;
@@ -544,9 +582,13 @@ html, body {
   blockquote {
     &>p {
       background-color: $code-annotation-bg;
-      padding: $code-annotation-padding 2em;
-      color: #eee;
+      padding: $code-annotation-padding 35px;
+      color: $code-sidebar-color;
     }
+  }
+
+  .highlight .n, .highlight .py, .highlight .nx, .hightlight .nn {
+    color: $code-color;
   }
 }
 
@@ -612,4 +654,21 @@ html, body {
 
 .highlight, .highlight .w {
   background-color: $code-bg;
+}
+
+.highlight .no, .highlight .kr, .highlight .kd {
+  color: #a07cff;
+}
+
+
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .s3 {
+  color: #c0ace2;
+}
+
+.highlight .o {
+  color: #e826f9;
+}
+
+.highlight .mi {
+  color: #ffffff;
 }
