@@ -3,11 +3,12 @@
 
 $(function() { 
   console.log('hello')
-  initParticles();
+  initParticles("particles-background");
+  initParticles("particles-background-2");
 })
 
-var initParticles = (function () {
-  particlesJS("particles-background", {
+var initParticles = (function(id) {
+  particlesJS(id, {
     "particles": {
       "number": {
         "value": 100,
