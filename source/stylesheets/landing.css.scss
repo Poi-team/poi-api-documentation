@@ -242,10 +242,26 @@ a.disabled {
       }
     }
 
+    .api { 
+      float: left;
+    }
+    .models {
+      float: right;
+      margin-right: 4em;
+    }
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 0.5em;
+      color: #9791b2;
+      font-weight: normal;
+    }
+
+
     .section-links {
       list-style: none;
       padding: 0 0 0 2px;
-      margin: 0;
+      margin: 0 0 1em 0;
 
       li {
         padding: 0.2em 0;

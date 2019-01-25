@@ -29,6 +29,7 @@ under the License.
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
     <title><%= current_page.data.title || "API Documentation" %></title>
 
     <style>
@@ -52,7 +53,9 @@ under the License.
     </a>
     <div class="toc-wrapper">
       <div class="logo-container">
-        <%= image_tag "logo.png", class: 'logo' %>
+        <a href="/">
+          <%= image_tag "logo.png", class: 'logo' %>
+        </a>
       </div>
       <% if language_tabs.any? %>
         <div class="lang-selector">
