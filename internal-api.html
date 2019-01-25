@@ -202,7 +202,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="api" data-languages="[&quot;json&quot;,&quot;curl&quot;,&quot;ruby&quot;,&quot;php&quot;,&quot;javascript&quot;]">
+  <body class="internal-api" data-languages="[&quot;json&quot;,&quot;curl&quot;,&quot;ruby&quot;,&quot;php&quot;,&quot;javascript&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -228,13 +228,19 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#poi-api" class="toc-h1 toc-link" data-title="Poi API">Poi API</a>
+            <a href="#poi-internal-api" class="toc-h1 toc-link" data-title="Poi Internal API">Poi Internal API</a>
           </li>
           <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#sign-up" class="toc-h2 toc-link" data-title="Sign Up">Sign Up</a>
+                  </li>
+                  <li>
+                    <a href="#sign-in" class="toc-h2 toc-link" data-title="Sign In">Sign In</a>
+                  </li>
+                  <li>
+                    <a href="#account-update" class="toc-h2 toc-link" data-title="Account Update">Account Update</a>
                   </li>
               </ul>
           </li>
@@ -285,34 +291,32 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='poi-api'>Poi API</h1>
-<p>The Poi API is architectured in a REST fashion. It returns JSON-encoded responses, and uses standard HTTP response codes.</p>
+        <h1 id='poi-internal-api'>Poi Internal API</h1>
+<p>The <strong>Poi Internal API</strong> is architectured in a REST fashion. It returns JSON-encoded responses, and uses standard HTTP response codes.</p>
 
-<p>You can use the API in <strong>sandbox mode</strong>, which does not affect the live data. 
-To make requests to our API you will need an <strong>API Key</strong> (composed of a public and private key). The API Key you use to authenticate the requests determines whether the request is live mode or sandbox mode.
-Sandbox API Keys are prefixed with <code>sb_am_</code> while live API keys are prefixed with <code>lv_am_</code>.</p>
+<p><strong>It can and should ONLY be used by the official Poi Application, our Observer and special partners.</strong></p>
 
-<p>If you are a partner application looking to integrate the Poi Network in your application, please refer to <a href="#">this guide</a> and take a look at the <a href="#">Auth API</a> &amp; <a href="#">Event API</a>. </p>
+<p>You can use the API in <strong>sandbox mode</strong>, which does not affect the live data. The API key you use to authenticate the requests determines whether the request is live mode or sandbox mode.<br />
+Sandbox API Keys are prefixed with <code>sb_fm</code> while live API keys are prefixed with <code>lv_fm</code>.</p>
 
 <p>The base URL for calls is <code>https://api.poi.network/api/v1</code>.</p>
 
 <aside class="warning">
-  Your <b>private key</b> must NEVER touch the client side and should be used <b>only on the server</b>.<br />
-  It is your responsability to make sure that your <b>private key</b> is <b>stored securely</b>.
+This API can't be used with the usual API Key provided to our partner applications.
 </aside>
 <h1 id='authentication'>Authentication</h1>
-<p>To integrate with the Poi Network, your requests will need to be signed with your Application <strong>API Key</strong> (get one here).
-This is done by passing the following headers:</p>
+<p>All requests will need to be signed with your <strong>API Private Key</strong>.<br />
+Authentication to the API is performed via HTTP Basic Auth.Provide your API Private Key as the basic auth username value. You do not need to provide a password.</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">name</th>
+<th style="text-align: left">header name</th>
 <th>description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left"><code>app-token</code></td>
-<td>Your Application API Key</td>
+<td style="text-align: left"><code>Authorization: Basic</code></td>
+<td>Your Application Private Key</td>
 </tr>
 </tbody></table>
 
@@ -320,7 +324,7 @@ This is done by passing the following headers:</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left">name</th>
+<th style="text-align: left">header name</th>
 <th>description</th>
 </tr>
 </thead><tbody>
@@ -338,63 +342,276 @@ This is done by passing the following headers:</p>
 </tr>
 </tbody></table>
 
-<p>The values for those headers can be obtained through a <strong>Fetch credentials</strong>, <strong>sign in</strong> or <strong>sign up</strong> request. You need to store them in your application&#39;s local database to be used in subsequent requests and refresh the token when it expires.</p>
+<p>The values for those headers can be obtained through a <strong>fetch credentials</strong>, <strong>sign in</strong> or <strong>sign up</strong> request. You need to store them in your application&#39;s local database to be used in subsequent requests and refresh the token when it expires.</p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"/api/v1/..."</span>
-  -H <span class="s2">"app-token: e5k0al9TBvA3Vgo4fvcgd6mDgWah0sST"</span>
+  -H <span class="s2">"Authorization: Basic sb_fm_e5k0al9TBvA3Vgo4fvcgd6mDgWah0sST"</span>
+</code></pre><pre class="highlight shell tab-shell"><code>  curl <span class="s2">"/api/v1/..."</span>
+  -H <span class="s2">"Authorization: Basic sb_fm_e5k0al9TBvA3Vgo4fvcgd6mDgWah0sST"</span> <span class="se">\</span>
+  -H <span class="s2">"access-token:  v7c0al9bBvA4Vgo4rvcgd6mDgWah3suV"</span> <span class="se">\</span>
+  -H <span class="s2">"token-type"</span>:   <span class="s2">"Bearer"</span>,
+  -H <span class="s2">"expiry: 1537026922"</span> <span class="se">\</span>
+  -H <span class="s2">"uid: george@gmail.com"</span>
 </code></pre><h2 id='sign-up'>Sign Up</h2>
+<p>Allows you to create a new user on the Poi Network.<br />
+Upon a successful sign up, the necessary authentication information (<code>access-token</code>, <code>uid</code>, token <code>expiry</code>...) will be returned in the headers of the response.</p>
+
 <blockquote>
 <p>Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"/api/v1/user_auth"</span>
-  -H <span class="s2">"app-token: e5k0al9TBvA3Vgo4fvcgd6mDgWah0sST"</span>
-</code></pre>
-<blockquote>
-<p>JSON response</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"george@gmail.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"password_confirmation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George Abitbol"</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /api/v1/user_auth</code></p>
+<h3 id='parameters'>Parameters</h3>
+<div class="params-table"></div>
+
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>email</td>
+<td><code>string</code></td>
+<td>true</td>
+<td></td>
+<td>The user&#39;s email</td>
 </tr>
 <tr>
-<td>available</td>
+<td>password</td>
+<td><code>string</code></td>
 <td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td></td>
+<td>The user&#39;s password</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td><code>string</code></td>
+<td></td>
+<td></td>
+<td>The user&#39;s first name</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td><code>string</code></td>
+<td></td>
+<td></td>
+<td>The user&#39;s last name</td>
+</tr>
+<tr>
+<td>birthday</td>
+<td><code>string</code></td>
+<td></td>
+<td></td>
+<td>The user&#39;s date of birth</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td><code>string</code></td>
+<td></td>
+<td></td>
+<td>The user&#39;s phone number</td>
 </tr>
 </tbody></table>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h1 id='events'>Events</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<blockquote>
+<p>JSON Response</p>
+
+<p>Headers</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="err">access-token</span><span class="p">:</span><span class="w"> </span><span class="s2">"e5k0al9TBvA3Vgo4fvcgd6mDgWah0sST"</span><span class="p">,</span><span class="w">
+  </span><span class="err">token-type</span><span class="p">:</span><span class="w">   </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="err">client</span><span class="p">:</span><span class="w">       </span><span class="s2">"HC0ql3OzFe"</span><span class="p">,</span><span class="w">
+  </span><span class="err">uid</span><span class="p">:</span><span class="w">          </span><span class="s2">"xxx@poi.app"</span><span class="p">,</span><span class="w">
+  </span><span class="err">expiry</span><span class="p">:</span><span class="w">       </span><span class="s2">"1537026922"</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='sign-in'>Sign In</h2>
+<p>Signs in a user and retrieve a it&#39;s authentication token to be used in future requests.<br />
+Upon a successful sign in, the necessary authentication information (<code>access-token</code>, <code>uid</code>, token <code>expiry</code>...) will be returned in the headers of the response.</p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"george@gmail.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST /api/v1/user_auth/sign_in</code></p>
+<h3 id='parameters-2'>Parameters</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td><code>string</code></td>
+<td>true</td>
+<td></td>
+<td>The user&#39;s email</td>
+</tr>
+<tr>
+<td>password</td>
+<td><code>string</code></td>
+<td>true</td>
+<td></td>
+<td>The user&#39;s password</td>
+</tr>
+<tr>
+<td>password_confirmation</td>
+<td><code>string</code></td>
+<td></td>
+<td></td>
+<td>The user&#39;s password confirmation</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>JSON Response</p>
+
+<p>Headers</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="err">access-token</span><span class="p">:</span><span class="w"> </span><span class="s2">"e5k0al9TBvA3Vgo4fvcgd6mDgWah0sST"</span><span class="p">,</span><span class="w">
+  </span><span class="err">token-type</span><span class="p">:</span><span class="w">   </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="err">client</span><span class="p">:</span><span class="w">       </span><span class="s2">"HC0ql3OzFe"</span><span class="p">,</span><span class="w">
+  </span><span class="err">uid</span><span class="p">:</span><span class="w">          </span><span class="s2">"xxx@poi.app"</span><span class="p">,</span><span class="w">
+  </span><span class="err">expiry</span><span class="p">:</span><span class="w">       </span><span class="s2">"1537026922"</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='account-update'>Account Update</h2>
+<p>Updates a user&#39;s account.<br /></p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George Doran"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"george@poi.app"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"06/11/2000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0633234232"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new_password"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"password_confirmation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"new_password"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>PUT /api/v1/user_auth</code></p>
+<h3 id='parameters-3'>Parameters</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td><code>string</code></td>
+<td></td>
+<td></td>
+<td>The user&#39;s email</td>
+</tr>
+<tr>
+<td>password</td>
+<td><code>string</code></td>
+<td></td>
+<td></td>
+<td>The user&#39;s new password</td>
+</tr>
+<tr>
+<td>password_confirmation</td>
+<td><code>string</code></td>
+<td></td>
+<td></td>
+<td>The user&#39;s new password confirmation</td>
+</tr>
+<tr>
+<td>current_password</td>
+<td><code>string</code></td>
+<td>true</td>
+<td></td>
+<td>The user&#39;s current password</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td><code>string</code></td>
+<td></td>
+<td></td>
+<td>The user&#39;s first name</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td><code>string</code></td>
+<td></td>
+<td></td>
+<td>The user&#39;s last name</td>
+</tr>
+<tr>
+<td>birthday</td>
+<td><code>string</code></td>
+<td></td>
+<td></td>
+<td>The user&#39;s date of birth</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td><code>string</code></td>
+<td></td>
+<td></td>
+<td>The user&#39;s phone number</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>JSON Response</p>
+
+<p>Headers</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="err">access-token</span><span class="p">:</span><span class="w"> </span><span class="s2">"e5k0al9TBvA3Vgo4fvcgd6mDgWah0sST"</span><span class="p">,</span><span class="w">
+  </span><span class="err">token-type</span><span class="p">:</span><span class="w">   </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="err">client</span><span class="p">:</span><span class="w">       </span><span class="s2">"HC0ql3OzFe"</span><span class="p">,</span><span class="w">
+  </span><span class="err">uid</span><span class="p">:</span><span class="w">          </span><span class="s2">"xxx@poi.app"</span><span class="p">,</span><span class="w">
+  </span><span class="err">expiry</span><span class="p">:</span><span class="w">       </span><span class="s2">"1537026922"</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='events'>Events</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
 <span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
