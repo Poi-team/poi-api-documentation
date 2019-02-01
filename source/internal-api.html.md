@@ -13,7 +13,11 @@ toc_footers:
 
 includes:
   - internal/introduction
-  - internal/auth
+  - internal/service_auth
+  - internal/user_auth
+  - internal/users
+  - internal/me
+  - internal/apps
   - internal/events
   - internal/impact
   - errors

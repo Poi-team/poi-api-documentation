@@ -100,6 +100,35 @@
 | **created_at**         | `date`          | User's inscription date.                                                                 |                       
 | **updated_at**         | `date`          | Last user's update.                                                                      |                       
 
+## Event
+
+An event is an user action that triggers either a reward (in the appropriate reward currency) or awards impact points to a user. They are for the most part automaticaly handled when a transaction occurs on the blockchain, but some events are not transaction-based: a share on facebook, a referal... And those need to be triggered from the app.
+
+In production, if an event is emitted too often for a same authentified user it will be ignored as a security measure. Onboarding events can only be called once per account.
+
+```json
+
+    {
+      "type": "referall",
+      "subject": <User>,
+      "emitter": <User>,
+      "impact": {
+        "points_earned": 310.5,
+        "points_details": {
+          "poi_dev_referall": 310.5
+        }
+      }
+    }
+    
+```
+
+| Attribute                | Type            | Description                                                                              |
+|--------------------------|-----------------|------------------------------------------------------------------------------------------|
+| `type`                   | _String_        | The type of event, either `share`, `referall` `onboarding:topup`, `onboarding:project` or `onboarding:finish`                         |                       
+| `subject`                | _Object_        | The subject of the event, usually a `<User>` or `<Merchant>`.                            |                       
+| `emitter`                | _Object_        | The emitter of the event, usually a `<Transaction>` or `<User`>.                         |                       
+| `impact`                 | _Objectt_       | An object holding the number of points earned, and the detail.                           |
+
 ## Merchant
 
 ```json
@@ -164,33 +193,3 @@
 | `impact`             | _Object_        | An `<Impact>` object with `score` (_Integer_), `next_level_goal` (_Integer_) attributes. e.g: `{ score: 0, next_level_goal: 1000 }` |                
 | `wallet_id`          | _Integer_       | Merchant's wallet_id.                                                                 |
 | `ecosystem`          | _Object_        | An object representing the ecosystem the merchant is in.                              |
-
-## Event
-
-An event is an user action that triggers either a reward (in the appropriate reward currency) or awards impact points to a user. They are for the most part automaticaly handled when a transaction occurs on the blockchain, but some events are not transaction-based: a share on facebook, a referal... And those need to be triggered from the app.
-
-In production, if an event is emitted too often for a same authentified user it will be ignored as a security measure. Onboarding events can only be called once per account.
-
-```json
-
-    {
-      "type": "referall",
-      "subject": <User>,
-      "emitter": <User>,
-      "impact": {
-        "points_earned": 310.5,
-        "points_details": {
-          "poi_dev_referall": 310.5
-        }
-      }
-    }
-    
-```
-
-| Attribute                | Type            | Description                                                                              |
-|--------------------------|-----------------|------------------------------------------------------------------------------------------|
-| `type`                   | _String_        | The type of event, either `share`, `referall` `onboarding:topup`, `onboarding:project` or `onboarding:finish`                         |                       
-| `subject`                | _Object_        | The subject of the event, usually a `<User>` or `<Merchant>`.                            |                       
-| `emitter`                | _Object_        | The emitter of the event, usually a `<Transaction>` or `<User`>.                         |                       
-| `impact`                 | _Objectt_       | An object holding the number of points earned, and the detail.                           |
-

@@ -427,6 +427,39 @@ a {
     font-size: 10px;
   }
 
+
+  .public-endpoint + h2:after, .public-endpoint-legend {
+    content: "Public";
+    background: #6d6dfc;
+    color: white;
+    padding: 0.5em 0.6em 0.6em 0.6em;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 0.6em;
+    margin-left: 1em;
+    position: relative;
+    top: -2px;
+  }
+  .private-endpoint + h2:after, .private-endpoint-legend {
+    content: "Private";
+    background: #9a1cff;
+    color: white;
+    padding: 0.5em 0.6em 0.6em 0.6em;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 0.6em;
+    margin-left: 1em;
+    position: relative;
+    top: -2px;
+  }
+
+  .public-endpoint-legend, .private-endpoint-legend {
+    font-size: 0.8em;
+    margin-left: 0.5em; 
+    margin-right: 0.5em;
+    top: -1px;
+  }
+
   hr {
     margin: 2em 0;
     border-top: 2px solid $examples-bg;

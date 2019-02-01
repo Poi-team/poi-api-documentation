@@ -8,7 +8,7 @@ Sandbox API Keys are prefixed with `sb_am_` while live API keys are prefixed wit
 
 If you are a partner application looking to integrate the Poi Network in your application, please refer to [this guide]() and take a look at the [Auth API]() & [Event API](). 
 
-The base URL for calls is `https://api.poi.network/api/v1`.
+The base URL for calls is `https://api.poi.network/v1`.
 
 <aside class="warning">
   Your <b>private key</b> must NEVER touch the client side and should be used <b>only on the server</b>.<br />

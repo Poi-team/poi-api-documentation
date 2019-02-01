@@ -19,7 +19,7 @@ Furthermore, if the request needs to be user authenticated (most of the time) yo
 The values for those headers can be obtained through a **Fetch credentials**, **sign in** or **sign up** request. You need to store them in your application's local database to be used in subsequent requests and refresh the token when it expires.
 
 ```shell
-curl "/api/v1/..."
+curl "/v1/..."
   -H "app-token: e5k0al9TBvA3Vgo4fvcgd6mDgWah0sST"
 ```
 
@@ -28,7 +28,7 @@ curl "/api/v1/..."
 > Request
 
 ```shell
-curl "/api/v1/user_auth"
+curl "/v1/user_auth"
   -H "app-token: e5k0al9TBvA3Vgo4fvcgd6mDgWah0sST"
 ```
 
