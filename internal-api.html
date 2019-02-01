@@ -231,7 +231,21 @@
             <a href="#poi-internal-api" class="toc-h1 toc-link" data-title="Poi Internal API">Poi Internal API</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+            <a href="#service-authentication" class="toc-h1 toc-link" data-title="Service Authentication">Service Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#public" class="toc-h2 toc-link" data-title="Public">Public</a>
+                  </li>
+                  <li>
+                    <a href="#private" class="toc-h2 toc-link" data-title="Private">Private</a>
+                  </li>
+                  <li>
+                    <a href="#signing-the-request" class="toc-h2 toc-link" data-title="Signing the request">Signing the request</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#user-authentication" class="toc-h1 toc-link" data-title="User Authentication">User Authentication</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#sign-up" class="toc-h2 toc-link" data-title="Sign Up">Sign Up</a>
@@ -241,6 +255,42 @@
                   </li>
                   <li>
                     <a href="#account-update" class="toc-h2 toc-link" data-title="Account Update">Account Update</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#users" class="toc-h1 toc-link" data-title="Users">Users</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#count" class="toc-h2 toc-link" data-title="Count">Count</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#current-user" class="toc-h1 toc-link" data-title="Current user">Current user</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#me" class="toc-h2 toc-link" data-title="Me">Me</a>
+                  </li>
+                  <li>
+                    <a href="#my-events" class="toc-h2 toc-link" data-title="My Events">My Events</a>
+                  </li>
+                  <li>
+                    <a href="#my-connected-apps" class="toc-h2 toc-link" data-title="My Connected Apps">My Connected Apps</a>
+                  </li>
+                  <li>
+                    <a href="#connect-an-app" class="toc-h2 toc-link" data-title="Connect an app">Connect an app</a>
+                  </li>
+                  <li>
+                    <a href="#my-available-perks" class="toc-h2 toc-link" data-title="My Available Perks">My Available Perks</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#apps" class="toc-h1 toc-link" data-title="Apps">Apps</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#connect-an-app" class="toc-h2 toc-link" data-title="Connect an app">Connect an app</a>
                   </li>
               </ul>
           </li>
@@ -276,10 +326,10 @@
                     <a href="#user" class="toc-h2 toc-link" data-title="User">User</a>
                   </li>
                   <li>
-                    <a href="#merchant" class="toc-h2 toc-link" data-title="Merchant">Merchant</a>
+                    <a href="#event" class="toc-h2 toc-link" data-title="Event">Event</a>
                   </li>
                   <li>
-                    <a href="#event" class="toc-h2 toc-link" data-title="Event">Event</a>
+                    <a href="#merchant" class="toc-h2 toc-link" data-title="Merchant">Merchant</a>
                   </li>
               </ul>
           </li>
@@ -296,31 +346,54 @@
 
 <p><strong>It can and should ONLY be used by the official Poi Application, our Observer and special partners.</strong></p>
 
-<p>You can use the API in <strong>sandbox mode</strong>, which does not affect the live data. The API key you use to authenticate the requests determines whether the request is live mode or sandbox mode.<br />
-Sandbox API Keys are prefixed with <code>sb_fm</code> while live API keys are prefixed with <code>lv_fm</code>.</p>
+<p>The base URL for calls is <code>https://api.poi.network/v1</code>.</p>
+<h1 id='service-authentication'>Service Authentication</h1>
+<p>All requests need to be signed for the type of service using them (Internal Applications, Partner Applications, Internal Tools...).<br/> Different API Keys give different access rights, divided between <strong>Private</strong> and <strong>Public</strong> endpoints.<br/> </p>
+<h3 id='public'>Public</h3>
+<p>Accessing a <strong>Public</strong> endpoint can be done from either the client or server side with your <strong>API Public key</strong>.<br/></p>
 
-<p>The base URL for calls is <code>https://api.poi.network/api/v1</code>.</p>
+<p>Public endpoints are marked with a <span class="public-endpoint-legend">Public</span> tag.</p>
+<h3 id='private'>Private</h3>
+<p>Accessing a <strong>Private</strong> endpoint <strong>MUST</strong> be done from the server and will need your <strong>API Private key</strong>. Never ever use your private key in the client.<br/>
+It is to note that using your <strong>API Private key</strong> also gives access to all <strong>Public</strong> endpoints, but must never be used from the client.</p>
+
+<p>Private endpoints are marked with a <span class="private-endpoint-legend">Private</span> tag.</p>
 
 <aside class="warning">
-This API can't be used with the usual API Key provided to our partner applications.
+  The <b>Private key</b> should never be commited or made accessible online by any means. It is the developer's responsability to make sure it is securely stored on the server making the requests.
 </aside>
-<h1 id='authentication'>Authentication</h1>
-<p>All requests will need to be signed with your <strong>API Private Key</strong>.<br />
-Authentication to the API is performed via HTTP Basic Auth.Provide your API Private Key as the basic auth username value. You do not need to provide a password.</p>
+<h3 id='signing-the-request'>Signing the request</h3>
+<p>Signing is done via HTTP Basic Auth. This is done by adding the <code>Authorization</code> header to your request and appending your base64 encoded <strong>Client ID</strong> and <strong>API key</strong> (public or private) as the value, prefixed with <code>Basic</code>.</p>
 
+<p><strong>Example:</strong></p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"/v1/..."</span>
+  -H <span class="s2">"Authorization: Basic RWzhZGRpbjpbvHNpdTZornFRcmd="</span>
+</code></pre>
 <table><thead>
 <tr>
-<th style="text-align: left">header name</th>
-<th>description</th>
+<th style="text-align: left">Client ID</th>
+<th>API Key</th>
+<th>Credentials to encode in base64</th>
+<th>Base64 encoded credentials</th>
+<th>Header value</th>
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left"><code>Authorization: Basic</code></td>
-<td>Your Application Private Key</td>
+<td style="text-align: left"><code>poi-app</code></td>
+<td><code>lv_SEHo5AQZRWRy63wx8S2E9A</code></td>
+<td><code>poi-app:lv_SEHo5AQZRWRy63wx8S2E9A</code></td>
+<td>RWzhZGRpbjpbvHNpdTZornFRcmd=</td>
+<td>Basic RWzhZGRpbjpbvHNpdTZornFRcmd=</td>
 </tr>
 </tbody></table>
 
-<p>Furthermore, if the request needs to be user authenticated (most of the time) you will need to pass the following headers:</p>
+<p>Thus, the sent headers would include: <code>Authorization: Basic RWzhZGRpbjpbvHNpdTZornFRcmd=</code>.</p>
+
+<aside class="warning">
+  Any unsigned request will be reject with a <code>401 Unauthorized</code>
+</aside>
+<h1 id='user-authentication'>User Authentication</h1>
+<p>Additionnaly to <a href="#service-authentication">Service Authentication</a>, when the request needs to be <strong>user authenticated</strong> (which is the case most of the time) you will need to add another layer of authentication by passing the following headers:</p>
 
 <table><thead>
 <tr>
@@ -342,18 +415,21 @@ Authentication to the API is performed via HTTP Basic Auth.Provide your API Priv
 </tr>
 </tbody></table>
 
-<p>The values for those headers can be obtained through a <strong>fetch credentials</strong>, <strong>sign in</strong> or <strong>sign up</strong> request. You need to store them in your application&#39;s local database to be used in subsequent requests and refresh the token when it expires.</p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"/api/v1/..."</span>
-  -H <span class="s2">"Authorization: Basic sb_fm_e5k0al9TBvA3Vgo4fvcgd6mDgWah0sST"</span>
-</code></pre><pre class="highlight shell tab-shell"><code>  curl <span class="s2">"/api/v1/..."</span>
-  -H <span class="s2">"Authorization: Basic sb_fm_e5k0al9TBvA3Vgo4fvcgd6mDgWah0sST"</span> <span class="se">\</span>
+<p>The values for those headers can be obtained through a <a href="#sign-in">Sign in</a>, <a href="#sign-up">Sign up</a> or <a href="#fetch-credentials">Fetch credentials</a> request.</p>
+
+<p>Once retrieved, you need to store the <code>access-token</code>, <code>expiry</code> and <code>uid</code> in your application&#39;s local store to be used in subsequent requests without signing in again.<br/> When the token expires, it is also your responsability to <a href="#refresh-token">keep it fresh</a> (WIP).</p>
+<pre class="highlight shell tab-shell"><code>  curl <span class="s2">"/v1/..."</span>
+  -H <span class="s2">"Authorization: Basic RWzhZGRpbjpbvHNpdTZornFRcmd="</span> <span class="se">\</span>
   -H <span class="s2">"access-token:  v7c0al9bBvA4Vgo4rvcgd6mDgWah3suV"</span> <span class="se">\</span>
   -H <span class="s2">"token-type"</span>:   <span class="s2">"Bearer"</span>,
   -H <span class="s2">"expiry: 1537026922"</span> <span class="se">\</span>
   -H <span class="s2">"uid: george@gmail.com"</span>
-</code></pre><h2 id='sign-up'>Sign Up</h2>
-<p>Allows you to create a new user on the Poi Network.<br />
-Upon a successful sign up, the necessary authentication information (<code>access-token</code>, <code>uid</code>, token <code>expiry</code>...) will be returned in the headers of the response.</p>
+</code></pre>
+<div class="public-endpoint"></div>
+<h2 id='sign-up'>Sign Up</h2>
+<p>Allows you to create a new user on the Poi Network.<br /></p>
+
+<p>Upon a successful sign up, the necessary authentication information (<code>access-token</code>, <code>uid</code>, token <code>expiry</code>...) will be returned in the headers of the response.</p>
 
 <blockquote>
 <p>Request</p>
@@ -365,7 +441,7 @@ Upon a successful sign up, the necessary authentication information (<code>acces
       </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George Abitbol"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request'>HTTP Request</h3>
-<p><code>POST /api/v1/user_auth</code></p>
+<p><code>POST /v1/user_auth</code></p>
 <h3 id='parameters'>Parameters</h3>
 <div class="params-table"></div>
 
@@ -440,9 +516,12 @@ Upon a successful sign up, the necessary authentication information (<code>acces
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='sign-in'>Sign In</h2>
-<p>Signs in a user and retrieve a it&#39;s authentication token to be used in future requests.<br />
-Upon a successful sign in, the necessary authentication information (<code>access-token</code>, <code>uid</code>, token <code>expiry</code>...) will be returned in the headers of the response.</p>
+</span></code></pre>
+<div class="public-endpoint"></div>
+<h2 id='sign-in'>Sign In</h2>
+<p>Signs in a user and retrieve a it&#39;s authentication token to be used in future requests.<br /></p>
+
+<p>Upon a successful sign in, the necessary authentication information (<code>access-token</code>, <code>uid</code>, token <code>expiry</code>...) will be returned in the headers of the response.</p>
 
 <blockquote>
 <p>Request</p>
@@ -452,7 +531,7 @@ Upon a successful sign in, the necessary authentication information (<code>acces
       </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="p">,</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST /api/v1/user_auth/sign_in</code></p>
+<p><code>POST /v1/user_auth/sign_in</code></p>
 <h3 id='parameters-2'>Parameters</h3>
 <div class="params-table"></div>
 
@@ -506,7 +585,9 @@ Upon a successful sign in, the necessary authentication information (<code>acces
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='account-update'>Account Update</h2>
+</span></code></pre>
+<div class="public-endpoint"></div>
+<h2 id='account-update'>Account Update</h2>
 <p>Updates a user&#39;s account.<br /></p>
 
 <blockquote>
@@ -522,7 +603,7 @@ Upon a successful sign in, the necessary authentication information (<code>acces
     </span><span class="s2">"current_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
-<p><code>PUT /api/v1/user_auth</code></p>
+<p><code>PUT /v1/user_auth</code></p>
 <h3 id='parameters-3'>Parameters</h3>
 <div class="params-table"></div>
 
@@ -610,6 +691,274 @@ Upon a successful sign in, the necessary authentication information (<code>acces
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='users'>Users</h1>
+<div class="public-endpoint"></div>
+<h2 id='count'>Count</h2>
+<p>Gets the number of users registered on the Poi Network.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v1/users/count</code></p>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='current-user'>Current user</h1><h2 id='me'>Me</h2>
+<p>Gets the current user&#39;s information. See <a href="#user"><User></a> for more details.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v1/me</code></p>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='my-events'>My Events</h2>
+<p>List of all actions the user has taken on the Poi Network.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET /v1/me/events</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>period</td>
+<td><code>string</code></td>
+<td></td>
+<td>global</td>
+<td>A time period: <code>week</code>, <code>month</code> or <code>global</code></td>
+</tr>
+<tr>
+<td>page</td>
+<td><code>integer</code></td>
+<td></td>
+<td>1</td>
+<td>Page number</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td><code>integer</code></td>
+<td></td>
+<td>100</td>
+<td>Number of events per page</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="err">&lt;Event&gt;</span><span class="p">,</span><span class="w"> 
+      </span><span class="err">&lt;Event&gt;</span><span class="p">,</span><span class="w">
+      </span><span class="err">&lt;Event&gt;</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='my-connected-apps'>My Connected Apps</h2>
+<p>List of all apps the user has connected.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET /v1/me/apps</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td><code>integer</code></td>
+<td></td>
+<td>1</td>
+<td>Page number</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td><code>integer</code></td>
+<td></td>
+<td>100</td>
+<td>Number of events per page</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too Good To Go"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/zwu.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"george@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"connected"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/cts.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abitbol.g@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disconnected"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='connect-an-app'>Connect an app</h2>
+<p>You need to send encrypted data yada yada</p>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"george@gmail.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"password_confirmation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George Abitbol"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST /v1/me/apps</code></p>
+<h3 id='parameters'>Parameters</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td><code>string</code></td>
+<td>true</td>
+<td></td>
+<td>The user&#39;s email</td>
+</tr>
+<tr>
+<td>password</td>
+<td><code>string</code></td>
+<td>true</td>
+<td></td>
+<td>The user&#39;s password</td>
+</tr>
+<tr>
+<td>first_name</td>
+<td><code>string</code></td>
+<td></td>
+<td></td>
+<td>The user&#39;s first name</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td><code>string</code></td>
+<td></td>
+<td></td>
+<td>The user&#39;s last name</td>
+</tr>
+<tr>
+<td>birthday</td>
+<td><code>string</code></td>
+<td></td>
+<td></td>
+<td>The user&#39;s date of birth</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td><code>string</code></td>
+<td></td>
+<td></td>
+<td>The user&#39;s phone number</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='my-available-perks'>My Available Perks</h2>
+<p>List of all the perks available to the current user.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET /v1/me/perks</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td><code>integer</code></td>
+<td></td>
+<td>1</td>
+<td>Page number</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td><code>integer</code></td>
+<td></td>
+<td>100</td>
+<td>Number of events per page</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too Good To Go - 30%"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/zwu.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"application"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too Good To Go"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot - 15%"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/zwu.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"application"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='apps'>Apps</h1><h2 id='connect-an-app'>Connect an app</h2>
+<p>You need to send encrypted data yada yada</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /v1/me/apps</code></p>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='events'>Events</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
@@ -993,6 +1342,52 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <td>Last user&#39;s update.</td>
 </tr>
 </tbody></table>
+<h2 id='event'>Event</h2>
+<p>An event is an user action that triggers either a reward (in the appropriate reward currency) or awards impact points to a user. They are for the most part automaticaly handled when a transaction occurs on the blockchain, but some events are not transaction-based: a share on facebook, a referal... And those need to be triggered from the app.</p>
+
+<p>In production, if an event is emitted too often for a same authentified user it will be ignored as a security measure. Onboarding events can only be called once per account.</p>
+<pre class="highlight json tab-json"><code><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"referall"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"emitter"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"impact"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"points_earned"</span><span class="p">:</span><span class="w"> </span><span class="mf">310.5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"points_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"poi_dev_referall"</span><span class="p">:</span><span class="w"> </span><span class="mf">310.5</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>type</code></td>
+<td><em>String</em></td>
+<td>The type of event, either <code>share</code>, <code>referall</code> <code>onboarding:topup</code>, <code>onboarding:project</code> or <code>onboarding:finish</code></td>
+</tr>
+<tr>
+<td><code>subject</code></td>
+<td><em>Object</em></td>
+<td>The subject of the event, usually a <code>&lt;User&gt;</code> or <code>&lt;Merchant&gt;</code>.</td>
+</tr>
+<tr>
+<td><code>emitter</code></td>
+<td><em>Object</em></td>
+<td>The emitter of the event, usually a <code>&lt;Transaction&gt;</code> or <code>&lt;User</code>&gt;.</td>
+</tr>
+<tr>
+<td><code>impact</code></td>
+<td><em>Objectt</em></td>
+<td>An object holding the number of points earned, and the detail.</td>
+</tr>
+</tbody></table>
 <h2 id='merchant'>Merchant</h2><pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Le petit Bordelais"</span><span class="p">,</span><span class="w">
@@ -1121,52 +1516,6 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <td><code>ecosystem</code></td>
 <td><em>Object</em></td>
 <td>An object representing the ecosystem the merchant is in.</td>
-</tr>
-</tbody></table>
-<h2 id='event'>Event</h2>
-<p>An event is an user action that triggers either a reward (in the appropriate reward currency) or awards impact points to a user. They are for the most part automaticaly handled when a transaction occurs on the blockchain, but some events are not transaction-based: a share on facebook, a referal... And those need to be triggered from the app.</p>
-
-<p>In production, if an event is emitted too often for a same authentified user it will be ignored as a security measure. Onboarding events can only be called once per account.</p>
-<pre class="highlight json tab-json"><code><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"referall"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"emitter"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"impact"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"points_earned"</span><span class="p">:</span><span class="w"> </span><span class="mf">310.5</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"points_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"poi_dev_referall"</span><span class="p">:</span><span class="w"> </span><span class="mf">310.5</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-
-</span></code></pre>
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>type</code></td>
-<td><em>String</em></td>
-<td>The type of event, either <code>share</code>, <code>referall</code> <code>onboarding:topup</code>, <code>onboarding:project</code> or <code>onboarding:finish</code></td>
-</tr>
-<tr>
-<td><code>subject</code></td>
-<td><em>Object</em></td>
-<td>The subject of the event, usually a <code>&lt;User&gt;</code> or <code>&lt;Merchant&gt;</code>.</td>
-</tr>
-<tr>
-<td><code>emitter</code></td>
-<td><em>Object</em></td>
-<td>The emitter of the event, usually a <code>&lt;Transaction&gt;</code> or <code>&lt;User</code>&gt;.</td>
-</tr>
-<tr>
-<td><code>impact</code></td>
-<td><em>Objectt</em></td>
-<td>An object holding the number of points earned, and the detail.</td>
 </tr>
 </tbody></table>
 
