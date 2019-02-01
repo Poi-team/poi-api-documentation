@@ -259,15 +259,7 @@
               </ul>
           </li>
           <li>
-            <a href="#users" class="toc-h1 toc-link" data-title="Users">Users</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#count" class="toc-h2 toc-link" data-title="Count">Count</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#current-user" class="toc-h1 toc-link" data-title="Current user">Current user</a>
+            <a href="#authenticated-user" class="toc-h1 toc-link" data-title="Authenticated User">Authenticated User</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#me" class="toc-h2 toc-link" data-title="Me">Me</a>
@@ -287,10 +279,21 @@
               </ul>
           </li>
           <li>
-            <a href="#apps" class="toc-h1 toc-link" data-title="Apps">Apps</a>
+            <a href="#users" class="toc-h1 toc-link" data-title="Users">Users</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#connect-an-app" class="toc-h2 toc-link" data-title="Connect an app">Connect an app</a>
+                    <a href="#count" class="toc-h2 toc-link" data-title="Count">Count</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#applications" class="toc-h1 toc-link" data-title="Applications">Applications</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-applications" class="toc-h2 toc-link" data-title="List applications">List applications</a>
+                  </li>
+                  <li>
+                    <a href="#fetch-application" class="toc-h2 toc-link" data-title="Fetch application">Fetch application</a>
                   </li>
               </ul>
           </li>
@@ -324,6 +327,9 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#user" class="toc-h2 toc-link" data-title="User">User</a>
+                  </li>
+                  <li>
+                    <a href="#application" class="toc-h2 toc-link" data-title="Application">Application</a>
                   </li>
                   <li>
                     <a href="#event" class="toc-h2 toc-link" data-title="Event">Event</a>
@@ -692,20 +698,9 @@ It is to note that using your <strong>API Private key</strong> also gives access
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='users'>Users</h1>
+</span></code></pre><h1 id='authenticated-user'>Authenticated User</h1>
 <div class="public-endpoint"></div>
-<h2 id='count'>Count</h2>
-<p>Gets the number of users registered on the Poi Network.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /v1/users/count</code></p>
-
-<blockquote>
-<p>JSON Response</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='current-user'>Current user</h1><h2 id='me'>Me</h2>
+<h2 id='me'>Me</h2>
 <p>Gets the current user&#39;s information. See <a href="#user"><User></a> for more details.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET /v1/me</code></p>
@@ -716,7 +711,9 @@ It is to note that using your <strong>API Private key</strong> also gives access
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='my-events'>My Events</h2>
+</span></code></pre>
+<div class="public-endpoint"></div>
+<h2 id='my-events'>My Events</h2>
 <p>List of all actions the user has taken on the Poi Network.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET /v1/me/events</code></p>
@@ -765,7 +762,9 @@ It is to note that using your <strong>API Private key</strong> also gives access
       </span><span class="err">&lt;Event&gt;</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='my-connected-apps'>My Connected Apps</h2>
+</span></code></pre>
+<div class="public-endpoint"></div>
+<h2 id='my-connected-apps'>My Connected Apps</h2>
 <p>List of all apps the user has connected.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET /v1/me/apps</code></p>
@@ -816,17 +815,36 @@ It is to note that using your <strong>API Private key</strong> also gives access
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='connect-an-app'>Connect an app</h2>
-<p>You need to send encrypted data yada yada</p>
+</span></code></pre>
+<div class="public-endpoint"></div>
+<h2 id='connect-an-app'>Connect an app</h2>
+<p>Allows a user to connect their account to a new application. To do so, you will need to send the user&#39;s credentials encrypted using <strong>RSA</strong>.
+Here are some libraries that you can use: </p>
+
+<ul>
+<li><a href="https://github.com/JoshKaufman/ursa">uRSA</a> [JS]</li>
+<li><a href="https://github.com/travist/jsencrypt">JSencrypt</a> [JS]</li>
+<li><a href="https://ruby-doc.org/stdlib-2.5.1/libdoc/openssl/rdoc/OpenSSL/PKey/RSA.html">OpenSSL::PKey::RSA</a> [Ruby]</li>
+</ul>
+
+<p>The public key used for encryption is the following</p>
+
+<div class="rsa-pkey-container">
+  <pre class="rsa-pkey">-----BEGIN PUBLIC KEY-----
+  MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDlOJu6TyygqxfWT7eLtGDwajtN
+  FOb9I5XRb6khyfD1Yt3YiCgQWMNW649887VGJiGr/L5i2osbl8C9+WJTeucF+S76
+  xFxdU6jE0NQ+Z+zEdhUTooNRaY5nZiu5PgDB0ED/ZKBUSLKL7eibMxZtMlUDHjm4
+  gwQco1KRMDSmXSMkDwIDAQAB
+  -----END PUBLIC KEY-----</pre>
+</div>
 
 <blockquote>
 <p>Request</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"application_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
       </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"george@gmail.com"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"password_confirmation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George Abitbol"</span><span class="w">
+      </span><span class="s2">"encrypted_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WJKZHcAzH9Ee8iavMUvYSKGkSXCcaTthalXTIrUKmjnV1gXgHoPg9/mXR4/fyP/pG87Z1EGPXyM1rUzRWYIlvBSHsLa+EQnFimNGr8NhFNs52AfzsHRM1/BQumTK6Q/ThsMIqbsKnnfYO8NQKbjPprT9NkzWqgpAzuH9XvXGyg0="</span><span class="p">,</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST /v1/me/apps</code></p>
@@ -843,46 +861,25 @@ It is to note that using your <strong>API Private key</strong> also gives access
 </tr>
 </thead><tbody>
 <tr>
+<td>application_id</td>
+<td><code>integer</code></td>
+<td>true</td>
+<td></td>
+<td>The application id</td>
+</tr>
+<tr>
 <td>email</td>
 <td><code>string</code></td>
 <td>true</td>
 <td></td>
-<td>The user&#39;s email</td>
+<td>The user&#39;s email for this app</td>
 </tr>
 <tr>
-<td>password</td>
+<td>encrypted_password</td>
 <td><code>string</code></td>
 <td>true</td>
 <td></td>
-<td>The user&#39;s password</td>
-</tr>
-<tr>
-<td>first_name</td>
-<td><code>string</code></td>
-<td></td>
-<td></td>
-<td>The user&#39;s first name</td>
-</tr>
-<tr>
-<td>last_name</td>
-<td><code>string</code></td>
-<td></td>
-<td></td>
-<td>The user&#39;s last name</td>
-</tr>
-<tr>
-<td>birthday</td>
-<td><code>string</code></td>
-<td></td>
-<td></td>
-<td>The user&#39;s date of birth</td>
-</tr>
-<tr>
-<td>phone_number</td>
-<td><code>string</code></td>
-<td></td>
-<td></td>
-<td>The user&#39;s phone number</td>
+<td>The user&#39;s password encrypted with RSA and the given public key</td>
 </tr>
 </tbody></table>
 
@@ -890,9 +887,15 @@ It is to note that using your <strong>API Private key</strong> also gives access
 <p>JSON Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"application_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"connected"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='my-available-perks'>My Available Perks</h2>
+</span></code></pre>
+<div class="public-endpoint"></div>
+<h2 id='my-available-perks'>My Available Perks</h2>
 <p>List of all the perks available to the current user.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET /v1/me/perks</code></p>
@@ -949,16 +952,96 @@ It is to note that using your <strong>API Private key</strong> also gives access
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='apps'>Apps</h1><h2 id='connect-an-app'>Connect an app</h2>
-<p>You need to send encrypted data yada yada</p>
+</span></code></pre><h1 id='users'>Users</h1>
+<div class="public-endpoint"></div>
+<h2 id='count'>Count</h2>
+<p>Gets the number of users registered on the Poi Network.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST /v1/me/apps</code></p>
+<p><code>GET /v1/users/count</code></p>
 
 <blockquote>
 <p>JSON Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='applications'>Applications</h1>
+<div class="public-endpoint"></div>
+<h2 id='list-applications'>List applications</h2>
+<p>Get a list of all applications registered on the Poi Network.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v1/applications</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td><code>integer</code></td>
+<td></td>
+<td>1</td>
+<td>Page number</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td><code>integer</code></td>
+<td></td>
+<td>10</td>
+<td>Number of events per page</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="err">&lt;Application&gt;</span><span class="p">,</span><span class="w">
+      </span><span class="err">&lt;Application&gt;</span><span class="w">
+      </span><span class="err">&lt;Application&gt;</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<div class="public-endpoint"></div>
+<h2 id='fetch-application'>Fetch application</h2>
+<p>Get an application&#39;s information.</p>
+<pre class="highlight shell tab-shell"><code>  curl <span class="s2">"/v1/applications/1"</span>
+</code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET /v1/applications/:id</code></p>
+<h3 id='url-arguments'>URL Arguments</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><code>integer</code></td>
+<td>true</td>
+<td>1</td>
+<td>The application&#39;s id</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;Application&gt;</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='events'>Events</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
@@ -1340,6 +1423,88 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <td><strong>updated_at</strong></td>
 <td><code>date</code></td>
 <td>Last user&#39;s update.</td>
+</tr>
+</tbody></table>
+<h2 id='application'>Application</h2><pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobility"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum, dolor es scoot amet"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://youtube.com?v=ZF269O8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pictures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="err">url</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz1"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="err">url</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz2"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="err">url</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz3"</span><span class="w"> </span><span class="p">}</span><span class="w">
+       </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"android_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://play.google.com/store/apps/details?id=743082"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ios_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://itunes.apple.com/app/id378458261"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"web_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cityscoot.fr"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:16.477Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:18.477Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td><code>integer</code></td>
+<td>The application unique identifier.</td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td><code>string</code></td>
+<td>The application&#39;s name.</td>
+</tr>
+<tr>
+<td><strong>category</strong></td>
+<td><code>string</code></td>
+<td>The application&#39;s category.</td>
+</tr>
+<tr>
+<td><strong>description</strong></td>
+<td><code>string</code></td>
+<td>The application&#39;s description.</td>
+</tr>
+<tr>
+<td><strong>pictures</strong></td>
+<td><code>array</code></td>
+<td>An array of pictures.</td>
+</tr>
+<tr>
+<td><strong>video_url</strong></td>
+<td><code>string</code></td>
+<td>The application&#39;s video presentation url.</td>
+</tr>
+<tr>
+<td><strong>android_url</strong></td>
+<td><code>string</code></td>
+<td>The application&#39;s google play store url.</td>
+</tr>
+<tr>
+<td><strong>ios_url</strong></td>
+<td><code>date</code></td>
+<td>The application&#39;s app store url.</td>
+</tr>
+<tr>
+<td><strong>web_url</strong></td>
+<td><code>string</code></td>
+<td>The application&#39;s website url.</td>
+</tr>
+<tr>
+<td><strong>created_at</strong></td>
+<td><code>datetime</code></td>
+<td>The application&#39;s creation date.</td>
+</tr>
+<tr>
+<td><strong>updated_at</strong></td>
+<td><code>datetime</code></td>
+<td>The application&#39;s last update date.</td>
 </tr>
 </tbody></table>
 <h2 id='event'>Event</h2>

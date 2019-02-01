@@ -270,6 +270,9 @@
                     <a href="#user" class="toc-h2 toc-link" data-title="User">User</a>
                   </li>
                   <li>
+                    <a href="#application" class="toc-h2 toc-link" data-title="Application">Application</a>
+                  </li>
+                  <li>
                     <a href="#event" class="toc-h2 toc-link" data-title="Event">Event</a>
                   </li>
                   <li>
@@ -774,6 +777,88 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <td><strong>updated_at</strong></td>
 <td><code>date</code></td>
 <td>Last user&#39;s update.</td>
+</tr>
+</tbody></table>
+<h2 id='application'>Application</h2><pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobility"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum, dolor es scoot amet"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://youtube.com?v=ZF269O8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pictures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="err">url</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz1"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="err">url</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz2"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="err">url</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz3"</span><span class="w"> </span><span class="p">}</span><span class="w">
+       </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"android_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://play.google.com/store/apps/details?id=743082"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ios_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://itunes.apple.com/app/id378458261"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"web_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cityscoot.fr"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:16.477Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:18.477Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td><code>integer</code></td>
+<td>The application unique identifier.</td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td><code>string</code></td>
+<td>The application&#39;s name.</td>
+</tr>
+<tr>
+<td><strong>category</strong></td>
+<td><code>string</code></td>
+<td>The application&#39;s category.</td>
+</tr>
+<tr>
+<td><strong>description</strong></td>
+<td><code>string</code></td>
+<td>The application&#39;s description.</td>
+</tr>
+<tr>
+<td><strong>pictures</strong></td>
+<td><code>array</code></td>
+<td>An array of pictures.</td>
+</tr>
+<tr>
+<td><strong>video_url</strong></td>
+<td><code>string</code></td>
+<td>The application&#39;s video presentation url.</td>
+</tr>
+<tr>
+<td><strong>android_url</strong></td>
+<td><code>string</code></td>
+<td>The application&#39;s google play store url.</td>
+</tr>
+<tr>
+<td><strong>ios_url</strong></td>
+<td><code>date</code></td>
+<td>The application&#39;s app store url.</td>
+</tr>
+<tr>
+<td><strong>web_url</strong></td>
+<td><code>string</code></td>
+<td>The application&#39;s website url.</td>
+</tr>
+<tr>
+<td><strong>created_at</strong></td>
+<td><code>datetime</code></td>
+<td>The application&#39;s creation date.</td>
+</tr>
+<tr>
+<td><strong>updated_at</strong></td>
+<td><code>datetime</code></td>
+<td>The application&#39;s last update date.</td>
 </tr>
 </tbody></table>
 <h2 id='event'>Event</h2>
