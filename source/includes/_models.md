@@ -78,7 +78,6 @@
     }
     
 ```
-
 | Attribute            | Type              | Description                                                                              |
 |----------------------|-------------------|------------------------------------------------------------------------------------------|
 | **id**                 | `integer`       | A unique identifier.                                                                     |   
@@ -99,6 +98,43 @@
 | **connected_apps**     | `array`         | List of all connected apps.                                                              |                       
 | **created_at**         | `date`          | User's inscription date.                                                                 |                       
 | **updated_at**         | `date`          | Last user's update.                                                                      |                       
+
+## Application
+
+```json
+    {
+        "id": 13,
+        "name": "Cityscoot",
+        "category": "Mobility",
+        "description": "Lorem ipsum, dolor es scoot amet",
+        "video_url": "http://youtube.com?v=ZF269O8",
+        "pictures": [
+            { "kind": "photo", url: "http://aws.s3.com/xyz1" },
+            { "kind": "photo", url: "http://aws.s3.com/xyz2" },
+            { "kind": "photo", url: "http://aws.s3.com/xyz3" }
+       ],
+        "android_url": "http://play.google.com/store/apps/details?id=743082",
+        "ios_url": "https://itunes.apple.com/app/id378458261",
+        "web_url": "https://cityscoot.fr",
+        "created_at": "2018-08-17T12:24:16.477Z",
+        "updated_at": "2018-08-17T12:24:18.477Z"
+    }
+    
+```
+
+| Attribute            | Type              | Description                                                                              |
+|----------------------|-------------------|------------------------------------------------------------------------------------------|
+| **id**               | `integer`       | The application unique identifier.                                                       |   
+| **name**             | `string`        | The application's name.                                                                  |         
+| **category**         | `string`        | The application's category.                                                              |                       
+| **description**      | `string`        | The application's description.                                                           |     
+| **pictures**         | `array`         | An array of pictures.                                                                    |
+| **video_url**        | `string`        | The application's video presentation url.                                                |                       
+| **android_url**      | `string`        | The application's google play store url.                                                 |
+| **ios_url**          | `date`          | The application's app store url.                                                         |                       
+| **web_url**          | `string`        | The application's website url.                                                           |                       
+| **created_at**       | `datetime`       | The application's creation date.                                                        |
+| **updated_at**       | `datetime`        | The application's last update date.                                                    |                       
 
 ## Event
 

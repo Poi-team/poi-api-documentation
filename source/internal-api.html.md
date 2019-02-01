@@ -15,8 +15,8 @@ includes:
   - internal/introduction
   - internal/service_auth
   - internal/user_auth
-  - internal/users
   - internal/me
+  - internal/users
   - internal/apps
   - internal/events
   - internal/impact

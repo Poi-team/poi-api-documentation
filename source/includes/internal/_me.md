@@ -1,5 +1,6 @@
-# Current user
+# Authenticated User
 
+<div class="public-endpoint"></div>
 ## Me
 
 Gets the current user's information. See <a href="#user"><User></a> for more details.
@@ -16,6 +17,7 @@ Gets the current user's information. See <a href="#user"><User></a> for more det
   }
 ```
 
+<div class="public-endpoint"></div>
 ## My Events
 
 List of all actions the user has taken on the Poi Network.
@@ -45,6 +47,7 @@ per_page     | `integer` |          | 100         | Number of events per page |
   }
 ```
 
+<div class="public-endpoint"></div>
 ## My Connected Apps
 
 List of all apps the user has connected.
@@ -82,18 +85,34 @@ per_page     | `integer` |          | 100         | Number of events per page |
   }
 ```
 
+<div class="public-endpoint"></div>
 ## Connect an app
 
-You need to send encrypted data yada yada
+Allows a user to connect their account to a new application. To do so, you will need to send the user's credentials encrypted using **RSA**.
+Here are some libraries that you can use: 
+
+- [uRSA](https://github.com/JoshKaufman/ursa) [JS]
+- [JSencrypt](https://github.com/travist/jsencrypt) [JS]
+- [OpenSSL::PKey::RSA](https://ruby-doc.org/stdlib-2.5.1/libdoc/openssl/rdoc/OpenSSL/PKey/RSA.html) [Ruby]
+
+The public key used for encryption is the following
+
+<div class="rsa-pkey-container">
+  <pre class="rsa-pkey">-----BEGIN PUBLIC KEY-----
+  MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDlOJu6TyygqxfWT7eLtGDwajtN
+  FOb9I5XRb6khyfD1Yt3YiCgQWMNW649887VGJiGr/L5i2osbl8C9+WJTeucF+S76
+  xFxdU6jE0NQ+Z+zEdhUTooNRaY5nZiu5PgDB0ED/ZKBUSLKL7eibMxZtMlUDHjm4
+  gwQco1KRMDSmXSMkDwIDAQAB
+  -----END PUBLIC KEY-----</pre>
+</div>
 
 > Request
 
 ```json
   {
+      "application_id": 3,
       "email": "george@gmail.com",
-      "password": "password",
-      "password_confirmation": "password",
-      "full_name": "George Abitbol"
+      "encrypted_password": "WJKZHcAzH9Ee8iavMUvYSKGkSXCcaTthalXTIrUKmjnV1gXgHoPg9/mXR4/fyP/pG87Z1EGPXyM1rUzRWYIlvBSHsLa+EQnFimNGr8NhFNs52AfzsHRM1/BQumTK6Q/ThsMIqbsKnnfYO8NQKbjPprT9NkzWqgpAzuH9XvXGyg0=",
   }
 ```
 
@@ -106,21 +125,24 @@ You need to send encrypted data yada yada
 <div class="params-table"></div>
 name          | type      | required | default     | description |
 --------------| --------- | -------- | ----------- | ----------- |
-email         | `string`  | true     |             | The user's email |
-password      | `string`  | true     |             | The user's password |
-first_name    | `string`  |          |             | The user's first name |
-last_name     | `string`  |          |             | The user's last name |
-birthday      | `string`  |          |             | The user's date of birth|
-phone_number  | `string`  |          |             | The user's phone number |
+application_id    | `integer`  | true         |             | The application id |
+email         | `string`  | true     |             | The user's email for this app |
+encrypted_password      | `string`  | true     |             | The user's password encrypted with RSA and the given public key |
+
 
 >  JSON Response
 
 ```json
   {
-    "data": <User>
+    "data": {
+      "application_id": 3,
+      "name": "Cityscoot",
+      "connected": true
+    }
   }
 ```
 
+<div class="public-endpoint"></div>
 ## My Available Perks
 
 List of all the perks available to the current user.

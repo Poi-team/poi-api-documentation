@@ -460,6 +460,21 @@ a {
     top: -1px;
   }
 
+
+  .rsa-pkey-container {
+
+  }
+  pre.rsa-pkey {
+    word-break: break-word;
+    padding: 0;
+    float: none;
+    display: inline-block;
+    width: 50%;
+    background: #f5f5fe;
+    color: #3a3a3a;
+    padding: 1.5em 35px;
+  }
+
   hr {
     margin: 2em 0;
     border-top: 2px solid $examples-bg;
