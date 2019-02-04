@@ -18,12 +18,14 @@
         "avatar": "https://aws.bucket.com/xyz.png",
         "impact": {
           "status": "Super Poi",
+          "level": 15,
           "earned_points": 4327.3,
           "spent_points": 2137.5,
+          "last_action": <Event>,
           "current_cycle": {
             "points": 137.5,
             "maximum_points": 500,
-          },
+          }
         },
         "levels_list": {
             "Baby Poi": {
@@ -63,13 +65,15 @@
                 "id": 5,
                 "name": "Cityscoot",
                 "icon": "https://aws.bucket.com/icon-cts.png",
-                "email": "daniel.pollock@gmail.com"
+                "email": "daniel.pollock@gmail.com",
+                "category": "Mobility"
             },
             {
                 "id": 3,
                 "name": "Too Good To Go",
                 "icon": "https://aws.bucket.com/icon-tgt.png",
-                "email": "daniel@gmail.com"
+                "email": "daniel@gmail.com",
+                "category": "Consumption"
             }
         ],
         "created_at": "2018-08-17T12:24:16.477Z",
@@ -92,7 +96,7 @@
 | **referral_code**      | `string`        | The user's referral code, can be used by other users to register.                        |                       
 | **avatar**             | `string`        | User's avatar url.                                                                       |
 | **phone_number**       | `string`        | User's phone number.                                                                     |                       
-| **impact**             | `object`        | An `Impact` object. Includes global gauge data and the current gauge cycle's data.     |                
+| **impact**             | `object`        | An `Impact` object. Includes global impact data, the last taken action and the current gauge cycle's data.|
 | **levels_list**        | `object`        | List of all the levels and the number of users by levels.                                |                       
 | **funded_project**     | `array`         | List of projects the use has funded.                                                     |                       
 | **connected_apps**     | `array`         | List of all connected apps.                                                              |                       
@@ -109,9 +113,9 @@
         "description": "Lorem ipsum, dolor es scoot amet",
         "video_url": "http://youtube.com?v=ZF269O8",
         "pictures": [
-            { "kind": "photo", url: "http://aws.s3.com/xyz1" },
-            { "kind": "photo", url: "http://aws.s3.com/xyz2" },
-            { "kind": "photo", url: "http://aws.s3.com/xyz3" }
+            { "kind": "photo", "url": "http://aws.s3.com/xyz1" },
+            { "kind": "photo", "url": "http://aws.s3.com/xyz2" },
+            { "kind": "photo", "url": "http://aws.s3.com/xyz3" }
        ],
         "android_url": "http://play.google.com/store/apps/details?id=743082",
         "ios_url": "https://itunes.apple.com/app/id378458261",

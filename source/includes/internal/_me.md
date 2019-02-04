@@ -1,4 +1,4 @@
-# Authenticated User
+# Me
 
 <div class="public-endpoint"></div>
 ## Me
@@ -18,7 +18,7 @@ Gets the current user's information. See <a href="#user"><User></a> for more det
 ```
 
 <div class="public-endpoint"></div>
-## My Events
+## My Actions
 
 List of all actions the user has taken on the Poi Network.
 
@@ -39,11 +39,21 @@ per_page     | `integer` |          | 100         | Number of events per page |
 
 ```json
   {
-    "data": [
-      <Event>, 
-      <Event>,
-      <Event>
-    ]
+    "data": {
+      "period": "month",
+      "period_improvements": 15,
+      "chart": {
+        "type": "bar",
+        "x_axis": ["L", "M", "M", "J", "V", "S", "D"],
+        "y_axis": [0, 2, 4, 3, 6, 0, 0],
+      },
+      "count": 15,
+      "history": [
+        <Event>, 
+        <Event>,
+        <Event>
+      ]
+    }
   }
 ```
 

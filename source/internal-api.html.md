@@ -18,6 +18,7 @@ includes:
   - internal/me
   - internal/users
   - internal/apps
+  - internal/challenges
   - internal/events
   - internal/impact
   - errors
