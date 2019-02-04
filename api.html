@@ -621,12 +621,14 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
         </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.com/xyz.png"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"impact"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Super Poi"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
           </span><span class="s2">"earned_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">4327.3</span><span class="p">,</span><span class="w">
           </span><span class="s2">"spent_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">2137.5</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"last_action"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;Event&gt;</span><span class="p">,</span><span class="w">
           </span><span class="s2">"current_cycle"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"points"</span><span class="p">:</span><span class="w"> </span><span class="mf">137.5</span><span class="p">,</span><span class="w">
             </span><span class="s2">"maximum_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
-          </span><span class="p">},</span><span class="w">
+          </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"levels_list"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Baby Poi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -666,13 +668,15 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
                 </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.com/icon-cts.png"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daniel.pollock@gmail.com"</span><span class="w">
+                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daniel.pollock@gmail.com"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobility"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too Good To Go"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.com/icon-tgt.png"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daniel@gmail.com"</span><span class="w">
+                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daniel@gmail.com"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consumption"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:16.477Z"</span><span class="p">,</span><span class="w">
@@ -751,7 +755,7 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <tr>
 <td><strong>impact</strong></td>
 <td><code>object</code></td>
-<td>An <code>Impact</code> object. Includes global gauge data and the current gauge cycle&#39;s data.</td>
+<td>An <code>Impact</code> object. Includes global impact data, the last taken action and the current gauge cycle&#39;s data.</td>
 </tr>
 <tr>
 <td><strong>levels_list</strong></td>
@@ -786,9 +790,9 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
         </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum, dolor es scoot amet"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://youtube.com?v=ZF269O8"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pictures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="err">url</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz1"</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="err">url</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz2"</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="err">url</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz3"</span><span class="w"> </span><span class="p">}</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz1"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz2"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz3"</span><span class="w"> </span><span class="p">}</span><span class="w">
        </span><span class="p">],</span><span class="w">
         </span><span class="s2">"android_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://play.google.com/store/apps/details?id=743082"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ios_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://itunes.apple.com/app/id378458261"</span><span class="p">,</span><span class="w">

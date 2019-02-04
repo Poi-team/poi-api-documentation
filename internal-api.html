@@ -259,13 +259,13 @@
               </ul>
           </li>
           <li>
-            <a href="#authenticated-user" class="toc-h1 toc-link" data-title="Authenticated User">Authenticated User</a>
+            <a href="#me" class="toc-h1 toc-link" data-title="Me">Me</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#me" class="toc-h2 toc-link" data-title="Me">Me</a>
+                    <a href="#me-2" class="toc-h2 toc-link" data-title="Me">Me</a>
                   </li>
                   <li>
-                    <a href="#my-events" class="toc-h2 toc-link" data-title="My Events">My Events</a>
+                    <a href="#my-actions" class="toc-h2 toc-link" data-title="My Actions">My Actions</a>
                   </li>
                   <li>
                     <a href="#my-connected-apps" class="toc-h2 toc-link" data-title="My Connected Apps">My Connected Apps</a>
@@ -298,26 +298,23 @@
               </ul>
           </li>
           <li>
+            <a href="#challenges" class="toc-h1 toc-link" data-title="Challenges">Challenges</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#challenge-a-friend" class="toc-h2 toc-link" data-title="Challenge a friend">Challenge a friend</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#events" class="toc-h1 toc-link" data-title="Events">Events</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
-                  </li>
-                  <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#emit-an-event" class="toc-h2 toc-link" data-title="Emit an event">Emit an event</a>
                   </li>
               </ul>
           </li>
           <li>
             <a href="#impact" class="toc-h1 toc-link" data-title="Impact">Impact</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
-                  </li>
-              </ul>
           </li>
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
@@ -698,9 +695,9 @@ It is to note that using your <strong>API Private key</strong> also gives access
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='authenticated-user'>Authenticated User</h1>
+</span></code></pre><h1 id='me'>Me</h1>
 <div class="public-endpoint"></div>
-<h2 id='me'>Me</h2>
+<h2 id='me-2'>Me</h2>
 <p>Gets the current user&#39;s information. See <a href="#user"><User></a> for more details.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET /v1/me</code></p>
@@ -713,7 +710,7 @@ It is to note that using your <strong>API Private key</strong> also gives access
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <div class="public-endpoint"></div>
-<h2 id='my-events'>My Events</h2>
+<h2 id='my-actions'>My Actions</h2>
 <p>List of all actions the user has taken on the Poi Network.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET /v1/me/events</code></p>
@@ -756,11 +753,21 @@ It is to note that using your <strong>API Private key</strong> also gives access
 <p>JSON Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="err">&lt;Event&gt;</span><span class="p">,</span><span class="w"> 
-      </span><span class="err">&lt;Event&gt;</span><span class="p">,</span><span class="w">
-      </span><span class="err">&lt;Event&gt;</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"month"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"period_improvements"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"chart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"x_axis"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"L"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"J"</span><span class="p">,</span><span class="w"> </span><span class="s2">"V"</span><span class="p">,</span><span class="w"> </span><span class="s2">"S"</span><span class="p">,</span><span class="w"> </span><span class="s2">"D"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"y_axis"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="err">&lt;Event&gt;</span><span class="p">,</span><span class="w"> 
+        </span><span class="err">&lt;Event&gt;</span><span class="p">,</span><span class="w">
+        </span><span class="err">&lt;Event&gt;</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <div class="public-endpoint"></div>
@@ -1043,158 +1050,20 @@ Here are some libraries that you can use: </p>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;Application&gt;</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='events'>Events</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
+</span></code></pre><h1 id='challenges'>Challenges</h1>
+<div class="public-endpoint"></div>
+<h2 id='challenge-a-friend'>Challenge a friend</h2>
+<p>Challenge a friend to an epic impact battle! </p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
+<p><code>POST /v1/challenges</code></p>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>JSON Response</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
-</tr>
-</tbody></table>
-<h1 id='impact'>Impact</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><h1 id='errors'>Errors</h1>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;Challenge&gt;</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='events'>Events</h1><h2 id='emit-an-event'>Emit an event</h2><h1 id='impact'>Impact</h1><h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
 </aside>
@@ -1267,12 +1136,14 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
         </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.com/xyz.png"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"impact"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Super Poi"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
           </span><span class="s2">"earned_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">4327.3</span><span class="p">,</span><span class="w">
           </span><span class="s2">"spent_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">2137.5</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"last_action"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;Event&gt;</span><span class="p">,</span><span class="w">
           </span><span class="s2">"current_cycle"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"points"</span><span class="p">:</span><span class="w"> </span><span class="mf">137.5</span><span class="p">,</span><span class="w">
             </span><span class="s2">"maximum_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
-          </span><span class="p">},</span><span class="w">
+          </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"levels_list"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Baby Poi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1312,13 +1183,15 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
                 </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.com/icon-cts.png"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daniel.pollock@gmail.com"</span><span class="w">
+                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daniel.pollock@gmail.com"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobility"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too Good To Go"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.com/icon-tgt.png"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daniel@gmail.com"</span><span class="w">
+                </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daniel@gmail.com"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consumption"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:16.477Z"</span><span class="p">,</span><span class="w">
@@ -1397,7 +1270,7 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <tr>
 <td><strong>impact</strong></td>
 <td><code>object</code></td>
-<td>An <code>Impact</code> object. Includes global gauge data and the current gauge cycle&#39;s data.</td>
+<td>An <code>Impact</code> object. Includes global impact data, the last taken action and the current gauge cycle&#39;s data.</td>
 </tr>
 <tr>
 <td><strong>levels_list</strong></td>
@@ -1432,9 +1305,9 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
         </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum, dolor es scoot amet"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://youtube.com?v=ZF269O8"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pictures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="err">url</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz1"</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="err">url</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz2"</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="err">url</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz3"</span><span class="w"> </span><span class="p">}</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz1"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz2"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz3"</span><span class="w"> </span><span class="p">}</span><span class="w">
        </span><span class="p">],</span><span class="w">
         </span><span class="s2">"android_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://play.google.com/store/apps/details?id=743082"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ios_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://itunes.apple.com/app/id378458261"</span><span class="p">,</span><span class="w">
