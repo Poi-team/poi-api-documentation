@@ -154,13 +154,13 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 
 | Attribute                | Type            | Description                                                                              |
 |--------------------------|-----------------|------------------------------------------------------------------------------------------|
-| `type`                   | `string`        | The type of event.                    |                       
-| `user`                   | `object`        | The user that triggered the event.   |           
-| `application`            | `object`        | The application that emitted the event.   |                       
-| `category`               | `string `       | The category of the event like `mobility`, `poi`, `health`, `consumption` ...   |
-| `total_impact`           | `float`         | The total number of impact points this event generated.   |  
-| `impact_detail`          | `object`        | The number of impact points earned by sub-category. For instance maybe your purchase in consumption was `zero_waste` and `local` granting you a few points for each category. |             
-| `date`                   | `datetime`      | The moment the event took place.   |                       
+| **type**                   | `string`        | The type of event.                    |                       
+| **user**                   | `object`        | The user that triggered the event.   |           
+| **application**            | `object`        | The application that emitted the event.   |                       
+| **category**               | `string `       | The category of the event like `mobility`, `poi`, `health`, `consumption` ...   |
+| **total_impact**           | `decimal`         | The total number of impact points this event generated.   |  
+| **impact_detail**          | `object`        | The number of impact points earned by sub-category. For instance maybe your purchase in consumption was `zero_waste` and `local` granting you a few points for each category. |             
+| **date**                   | `datetime`      | The moment the event took place.   |                       
 
 ## Merchant
 
@@ -195,14 +195,14 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 
 | Attribute           | Type      | Description                                                                           |
 |---------------------|-----------|---------------------------------------------------------------------------------------|
-| `id`                | _Integer_ | A unique identifier.                                                                  |
-| `name`              | _String_  | Merchant's name.                                                                      |                       
-| `description`       | _String_  | Merchant's description.                                                               |                       
-| `email`             | _String_  | Merchant's email address.                                                             |                       
-| `address`           | _String_  | Merchant's store address.                                                             |
-| `latitude`          | _Decimal_ | Merchant's latitude.                                                                  |                       
-| `longitude`         | _Decimal_ | Merchant's longitude.                                                                 |                       
-| `quality_labels`    | _Array[String]_  | A list of quality labels like `Local`, `Zero waste`, etc...                    |                       
-| `categories`        | _Array[String]_  | A list of categories like `Restaurant`, `Vegan`, etc...                        |                       
-| `pictures`          | _Array[Object]_  | An array of pictures objects: `{ kind: "banner", url: "http://aws.s3.com/xyz" }`. `kind` can either be: `banner` or `photo`. |                       
-| `phone_number`      | _String_         | Merchant's phone number.                                                         |                       
+| **id**              | `integer` | A unique identifier.                                                                  |
+| **name**            | `string`  | Merchant's name.                                                                      |                       
+| **description**       | `string`  | Merchant's description.                                                               |                       
+| **email**             | `string`  | Merchant's email address.                                                             |                       
+| **address**           | `string`  | Merchant's store address.                                                             |
+| **latitude**          | `decimal` | Merchant's latitude.                                                                  |                       
+| **longitude**         | `decimal` | Merchant's longitude.                                                                 |                       
+| **quality_labels**    | `array[String]`  | A list of quality labels like `Local`, `Zero waste`, etc...                    |                       
+| **categories**        | `array[String]`  | A list of categories like `Restaurant`, `Vegan`, etc...                        |                       
+| **pictures**          | `array[Object]`  | An array of pictures objects: `{ kind: "banner", url: "http://aws.s3.com/xyz" }`. `kind` can either be: `banner` or `photo`. |                       
+| **phone_number**      | `string`         | Merchant's phone number.                                                         |                       
