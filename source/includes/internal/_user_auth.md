@@ -4,13 +4,14 @@ Additionnaly to [Service Authentication](#service-authentication), when the requ
 
 | header name            | description           |
 |:----------------|-----------------------|
-| `access-token`  | Authenticates the user. |
-| `expiry`        | The date at which the current access-token will expire. |
+| `access-token`  | Authenticates the user, acts as a password. |
+| `client`  |  Identifies the device. |
+| `token-type`  | The token type, should always be `Bearer`. |
 | `uid`           | A unique value that is used to identify the user. This is necessary because searching the DB for users by their access token will make the API susceptible to timing attacks.|
 
-The values for those headers can be obtained through a [Sign in](#sign-in), [Sign up](#sign-up) or [Fetch credentials](#fetch-credentials) request.
+The values as well as the `expiry` date for those headers can be obtained through a [Sign in](#sign-in), [Sign up](#sign-up) or [Fetch credentials](#fetch-credentials) request.
 
-Once retrieved, you need to store the `access-token`, `expiry` and `uid` in your application's local store to be used in subsequent requests without signing in again.<br/> When the token expires, it is also your responsability to [keep it fresh](#refresh-token) (WIP).
+Once retrieved, you need to store the `access-token`, `client`, `expiry` date and `uid` in your application's local store to be used in subsequent requests without signing in again.<br/> When the token expires, it is also your responsability to [keep it fresh](#refresh-token) (WIP).
 
 ```shell
   curl "/v1/..."
@@ -20,6 +21,10 @@ Once retrieved, you need to store the `access-token`, `expiry` and `uid` in your
   -H "expiry: 1537026922" \
   -H "uid: george@gmail.com"
 ```
+
+<aside class="info">
+Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all requests are user authentifed</b> unless specified otherwise.
+</aside>
 
 <div class="public-endpoint"></div>
 ## Sign Up
@@ -33,27 +38,29 @@ Upon a successful sign up, the necessary authentication information (`access-tok
 ```json
   {
       "email": "george@gmail.com",
+      "full_name": "George Abitbol",
+      "phone_number": "George Abitbol",
+      "referrer_code": "6XD8C",
       "password": "password",
-      "password_confirmation": "password",
-      "full_name": "George Abitbol"
+      "password_confirmation": "password"
   }
 ```
 
 ### HTTP Request
 
-`POST /v1/user_auth`
+`POST /v1/auth`
 
 ### Parameters
 
 <div class="params-table"></div>
 name          | type      | required | default     | description |
 --------------| --------- | -------- | ----------- | ----------- |
+full_name     | `string`  |          |             | The user's name |
 email         | `string`  | true     |             | The user's email |
 password      | `string`  | true     |             | The user's password |
-first_name    | `string`  |          |             | The user's first name |
-last_name     | `string`  |          |             | The user's last name |
-birthday      | `string`  |          |             | The user's date of birth|
+password_confirmation | `string`  | true     |             | The user's password confirmation |
 phone_number  | `string`  |          |             | The user's phone number |
+referrer_code | `string`  |          |             | An other user's referral code |
 
 
 >  JSON Response
@@ -90,12 +97,13 @@ Upon a successful sign in, the necessary authentication information (`access-tok
   {
       "email": "george@gmail.com",
       "password": "password",
+      "password_confirmation": "password"
   }
 ```
 
 ### HTTP Request
 
-`POST /v1/user_auth/sign_in`
+`POST /v1/auth/sign_in`
 
 ### Parameters
 
@@ -104,7 +112,7 @@ name          | type      | required | default     | description |
 --------------| --------- | -------- | ----------- | ----------- |
 email         | `string`  | true     |             | The user's email |
 password      | `string`  | true     |             | The user's password |
-password_confirmation | `string`  |      |         | The user's password confirmation |
+password_confirmation | `string`  | true  |         | The user's password confirmation |
 
 >  JSON Response
 
@@ -148,21 +156,19 @@ Updates a user's account.<br />
 
 ### HTTP Request
 
-`PUT /v1/user_auth`
+`PUT /v1/auth`
 
 ### Parameters
 
 <div class="params-table"></div>
 name          | type      | required | default     | description |
 --------------| --------- | -------- | ----------- | ----------- |
-email         | `string`  |       |                | The user's email |
+full_name     | `string`  |          |             | The user's name |
+email         | `string`  |          |             | The user's email |
+phone_number  | `string`  |          |             | The user's phone number |
 password      | `string`  |       |                | The user's new password |
 password_confirmation | `string`  |      |         | The user's new password confirmation |
 current_password      | `string`  | true |         | The user's current password |
-first_name    | `string`  |          |             | The user's first name |
-last_name     | `string`  |          |             | The user's last name |
-birthday      | `string`  |          |             | The user's date of birth|
-phone_number  | `string`  |          |             | The user's phone number |
 
 
 >  JSON Response

@@ -28,7 +28,7 @@ curl "/v1/..."
 > Request
 
 ```shell
-curl "/v1/user_auth"
+curl "/v1/auth"
   -H "app-token: e5k0al9TBvA3Vgo4fvcgd6mDgWah0sST"
 ```
 
