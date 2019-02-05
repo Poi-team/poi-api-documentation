@@ -309,6 +309,9 @@
             <a href="#events" class="toc-h1 toc-link" data-title="Events">Events</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#event-types" class="toc-h2 toc-link" data-title="Event types">Event types</a>
+                  </li>
+                  <li>
                     <a href="#emit-an-event" class="toc-h2 toc-link" data-title="Emit an event">Emit an event</a>
                   </li>
               </ul>
@@ -406,11 +409,15 @@ It is to note that using your <strong>API Private key</strong> also gives access
 </thead><tbody>
 <tr>
 <td style="text-align: left"><code>access-token</code></td>
-<td>Authenticates the user.</td>
+<td>Authenticates the user, acts as a password.</td>
 </tr>
 <tr>
-<td style="text-align: left"><code>expiry</code></td>
-<td>The date at which the current access-token will expire.</td>
+<td style="text-align: left"><code>client</code></td>
+<td>Identifies the device.</td>
+</tr>
+<tr>
+<td style="text-align: left"><code>token-type</code></td>
+<td>The token type, should always be <code>Bearer</code>.</td>
 </tr>
 <tr>
 <td style="text-align: left"><code>uid</code></td>
@@ -418,9 +425,9 @@ It is to note that using your <strong>API Private key</strong> also gives access
 </tr>
 </tbody></table>
 
-<p>The values for those headers can be obtained through a <a href="#sign-in">Sign in</a>, <a href="#sign-up">Sign up</a> or <a href="#fetch-credentials">Fetch credentials</a> request.</p>
+<p>The values as well as the <code>expiry</code> date for those headers can be obtained through a <a href="#sign-in">Sign in</a>, <a href="#sign-up">Sign up</a> or <a href="#fetch-credentials">Fetch credentials</a> request.</p>
 
-<p>Once retrieved, you need to store the <code>access-token</code>, <code>expiry</code> and <code>uid</code> in your application&#39;s local store to be used in subsequent requests without signing in again.<br/> When the token expires, it is also your responsability to <a href="#refresh-token">keep it fresh</a> (WIP).</p>
+<p>Once retrieved, you need to store the <code>access-token</code>, <code>client</code>, <code>expiry</code> date and <code>uid</code> in your application&#39;s local store to be used in subsequent requests without signing in again.<br/> When the token expires, it is also your responsability to <a href="#refresh-token">keep it fresh</a> (WIP).</p>
 <pre class="highlight shell tab-shell"><code>  curl <span class="s2">"/v1/..."</span>
   -H <span class="s2">"Authorization: Basic RWzhZGRpbjpbvHNpdTZornFRcmd="</span> <span class="se">\</span>
   -H <span class="s2">"access-token:  v7c0al9bBvA4Vgo4rvcgd6mDgWah3suV"</span> <span class="se">\</span>
@@ -428,6 +435,10 @@ It is to note that using your <strong>API Private key</strong> also gives access
   -H <span class="s2">"expiry: 1537026922"</span> <span class="se">\</span>
   -H <span class="s2">"uid: george@gmail.com"</span>
 </code></pre>
+<aside class="info">
+Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all requests are user authentifed</b> unless specified otherwise.
+</aside>
+
 <div class="public-endpoint"></div>
 <h2 id='sign-up'>Sign Up</h2>
 <p>Allows you to create a new user on the Poi Network.<br /></p>
@@ -439,12 +450,14 @@ It is to note that using your <strong>API Private key</strong> also gives access
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
       </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"george@gmail.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George Abitbol"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George Abitbol"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"referrer_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6XD8C"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"password_confirmation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George Abitbol"</span><span class="w">
+      </span><span class="s2">"password_confirmation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request'>HTTP Request</h3>
-<p><code>POST /v1/user_auth</code></p>
+<p><code>POST /v1/auth</code></p>
 <h3 id='parameters'>Parameters</h3>
 <div class="params-table"></div>
 
@@ -457,6 +470,13 @@ It is to note that using your <strong>API Private key</strong> also gives access
 <th>description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>full_name</td>
+<td><code>string</code></td>
+<td></td>
+<td></td>
+<td>The user&#39;s name</td>
+</tr>
 <tr>
 <td>email</td>
 <td><code>string</code></td>
@@ -472,25 +492,11 @@ It is to note that using your <strong>API Private key</strong> also gives access
 <td>The user&#39;s password</td>
 </tr>
 <tr>
-<td>first_name</td>
+<td>password_confirmation</td>
 <td><code>string</code></td>
+<td>true</td>
 <td></td>
-<td></td>
-<td>The user&#39;s first name</td>
-</tr>
-<tr>
-<td>last_name</td>
-<td><code>string</code></td>
-<td></td>
-<td></td>
-<td>The user&#39;s last name</td>
-</tr>
-<tr>
-<td>birthday</td>
-<td><code>string</code></td>
-<td></td>
-<td></td>
-<td>The user&#39;s date of birth</td>
+<td>The user&#39;s password confirmation</td>
 </tr>
 <tr>
 <td>phone_number</td>
@@ -498,6 +504,13 @@ It is to note that using your <strong>API Private key</strong> also gives access
 <td></td>
 <td></td>
 <td>The user&#39;s phone number</td>
+</tr>
+<tr>
+<td>referrer_code</td>
+<td><code>string</code></td>
+<td></td>
+<td></td>
+<td>An other user&#39;s referral code</td>
 </tr>
 </tbody></table>
 
@@ -532,9 +545,10 @@ It is to note that using your <strong>API Private key</strong> also gives access
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
       </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"george@gmail.com"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"password_confirmation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST /v1/user_auth/sign_in</code></p>
+<p><code>POST /v1/auth/sign_in</code></p>
 <h3 id='parameters-2'>Parameters</h3>
 <div class="params-table"></div>
 
@@ -564,7 +578,7 @@ It is to note that using your <strong>API Private key</strong> also gives access
 <tr>
 <td>password_confirmation</td>
 <td><code>string</code></td>
-<td></td>
+<td>true</td>
 <td></td>
 <td>The user&#39;s password confirmation</td>
 </tr>
@@ -606,7 +620,7 @@ It is to note that using your <strong>API Private key</strong> also gives access
     </span><span class="s2">"current_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
-<p><code>PUT /v1/user_auth</code></p>
+<p><code>PUT /v1/auth</code></p>
 <h3 id='parameters-3'>Parameters</h3>
 <div class="params-table"></div>
 
@@ -620,11 +634,25 @@ It is to note that using your <strong>API Private key</strong> also gives access
 </tr>
 </thead><tbody>
 <tr>
+<td>full_name</td>
+<td><code>string</code></td>
+<td></td>
+<td></td>
+<td>The user&#39;s name</td>
+</tr>
+<tr>
 <td>email</td>
 <td><code>string</code></td>
 <td></td>
 <td></td>
 <td>The user&#39;s email</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td><code>string</code></td>
+<td></td>
+<td></td>
+<td>The user&#39;s phone number</td>
 </tr>
 <tr>
 <td>password</td>
@@ -646,34 +674,6 @@ It is to note that using your <strong>API Private key</strong> also gives access
 <td>true</td>
 <td></td>
 <td>The user&#39;s current password</td>
-</tr>
-<tr>
-<td>first_name</td>
-<td><code>string</code></td>
-<td></td>
-<td></td>
-<td>The user&#39;s first name</td>
-</tr>
-<tr>
-<td>last_name</td>
-<td><code>string</code></td>
-<td></td>
-<td></td>
-<td>The user&#39;s last name</td>
-</tr>
-<tr>
-<td>birthday</td>
-<td><code>string</code></td>
-<td></td>
-<td></td>
-<td>The user&#39;s date of birth</td>
-</tr>
-<tr>
-<td>phone_number</td>
-<td><code>string</code></td>
-<td></td>
-<td></td>
-<td>The user&#39;s phone number</td>
 </tr>
 </tbody></table>
 
@@ -1063,12 +1063,52 @@ Here are some libraries that you can use: </p>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;Challenge&gt;</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='events'>Events</h1><h2 id='emit-an-event'>Emit an event</h2><h1 id='impact'>Impact</h1><h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
+</span></code></pre><h1 id='events'>Events</h1>
+<p>An <strong>Event</strong> is an user action that (usually) triggers an impact reward.<br/>
+It is the primary way for sending impact data to the Poi Protocol, but is also used to trigger user&#39;s onboarding rewards and other internal rewards.</p>
+<h2 id='event-types'>Event types</h2>
+<table><thead>
+<tr>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>referral:referrer</code></td>
+<td>User referred another one</td>
+</tr>
+<tr>
+<td><code>referral:referree</code></td>
+<td>User got referred</td>
+</tr>
+<tr>
+<td><code>onboarding:done</code></td>
+<td>User completed onboarding</td>
+</tr>
+<tr>
+<td><code>onboarding:application</code></td>
+<td>User registered his first application</td>
+</tr>
+<tr>
+<td><code>application:connected</code></td>
+<td>User connectd an application</td>
+</tr>
+<tr>
+<td><code>action</code></td>
+<td>User action in any category. You will need to provide any of the 10 categories like <code>consumption</code>, <code>health</code>, etc... as a request argument.</td>
+</tr>
+</tbody></table>
 
-<p>The Kittn API uses the following error codes:</p>
+<aside class="warning">
+If an event is emitted too often for a same authentified user it will be ignored as a security measure. 
+Onboarding events can only be called once per account.
+</aside>
+<h2 id='emit-an-event'>Emit an event</h2>
+<p>(W.I.P)</p>
+<h1 id='impact'>Impact</h1>
+<p>(W.I.P)</p>
+<h1 id='errors'>Errors</h1>
+<p>The Poi Internal API uses the following error codes:</p>
 
 <table><thead>
 <tr>
@@ -1086,15 +1126,15 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>Forbidden -- The object requested is hidden for administrators only.</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>Not Found -- The specified object could not be found.</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td>Method Not Allowed -- You tried to access a object with an invalid method.</td>
 </tr>
 <tr>
 <td>406</td>
@@ -1102,7 +1142,7 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 </tr>
 <tr>
 <td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
+<td>Gone -- The object requested has been removed from our servers.</td>
 </tr>
 <tr>
 <td>418</td>
@@ -1110,7 +1150,7 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 </tr>
 <tr>
 <td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>Too Many Requests -- You&#39;re requesting too many objects! Slow down!</td>
 </tr>
 <tr>
 <td>500</td>
@@ -1124,52 +1164,47 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <h1 id='models'>Models</h1><h2 id='user'>User</h2><pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
         </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daniel@gmail.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daniel"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pollock"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Daniel Pollock"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daniel@gmail.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"birthday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1988-08-24"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"referrer_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33J4B"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"referrer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"referral_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84V3C"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0732233423"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.com/xyz.png"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"impact"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Super Poi"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"earned_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">4327.3</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"spent_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">2137.5</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"last_action"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;Event&gt;</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"current_cycle"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"points"</span><span class="p">:</span><span class="w"> </span><span class="mf">137.5</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"maximum_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"levels_list"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Baby Poi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"users_percentil"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Baby Poi"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"earned_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">4327.3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"spent_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">2137.5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_action"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;Event&gt;</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"current_cycle"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"points"</span><span class="p">:</span><span class="w"> </span><span class="mf">137.5</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"maximum_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"Young Poi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"users_percentil"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+            </span><span class="s2">"statuses_list"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"baby_poi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"has_seen_celebration"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"young_poi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"has_seen_celebration"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"yogi_poi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"has_seen_celebration"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"master_poi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"has_seen_celebration"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+
+                </span><span class="p">},</span><span class="w">
+                </span><span class="s2">"poi_ambassador"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"has_seen_celebration"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+
+                </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"Yogi Poi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"users_percentil"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"Master Poi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"users_percentil"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="w">
-
-            </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"Poi Ambassador"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"users_percentil"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-
-            </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"funded_projects"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
@@ -1218,16 +1253,6 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <td>A unique email used to identify the user.</td>
 </tr>
 <tr>
-<td><strong>first_name</strong></td>
-<td><code>string</code></td>
-<td>User&#39;s full name.</td>
-</tr>
-<tr>
-<td><strong>last_name</strong></td>
-<td><code>string</code></td>
-<td>User&#39;s full name.</td>
-</tr>
-<tr>
 <td><strong>full_name</strong></td>
 <td><code>string</code></td>
 <td>User&#39;s full name.</td>
@@ -1236,16 +1261,6 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <td><strong>email</strong></td>
 <td><code>string</code></td>
 <td>User&#39;s email address.</td>
-</tr>
-<tr>
-<td><strong>birthday</strong></td>
-<td><code>date</code></td>
-<td>User&#39;s birthday.</td>
-</tr>
-<tr>
-<td><strong>referrer_code</strong></td>
-<td><code>string</code></td>
-<td>The referral code the user got referred by.</td>
 </tr>
 <tr>
 <td><strong>referrer_id</strong></td>
@@ -1258,11 +1273,6 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <td>The user&#39;s referral code, can be used by other users to register.</td>
 </tr>
 <tr>
-<td><strong>avatar</strong></td>
-<td><code>string</code></td>
-<td>User&#39;s avatar url.</td>
-</tr>
-<tr>
 <td><strong>phone_number</strong></td>
 <td><code>string</code></td>
 <td>User&#39;s phone number.</td>
@@ -1270,12 +1280,7 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <tr>
 <td><strong>impact</strong></td>
 <td><code>object</code></td>
-<td>An <code>Impact</code> object. Includes global impact data, the last taken action and the current gauge cycle&#39;s data.</td>
-</tr>
-<tr>
-<td><strong>levels_list</strong></td>
-<td><code>object</code></td>
-<td>List of all the levels and the number of users by levels.</td>
+<td>An <code>Impact</code> object. Includes impact data, the last taken action, the current gauge cycle&#39;s data and the list of all possible statuses.</td>
 </tr>
 <tr>
 <td><strong>funded_project</strong></td>
@@ -1381,20 +1386,19 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 </tr>
 </tbody></table>
 <h2 id='event'>Event</h2>
-<p>An event is an user action that triggers either a reward (in the appropriate reward currency) or awards impact points to a user. They are for the most part automaticaly handled when a transaction occurs on the blockchain, but some events are not transaction-based: a share on facebook, a referal... And those need to be triggered from the app.</p>
-
-<p>In production, if an event is emitted too often for a same authentified user it will be ignored as a security measure. Onboarding events can only be called once per account.</p>
+<p>An <strong>Event</strong> is an user action that (usually) triggers an impact reward.<br/></p>
 <pre class="highlight json tab-json"><code><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"referall"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"subject"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"emitter"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"impact"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"points_earned"</span><span class="p">:</span><span class="w"> </span><span class="mf">310.5</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"points_details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"poi_dev_referall"</span><span class="p">:</span><span class="w"> </span><span class="mf">310.5</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"action"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"application"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;Application&gt;</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"consumption"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"total_impact"</span><span class="p">:</span><span class="w"> </span><span class="mf">30.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"impact_detail"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"zero_waste"</span><span class="p">:</span><span class="w"> </span><span class="mf">19.7</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"local"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.3</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:18.477Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -1407,62 +1411,62 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 </thead><tbody>
 <tr>
 <td><code>type</code></td>
-<td><em>String</em></td>
-<td>The type of event, either <code>share</code>, <code>referall</code> <code>onboarding:topup</code>, <code>onboarding:project</code> or <code>onboarding:finish</code></td>
+<td><code>string</code></td>
+<td>The type of event.</td>
 </tr>
 <tr>
-<td><code>subject</code></td>
-<td><em>Object</em></td>
-<td>The subject of the event, usually a <code>&lt;User&gt;</code> or <code>&lt;Merchant&gt;</code>.</td>
+<td><code>user</code></td>
+<td><code>object</code></td>
+<td>The user that triggered the event.</td>
 </tr>
 <tr>
-<td><code>emitter</code></td>
-<td><em>Object</em></td>
-<td>The emitter of the event, usually a <code>&lt;Transaction&gt;</code> or <code>&lt;User</code>&gt;.</td>
+<td><code>application</code></td>
+<td><code>object</code></td>
+<td>The application that emitted the event.</td>
 </tr>
 <tr>
-<td><code>impact</code></td>
-<td><em>Objectt</em></td>
-<td>An object holding the number of points earned, and the detail.</td>
+<td><code>category</code></td>
+<td><code>string</code></td>
+<td>The category of the event like <code>mobility</code>, <code>poi</code>, <code>health</code>, <code>consumption</code> ...</td>
+</tr>
+<tr>
+<td><code>total_impact</code></td>
+<td><code>float</code></td>
+<td>The total number of impact points this event generated.</td>
+</tr>
+<tr>
+<td><code>impact_detail</code></td>
+<td><code>object</code></td>
+<td>The number of impact points earned by sub-category. For instance maybe your purchase in consumption was <code>zero_waste</code> and <code>local</code> granting you a few points for each category.</td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td><code>datetime</code></td>
+<td>The moment the event took place.</td>
 </tr>
 </tbody></table>
 <h2 id='merchant'>Merchant</h2><pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
-       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Le petit Bordelais"</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum dolor es sit amet."</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17 Rue Saint Catherine, Bordeaux"</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"opening_hours"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-         </span><span class="s2">"monday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08h00 à 18h00"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"tuesday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08h00 à 19h00"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"wednesday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08h00 à 19h00"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"thursday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08h00 à minuit"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"friday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08h00 à minuit"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"saturday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08h30 à minuit"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"sunday"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08h30 à 18h30"</span><span class="p">,</span><span class="w">
-         </span><span class="s2">"complementary_info"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Les services se font le midi de 12h00 à 14h00 et le soir de 19h30 à 22h00, Le dimanche, le brunch est servi à 11h30 et à 14h."</span><span class="w">
-       </span><span class="p">},</span><span class="w">
-       </span><span class="s2">"quality_labels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Le petit Bordelais"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum dolor es sit amet."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"17 Rue Saint Catherine, Bordeaux"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quality_labels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="s2">"Local"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Zero waste"</span><span class="w">
-       </span><span class="p">],</span><span class="w">
-       </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="s2">"Vegan"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Food"</span><span class="w">
-       </span><span class="p">],</span><span class="w">
-       </span><span class="s2">"pictures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"pictures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"banner"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz"</span><span class="w"> </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"banner"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz"</span><span class="w"> </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz"</span><span class="w"> </span><span class="p">},</span><span class="w">
-       </span><span class="p">],</span><span class="w">
-       </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"petitbordelais@gmail.com"</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0732233423"</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.01</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-73.01</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"wallet_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"ecosystem"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name:"</span><span class="w"> </span><span class="s2">"Darwin"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"petitbordelais@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0732233423"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.01</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="mf">-73.01</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:16.477Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:18.477Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1479,11 +1483,6 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <td><code>id</code></td>
 <td><em>Integer</em></td>
 <td>A unique identifier.</td>
-</tr>
-<tr>
-<td><code>uid</code></td>
-<td><em>String</em></td>
-<td>A unique value that is used to identify the user during auth requests. Will only be returned in <code>/merchants/me</code> requests.</td>
 </tr>
 <tr>
 <td><code>name</code></td>
@@ -1516,11 +1515,6 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <td>Merchant&#39;s longitude.</td>
 </tr>
 <tr>
-<td><code>opening_hours</code></td>
-<td><em>Object</em></td>
-<td>An object containing formatted opening hours.</td>
-</tr>
-<tr>
 <td><code>quality_labels</code></td>
 <td><em>Array[String]</em></td>
 <td>A list of quality labels like <code>Local</code>, <code>Zero waste</code>, etc...</td>
@@ -1539,21 +1533,6 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <td><code>phone_number</code></td>
 <td><em>String</em></td>
 <td>Merchant&#39;s phone number.</td>
-</tr>
-<tr>
-<td><code>impact</code></td>
-<td><em>Object</em></td>
-<td>An <code>&lt;Impact&gt;</code> object with <code>score</code> (<em>Integer</em>), <code>next_level_goal</code> (<em>Integer</em>) attributes. e.g: <code>{ score: 0, next_level_goal: 1000 }</code></td>
-</tr>
-<tr>
-<td><code>wallet_id</code></td>
-<td><em>Integer</em></td>
-<td>Merchant&#39;s wallet_id.</td>
-</tr>
-<tr>
-<td><code>ecosystem</code></td>
-<td><em>Object</em></td>
-<td>An object representing the ecosystem the merchant is in.</td>
 </tr>
 </tbody></table>
 
