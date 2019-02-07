@@ -61,7 +61,7 @@ id           | `integer` | true     | 1           | The application's id |
 <div class="public-endpoint"></div>
 ## List categories
 
-Get a list of all categories that have applications.
+Get a list of all [categories](#categories) that have applications.
 
 ### HTTP Request
 
@@ -78,7 +78,6 @@ Get a list of all categories that have applications.
     ]
   }
 ```
-
 
 <div class="public-endpoint"></div>
 ## My Connected Apps
@@ -143,7 +142,6 @@ The public key used for encryption is the following
 
 ```json
   {
-      "application_id": 3,
       "email": "george@gmail.com",
       "encrypted_password": "WJKZHcAzH9Ee8iavMUvYSKGkSXCcaTthalXTIrUKmjnV1gXgHoPg9/mXR4/fyP/pG87Z1EGPXyM1rUzRWYIlvBSHsLa+EQnFimNGr8NhFNs52AfzsHRM1/BQumTK6Q/ThsMIqbsKnnfYO8NQKbjPprT9NkzWqgpAzuH9XvXGyg0=",
   }
@@ -151,14 +149,19 @@ The public key used for encryption is the following
 
 ### HTTP Request
 
-`POST /v1/me/apps`
+`POST /v1/me/apps/:id`
+
+### URL Arguments
+
+name          | type      | required | default     | description |
+--------------| --------- | -------- | ----------- | ----------- |
+id            | `integer`  | true         |             | The application id |
 
 ### Parameters
 
 <div class="params-table"></div>
 name          | type      | required | default     | description |
 --------------| --------- | -------- | ----------- | ----------- |
-application_id    | `integer`  | true         |             | The application id |
 email         | `string`  | true     |             | The user's email for this app |
 encrypted_password      | `string`  | true     |             | The user's password encrypted with RSA and the given public key |
 
@@ -180,4 +183,19 @@ encrypted_password      | `string`  | true     |             | The user's passwo
 
 ### HTTP Request
 
-`PUT /v1/me/apps/:id`
+`DELETE /v1/me/apps/:id`
+
+### URL Arguments
+
+<div class="params-table"></div>
+name                 | type      | required | default     | description |
+---------------------| --------- | -------- | ----------- | ----------- |
+id                   | `integer` | true     |         | Application's id |
+
+>  Response
+
+```
+  HTTP 204 No Content
+```
+
+

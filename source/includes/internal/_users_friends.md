@@ -1,6 +1,23 @@
 # Users & Friends
 
 <div class="public-endpoint"></div>
+## Users count
+
+Gets the number of users registered on the Poi Network.
+
+### HTTP Request
+
+`GET /v1/users/count`
+
+>  JSON Response
+
+```json
+  {
+    "data": 5
+  }
+```
+
+<div class="public-endpoint"></div>
 ## My Friends
 
 List all the user's friends and invited persons.
@@ -93,19 +110,11 @@ phone_number | `string`  | true  |         | Contact's phone number |
 
 Adds an user to the current user's friend list.
 
-> Request Body
-
-```json
-  {
-    "id": 2
-  }
-```
-
 ### HTTP Request
 
-`POST /v1/me/friends`
+`POST /v1/me/friends/:id`
 
-### Parameters
+### URL Parameters
 
 <div class="params-table"></div>
 name                 | type      | required | default     | description |
@@ -134,9 +143,9 @@ Removes an user from the current user's friend list.
 
 ### HTTP Request
 
-`DELETE /v1/me/friends`
+`DELETE /v1/me/friends/:id`
 
-### Parameters
+### URL Parameters
 
 <div class="params-table"></div>
 name                 | type      | required | default     | description |
@@ -149,19 +158,3 @@ id                   | `integer` | true     |         | Friend's ID |
   HTTP 204 No Content
 ```
 
-<div class="public-endpoint"></div>
-## Users count
-
-Gets the number of users registered on the Poi Network.
-
-### HTTP Request
-
-`GET /v1/users/count`
-
->  JSON Response
-
-```json
-  {
-    "data": 5
-  }
-```

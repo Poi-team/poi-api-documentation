@@ -114,7 +114,7 @@ This endpoint retrieves a specific kitten.
 
 `GET http://example.com/kittens/<ID>`
 
-### URL Parameters
+### URL Arguments
 
 Parameter | Description
 --------- | -----------
@@ -164,7 +164,7 @@ This endpoint deletes a specific kitten.
 
 `DELETE http://example.com/kittens/<ID>`
 
-### URL Parameters
+### URL Arguments
 
 Parameter | Description
 --------- | -----------

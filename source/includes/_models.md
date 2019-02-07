@@ -146,6 +146,7 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 ```json
 
     {
+        "id": 1,
         "type": "action",
         "user": {
             "id": 1,
@@ -165,6 +166,7 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 
 | Attribute                | Type            | Description                                                                              |
 |--------------------------|-----------------|------------------------------------------------------------------------------------------|
+| **id**               | `integer`       | The event unique identifier.                                                       |   
 | **type**                   | `string`        | The type of event.                    |                       
 | **user**                   | `object`        | The user that triggered the event.   |           
 | **application**            | `object`        | The application that emitted the event.   |                       
@@ -217,6 +219,48 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 | **categories**        | `array`  | A list of categories like `Restaurant`, `Vegan`, etc...                        |                       
 | **pictures**          | `array`  | An array of pictures objects: `{ kind: "banner", url: "http://aws.s3.com/xyz" }`. `kind` can either be: `banner` or `photo`. |                       
 | **phone_number**      | `string`         | Merchant's phone number.                                                         |                       
+
+## Challenge
+
+```json
+
+    {
+        "id":1,
+        "challenger": {
+            "id": 1,
+            "name": "George Abitbol",
+            "email": "george@gmail.com",
+            "phone_number": "0683832393"
+        },
+        "challenged": {
+            "id": null,
+            "name": "Roger Abitbol",
+            "email": null,
+            "phone_number": "0673882392"
+        },
+        "status": "pending",
+        "category": "mobility", 
+        "timeframe": "1 week",
+        "end_date": "2018-08-17T12:24:18.477Z",
+        "goal": 50.0,
+        "reward": 10.0
+    }
+    
+```
+
+| Attribute                | Type            | Description                                                                              |
+|--------------------------|-----------------|--------------------------------------|
+| **id**               | `integer`       | The challenge unique identifier.         |   
+| **challenger**       | `object`        | The user that initiated the challenge.   |
+| **challenged**       | `object`        | The challenged user.                     |           
+| **status**           | `string`        | One of `pending`, `accepted`, `rejected`, `completed`.   |          
+| **category**         | `string`       | The [category](#categories) of the challenge.   |  
+| **timeframe**        | `string`       | The challenge's timeframe: `1 week`, `2 weeks`, ...   |
+| **end_date**         | `datetime`     | The challenge's end date | 
+| **goal**             | `decimal`      | The challenge's points goal.   |                       
+| **reward**           | `decimal`      | The challenge's reward when completed.  |                       
+
+
 
 ## Categories 
 

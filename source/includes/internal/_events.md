@@ -1,7 +1,9 @@
-# Events
+# Events & Actions
 
-An **Event** is an user action that (usually) triggers an impact reward.<br/>
+An **Event**is an user action that (usually) triggers an impact reward.<br/>
 It is the primary way for sending impact data to the Poi Protocol, but is also used to trigger user's onboarding rewards and other internal rewards.
+
+An **Action** is a type of event that has been directly triggered by the user, it doesn't encompass `referral` nor `challenge` type events.
 
 ## Event types
 
@@ -12,17 +14,13 @@ It is the primary way for sending impact data to the Poi Protocol, but is also u
 | `onboarding:done` | User completed onboarding  |
 | `onboarding:application` | User registered his first application |
 | `application:connected` | User connectd an application | 
-| `action` | User action in any category. You will need to provide any of the 10 categories like `consumption`, `health`, etc... as a request argument. | 
-
-<aside class="warning">
-If an event is emitted too often for a same authentified user it will be ignored as a security measure. 
-Onboarding events can only be called once per account.
-</aside>
+| `challenge:completed`    | User has completed a challenge |
+| `action` | User action in any category. When emiting this type of event, you will need to provide any of the 10 categories like `consumption`, `health`, etc... as a request argument. | 
 
 <div class="public-endpoint"></div>
-## My Events
+## My Actions
 
-List of all actions the user has taken on the Poi Network.
+List of all actions the user has taken on the Poi Network. This will only return
 
 ### HTTP Request
 
@@ -64,3 +62,9 @@ per_page     | `integer` |          | 50          | Number of events per page in
 ## Emit an event
 
 (W.I.P)
+
+
+<aside class="warning">
+If an event is emitted too often for a same authentified user it will be ignored as a security measure. 
+Onboarding events can only be called once per account.
+</aside>
