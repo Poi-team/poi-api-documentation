@@ -25,7 +25,7 @@ curl "/v1/..."
 
 ## Sign Up
 
-> Request
+> Request Body
 
 ```shell
 curl "/v1/auth"

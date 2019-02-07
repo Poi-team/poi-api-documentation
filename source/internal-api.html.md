@@ -16,11 +16,11 @@ includes:
   - internal/service_auth
   - internal/user_auth
   - internal/me
-  - internal/users
+  - internal/users_friends
   - internal/apps
+  - internal/perks
   - internal/challenges
   - internal/events
-  - internal/impact
   - errors
   - models
 

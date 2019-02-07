@@ -33,7 +33,7 @@ Allows you to create a new user on the Poi Network.<br />
 
 Upon a successful sign up, the necessary authentication information (`access-token`, `uid`, token `expiry`...) will be returned in the headers of the response.
 
-> Request
+> Request Body
 
 ```json
   {
@@ -91,7 +91,7 @@ Signs in a user and retrieve a it's authentication token to be used in future re
 
 Upon a successful sign in, the necessary authentication information (`access-token`, `uid`, token `expiry`...) will be returned in the headers of the response.
 
-> Request
+> Request Body
 
 ```json
   {
@@ -140,7 +140,7 @@ password_confirmation | `string`  | true  |         | The user's password confir
 
 Updates a user's account.<br />
 
-> Request
+> Request Body
 
 ```json
   {
@@ -191,3 +191,8 @@ current_password      | `string`  | true |         | The user's current password
       "data": <User>
   }
 ```
+
+<div class="private-endpoint"></div>
+## Fetch credentials
+
+[W.I.P]

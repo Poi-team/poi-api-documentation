@@ -16,6 +16,7 @@
             "level": 15,
             "earned_points": 4327.3,
             "spent_points": 2137.5,
+            "current_points": 2198.8,
             "last_action": <Event>,
             "current_cycle": {
                 "points": 137.5,
@@ -100,6 +101,7 @@
         "name": "Cityscoot",
         "category": "Mobility",
         "description": "Lorem ipsum, dolor es scoot amet",
+        "rating": 4.90,
         "video_url": "http://youtube.com?v=ZF269O8",
         "pictures": [
             { "kind": "photo", "url": "http://aws.s3.com/xyz1" },
@@ -109,6 +111,10 @@
         "android_url": "http://play.google.com/store/apps/details?id=743082",
         "ios_url": "https://itunes.apple.com/app/id378458261",
         "web_url": "https://cityscoot.fr",
+        "requested_permissions": [
+            "Mesurer ton impact en matière de déplacements",
+            "Te récompenser en fonction de ton usage"
+        ],
         "created_at": "2018-08-17T12:24:16.477Z",
         "updated_at": "2018-08-17T12:24:18.477Z"
     }
@@ -121,11 +127,13 @@
 | **name**             | `string`        | The application's name.                                                                  |         
 | **category**         | `string`        | The application's category.                                                              |                       
 | **description**      | `string`        | The application's description.                                                           |     
+| **rating**      | `decimal`        | The application's average rating on the Play and App stores.                                                           |     
 | **pictures**         | `array`         | An array of pictures.                                                                    |
 | **video_url**        | `string`        | The application's video presentation url.                                                |                       
 | **android_url**      | `string`        | The application's google play store url.                                                 |
 | **ios_url**          | `date`          | The application's app store url.                                                         |                       
 | **web_url**          | `string`        | The application's website url.                                                           |                       
+| **requested_permissions**          | `array`        | A list of things the user will consent to when connecting this application to his account.                                                           |                       
 | **created_at**       | `datetime`       | The application's creation date.                                                        |
 | **updated_at**       | `datetime`        | The application's last update date.                                                    |                       
 
@@ -139,7 +147,10 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 
     {
         "type": "action",
-        "user": <User>,
+        "user": {
+            "id": 1,
+            "email": "gaby@poi.app"
+        },
         "application": <Application>,
         "category": "consumption", 
         "total_impact": 30.0,
@@ -202,7 +213,20 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 | **address**           | `string`  | Merchant's store address.                                                             |
 | **latitude**          | `decimal` | Merchant's latitude.                                                                  |                       
 | **longitude**         | `decimal` | Merchant's longitude.                                                                 |                       
-| **quality_labels**    | `array[String]`  | A list of quality labels like `Local`, `Zero waste`, etc...                    |                       
-| **categories**        | `array[String]`  | A list of categories like `Restaurant`, `Vegan`, etc...                        |                       
-| **pictures**          | `array[Object]`  | An array of pictures objects: `{ kind: "banner", url: "http://aws.s3.com/xyz" }`. `kind` can either be: `banner` or `photo`. |                       
+| **quality_labels**    | `array`  | A list of quality labels like `Local`, `Zero waste`, etc...                    |                       
+| **categories**        | `array`  | A list of categories like `Restaurant`, `Vegan`, etc...                        |                       
+| **pictures**          | `array`  | An array of pictures objects: `{ kind: "banner", url: "http://aws.s3.com/xyz" }`. `kind` can either be: `banner` or `photo`. |                       
 | **phone_number**      | `string`         | Merchant's phone number.                                                         |                       
+
+## Categories 
+
+Here is a list of all available categories.
+
+| name | description |
+| --------- | ---------------- |
+| **Mobility** |                    |
+| **Consumption** |                  |
+| **Recycling** |                  |
+| **Citizenship** |                  |
+| **Investiments** |                  |
+| **Bonus** | All user actions that helped the Poi Network, this includes sign up, challenges, etc... |
