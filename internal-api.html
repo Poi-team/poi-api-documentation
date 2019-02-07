@@ -348,6 +348,9 @@
                   <li>
                     <a href="#emit-an-event" class="toc-h2 toc-link" data-title="Emit an event">Emit an event</a>
                   </li>
+                  <li>
+                    <a href="#data-by-category" class="toc-h2 toc-link" data-title="Data by category">Data by category</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1638,10 +1641,112 @@ It is the primary way for sending impact data to the Poi Protocol, but is also u
 </span></code></pre><h2 id='emit-an-event'>Emit an event</h2>
 <p>(W.I.P)</p>
 
+<blockquote>
+<p>Request Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"action"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobility"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"distance"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"transport"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bus"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST /v1/events</code></p>
+<h3 id='parameters'>Parameters</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td><code>string</code></td>
+<td>true</td>
+<td></td>
+<td>Type of the event, usually <code>action</code>, see <a href="#event-types">event types</a> for more details.</td>
+</tr>
+<tr>
+<td>category</td>
+<td><code>string</code></td>
+<td>true</td>
+<td></td>
+<td>The event&#39;s <a href="#categories">category</a></td>
+</tr>
+</tbody></table>
+
+<p>data                 | <code>object</code>  | true     |         | Impact data, the data you need to send is ruled by the category, see <a href="#data-by-category">data by category</a>. |</p>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;Event&gt;</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
 <aside class="warning">
 If an event is emitted too often for a same authentified user it will be ignored as a security measure. 
 Onboarding events can only be called once per account.
 </aside>
+<h2 id='data-by-category'>Data by category</h2>
+<p>When emiting(#emit-an-event) an event, you need to provide impact data for the Poi Network to measure the impact.
+This impact data that needs to be provided in the body of the request, varies from one category to another, is listed here.</p>
+<h3 id='mobility'>Mobility</h3>
+<table><thead>
+<tr>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>distance</td>
+<td>The distance in <code>kilometers</code></td>
+</tr>
+<tr>
+<td>transport</td>
+<td>The mean of transport: <code>bus</code>, <code>train</code>, <code>scooter</code>, <code>bike</code>, ...</td>
+</tr>
+</tbody></table>
+<h3 id='consumption'>Consumption</h3>
+<table><thead>
+<tr>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+<h3 id='recycling'>Recycling</h3>
+<table><thead>
+<tr>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+<h3 id='citizenship'>Citizenship</h3>
+<table><thead>
+<tr>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+<h3 id='investments'>Investments</h3>
+<table><thead>
+<tr>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
 <h1 id='errors'>Errors</h1>
 <p>The Poi Internal API uses the following error codes:</p>
 
