@@ -57,8 +57,7 @@ per_page     | `integer` |          | 50          | Number of events per page in
   }
 ```
 
-
-
+<div class="private-endpoint"></div>
 ## Emit an event
 
 (W.I.P)
@@ -87,7 +86,6 @@ name                 | type      | required | default     | description |
 ---------------------| --------- | -------- | ----------- | ----------- |
 type                 | `string`  | true     |         | Type of the event, usually `action`, see [event types](#event-types) for more details. |
 category             | `string`  | true     |         | The event's [category](#categories) |
-
 data                 | `object`  | true     |         | Impact data, the data you need to send is ruled by the category, see [data by category](#data-by-category). |
  
 
