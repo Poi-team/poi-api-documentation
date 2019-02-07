@@ -80,8 +80,8 @@
 ```
 | Attribute            | Type              | Description                                                                              |
 |----------------------|-------------------|------------------------------------------------------------------------------------------|
-| **id**                 | `integer`       | A unique identifier.                                                                     |   
-| **uid**                | `string`        | A unique email used to identify the user.                                                |         
+| **id**                 | `integer`       | The user's unique identifier.                                                                     |   
+| **uid**                | `string`        | A unique identifier, usually the email used to identify the user.                                                |         
 | **full_name**          | `string`        | User's full name.                                                                        |                       
 | **email**              | `string`        | User's email address.                                                                    |
 | **referrer_id**        | `integer`       | The referrer's (user that referred) id.                                                  |
@@ -123,7 +123,7 @@
 
 | Attribute            | Type              | Description                                                                              |
 |----------------------|-------------------|------------------------------------------------------------------------------------------|
-| **id**               | `integer`       | The application unique identifier.                                                       |   
+| **id**               | `integer`       | The application's unique identifier.                                                       |   
 | **name**             | `string`        | The application's name.                                                                  |         
 | **category**         | `string`        | The application's category.                                                              |                       
 | **description**      | `string`        | The application's description.                                                           |     
@@ -166,7 +166,7 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 
 | Attribute                | Type            | Description                                                                              |
 |--------------------------|-----------------|------------------------------------------------------------------------------------------|
-| **id**               | `integer`       | The event unique identifier.                                                       |   
+| **id**               | `integer`       | The event's unique identifier.                                                       |   
 | **type**                   | `string`        | The type of event.                    |                       
 | **user**                   | `object`        | The user that triggered the event.   |           
 | **application**            | `object`        | The application that emitted the event.   |                       
@@ -208,7 +208,7 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 
 | Attribute           | Type      | Description                                                                           |
 |---------------------|-----------|---------------------------------------------------------------------------------------|
-| **id**              | `integer` | A unique identifier.                                                                  |
+| **id**              | `integer` | The merchant's unique identifier.                                                                  |
 | **name**            | `string`  | Merchant's name.                                                                      |                       
 | **description**       | `string`  | Merchant's description.                                                               |                       
 | **email**             | `string`  | Merchant's email address.                                                             |                       
@@ -250,7 +250,7 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 
 | Attribute                | Type            | Description                                                                              |
 |--------------------------|-----------------|--------------------------------------|
-| **id**               | `integer`       | The challenge unique identifier.         |   
+| **id**               | `integer`       | The challenge's unique identifier.         |   
 | **challenger**       | `object`        | The user that initiated the challenge.   |
 | **challenged**       | `object`        | The challenged user.                     |           
 | **status**           | `string`        | One of `pending`, `accepted`, `rejected`, `completed`.   |          
@@ -261,6 +261,32 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 | **reward**           | `decimal`      | The challenge's reward when completed.  |                       
 
 
+## Perk
+
+```json
+    {
+        "id": 1,
+        "name": "Too Good To Go - 30%",
+        "description": "Get - 30% on your next too good to go purchase!",
+        "picture": "https://aws.bucket.xyz/zwu.png",
+        "amount": 30.0,
+        "is_percentage": true,
+        "application": {
+            "id": 5,
+            "name": "Too Good To Go"
+        }
+    }
+```
+
+| Attribute                | Type            | Description                          |
+|--------------------------|-----------------|--------------------------------------|
+| **id**                   | `integer`       | The perk's unique identifier.        |   
+| **name**                 | `string`        | The perk's name.                     |
+| **description**          | `string`        | The perk's description.              |           
+| **picture**              | `string`        | The perk's picture url.              |
+| **amount**               | `decimal`       | The amount of discount.              |  
+| **is_percentage**        | `boolean`       | Is the discount flat cash or a percent discount? |
+| **application**          | `object`     | The application offering the discount. | 
 
 ## Categories 
 

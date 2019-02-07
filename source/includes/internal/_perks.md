@@ -23,24 +23,9 @@ per_page     | `integer` |          | 50          | Number of events per page |
 ```json
   {
     "data": [
-      {
-        "name": "Too Good To Go - 30%",
-        "picture": "https://aws.bucket.xyz/zwu.png",
-        "amount": 10,
-        "application": {
-          "id": 5,
-          "name": "Too Good To Go"
-        }
-      },
-      {
-        "name": "Cityscoot - 15%",
-        "picture": "https://aws.bucket.xyz/zwu.png",
-        "amount": 10,
-        "application": {
-          "id": 5,
-          "name": "Cityscoot"
-        }
-      }
+      <Perk>,
+      <Perk>,
+      <Perk>
     ]
   }
 ```
