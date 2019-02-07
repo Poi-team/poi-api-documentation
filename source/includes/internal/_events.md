@@ -63,8 +63,76 @@ per_page     | `integer` |          | 50          | Number of events per page in
 
 (W.I.P)
 
+> Request Body
 
+```json
+  {
+    "type": "action",
+    "category": "mobility",
+    "data": {
+      "distance": 2,
+      "transport": "bus"
+    }
+  }
+```
+
+### HTTP Request
+
+`POST /v1/events`
+
+### Parameters
+
+<div class="params-table"></div>
+name                 | type      | required | default     | description |
+---------------------| --------- | -------- | ----------- | ----------- |
+type                 | `string`  | true     |         | Type of the event, usually `action`, see [event types](#event-types) for more details. |
+category             | `string`  | true     |         | The event's [category](#categories) |
+
+data                 | `object`  | true     |         | Impact data, the data you need to send is ruled by the category, see [data by category](#data-by-category). |
+ 
+
+>  JSON Response
+
+```json
+  {
+    "success": true,
+    "data": <Event>
+  }
+```
 <aside class="warning">
 If an event is emitted too often for a same authentified user it will be ignored as a security measure. 
 Onboarding events can only be called once per account.
 </aside>
+
+
+## Data by category
+
+When emiting(#emit-an-event) an event, you need to provide impact data for the Poi Network to measure the impact.
+This impact data that needs to be provided in the body of the request, varies from one category to another, is listed here.
+
+### Mobility
+
+| name            | description               |
+| --------------- | ------------------------- |
+| distance        | The distance in `kilometers` |
+| transport       | The mean of transport: `bus`, `train`, `scooter`, `bike`, ... |
+
+### Consumption
+
+| name            | description               |
+| --------------- | ------------------------- |
+
+### Recycling
+
+| name            | description               |
+| --------------- | ------------------------- |
+
+### Citizenship
+
+| name            | description               |
+| --------------- | ------------------------- |
+
+### Investments
+
+| name            | description               |
+| --------------- | ------------------------- |
