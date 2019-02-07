@@ -256,6 +256,9 @@
                   <li>
                     <a href="#account-update" class="toc-h2 toc-link" data-title="Account Update">Account Update</a>
                   </li>
+                  <li>
+                    <a href="#fetch-credentials" class="toc-h2 toc-link" data-title="Fetch credentials">Fetch credentials</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -265,24 +268,30 @@
                     <a href="#me-2" class="toc-h2 toc-link" data-title="Me">Me</a>
                   </li>
                   <li>
-                    <a href="#my-actions" class="toc-h2 toc-link" data-title="My Actions">My Actions</a>
+                    <a href="#my-impact" class="toc-h2 toc-link" data-title="My Impact">My Impact</a>
                   </li>
                   <li>
-                    <a href="#my-connected-apps" class="toc-h2 toc-link" data-title="My Connected Apps">My Connected Apps</a>
-                  </li>
-                  <li>
-                    <a href="#connect-an-app" class="toc-h2 toc-link" data-title="Connect an app">Connect an app</a>
-                  </li>
-                  <li>
-                    <a href="#my-available-perks" class="toc-h2 toc-link" data-title="My Available Perks">My Available Perks</a>
+                    <a href="#update-my-settings" class="toc-h2 toc-link" data-title="Update my settings">Update my settings</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#users" class="toc-h1 toc-link" data-title="Users">Users</a>
+            <a href="#users-amp-friends" class="toc-h1 toc-link" data-title="Users &amp; Friends">Users &amp; Friends</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#count" class="toc-h2 toc-link" data-title="Count">Count</a>
+                    <a href="#my-friends" class="toc-h2 toc-link" data-title="My Friends">My Friends</a>
+                  </li>
+                  <li>
+                    <a href="#invite-contact" class="toc-h2 toc-link" data-title="Invite contact">Invite contact</a>
+                  </li>
+                  <li>
+                    <a href="#add-friend" class="toc-h2 toc-link" data-title="Add friend">Add friend</a>
+                  </li>
+                  <li>
+                    <a href="#remove-friend" class="toc-h2 toc-link" data-title="Remove friend">Remove friend</a>
+                  </li>
+                  <li>
+                    <a href="#users-count" class="toc-h2 toc-link" data-title="Users count">Users count</a>
                   </li>
               </ul>
           </li>
@@ -294,6 +303,29 @@
                   </li>
                   <li>
                     <a href="#fetch-application" class="toc-h2 toc-link" data-title="Fetch application">Fetch application</a>
+                  </li>
+                  <li>
+                    <a href="#list-categories" class="toc-h2 toc-link" data-title="List categories">List categories</a>
+                  </li>
+                  <li>
+                    <a href="#my-connected-apps" class="toc-h2 toc-link" data-title="My Connected Apps">My Connected Apps</a>
+                  </li>
+                  <li>
+                    <a href="#connect-an-app" class="toc-h2 toc-link" data-title="Connect an app">Connect an app</a>
+                  </li>
+                  <li>
+                    <a href="#disconnect-an-app" class="toc-h2 toc-link" data-title="Disconnect an app">Disconnect an app</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#perks" class="toc-h1 toc-link" data-title="Perks">Perks</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#perks-2" class="toc-h2 toc-link" data-title="Perks">Perks</a>
+                  </li>
+                  <li>
+                    <a href="#my-available-perks" class="toc-h2 toc-link" data-title="My available perks">My available perks</a>
                   </li>
               </ul>
           </li>
@@ -312,12 +344,12 @@
                     <a href="#event-types" class="toc-h2 toc-link" data-title="Event types">Event types</a>
                   </li>
                   <li>
+                    <a href="#my-events" class="toc-h2 toc-link" data-title="My Events">My Events</a>
+                  </li>
+                  <li>
                     <a href="#emit-an-event" class="toc-h2 toc-link" data-title="Emit an event">Emit an event</a>
                   </li>
               </ul>
-          </li>
-          <li>
-            <a href="#impact" class="toc-h1 toc-link" data-title="Impact">Impact</a>
           </li>
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
@@ -336,6 +368,9 @@
                   </li>
                   <li>
                     <a href="#merchant" class="toc-h2 toc-link" data-title="Merchant">Merchant</a>
+                  </li>
+                  <li>
+                    <a href="#categories" class="toc-h2 toc-link" data-title="Categories">Categories</a>
                   </li>
               </ul>
           </li>
@@ -446,7 +481,7 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
 <p>Upon a successful sign up, the necessary authentication information (<code>access-token</code>, <code>uid</code>, token <code>expiry</code>...) will be returned in the headers of the response.</p>
 
 <blockquote>
-<p>Request</p>
+<p>Request Body</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
       </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"george@gmail.com"</span><span class="p">,</span><span class="w">
@@ -540,7 +575,7 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
 <p>Upon a successful sign in, the necessary authentication information (<code>access-token</code>, <code>uid</code>, token <code>expiry</code>...) will be returned in the headers of the response.</p>
 
 <blockquote>
-<p>Request</p>
+<p>Request Body</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
       </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"george@gmail.com"</span><span class="p">,</span><span class="w">
@@ -608,7 +643,7 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
 <p>Updates a user&#39;s account.<br /></p>
 
 <blockquote>
-<p>Request</p>
+<p>Request Body</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
     </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George Doran"</span><span class="p">,</span><span class="w">
@@ -695,7 +730,11 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='me'>Me</h1>
+</span></code></pre>
+<div class="private-endpoint"></div>
+<h2 id='fetch-credentials'>Fetch credentials</h2>
+<p>[W.I.P]</p>
+<h1 id='me'>Me</h1>
 <div class="public-endpoint"></div>
 <h2 id='me-2'>Me</h2>
 <p>Gets the current user&#39;s information. See <a href="#user"><User></a> for more details.</p>
@@ -710,10 +749,100 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <div class="public-endpoint"></div>
-<h2 id='my-actions'>My Actions</h2>
-<p>List of all actions the user has taken on the Poi Network.</p>
+<h2 id='my-impact'>My Impact</h2>
+<p>Gets the current user&#39;s impact data grouped by <a href="#categories">categories</a>.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET /v1/me/events</code></p>
+<p><code>GET /v1/me/impacts</code></p>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"global"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Baby Poi"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"earned_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">4327.3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"spent_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">2137.5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"current_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">2198.8</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"current_cycle"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"points"</span><span class="p">:</span><span class="w"> </span><span class="mf">137.5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"maximum_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"consumption"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"earned_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"current_cycle"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"points"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"maximum_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"mobility"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"earned_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">1350</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"current_cycle"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"points"</span><span class="p">:</span><span class="w"> </span><span class="mi">350</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"maximum_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+       </span><span class="s2">"health"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"earned_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"current_cycle"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"points"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"maximum_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<div class="public-endpoint"></div>
+<h2 id='update-my-settings'>Update my settings</h2>
+<blockquote>
+<p>Request Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"notifications_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>PUT /v1/me/settings</code></p>
+<h3 id='parameters'>Parameters</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>notifications_active</td>
+<td><code>boolean</code></td>
+<td></td>
+<td>true</td>
+<td>Are notifications enabled for the user</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"notifications_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='users-amp-friends'>Users &amp; Friends</h1>
+<div class="public-endpoint"></div>
+<h2 id='my-friends'>My Friends</h2>
+<p>List all the user&#39;s friends and invited persons.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v1/me/friends</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <div class="params-table"></div>
 
@@ -727,12 +856,213 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
 </tr>
 </thead><tbody>
 <tr>
-<td>period</td>
-<td><code>string</code></td>
-<td></td>
-<td>global</td>
-<td>A time period: <code>week</code>, <code>month</code> or <code>global</code></td>
+<td>page</td>
+<td><code>integer</code></td>
+<td>true</td>
+<td>1</td>
+<td>Page number</td>
 </tr>
+<tr>
+<td>per_page</td>
+<td><code>integer</code></td>
+<td>true</td>
+<td>50</td>
+<td>Number of events per page</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"invited"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nathan"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+330809832"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invited"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"friends"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+33732231321"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"impact_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Julien"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+33738231370"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"impact_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">  
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<div class="public-endpoint"></div>
+<h2 id='invite-contact'>Invite contact</h2>
+<p>Invites a contact. This is primarly used to keep track of already invited contacts.</p>
+
+<blockquote>
+<p>Request Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George Abitbol"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0732030203"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST /v1/me/invites</code></p>
+<h3 id='parameters'>Parameters</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td><code>string</code></td>
+<td>true</td>
+<td></td>
+<td>Contact&#39;s name</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td><code>string</code></td>
+<td>true</td>
+<td></td>
+<td>Contact&#39;s phone number</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George Abitbol"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0732030203"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<div class="public-endpoint"></div>
+<h2 id='add-friend'>Add friend</h2>
+<p>Adds an user to the current user&#39;s friend list.</p>
+
+<blockquote>
+<p>Request Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST /v1/me/friends</code></p>
+<h3 id='parameters-2'>Parameters</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><code>integer</code></td>
+<td>true</td>
+<td></td>
+<td>Friend&#39;s ID</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Julien"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+33738231370"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"impact_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<div class="public-endpoint"></div>
+<h2 id='remove-friend'>Remove friend</h2>
+<p>Removes an user from the current user&#39;s friend list.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>DELETE /v1/me/friends</code></p>
+<h3 id='parameters-3'>Parameters</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><code>integer</code></td>
+<td>true</td>
+<td></td>
+<td>Friend&#39;s ID</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight plaintext"><code>  HTTP 204 No Content
+</code></pre>
+<div class="public-endpoint"></div>
+<h2 id='users-count'>Users count</h2>
+<p>Gets the number of users registered on the Poi Network.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET /v1/users/count</code></p>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='applications'>Applications</h1>
+<div class="public-endpoint"></div>
+<h2 id='list-applications'>List applications</h2>
+<p>Get a list of all applications registered on the Poi Network.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v1/applications</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td>page</td>
 <td><code>integer</code></td>
@@ -744,8 +1074,15 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
 <td>per_page</td>
 <td><code>integer</code></td>
 <td></td>
-<td>100</td>
+<td>10</td>
 <td>Number of events per page</td>
+</tr>
+<tr>
+<td>category</td>
+<td><code>category</code></td>
+<td></td>
+<td></td>
+<td>A filter by category (<code>mobility</code>, <code>health</code>, ...)</td>
 </tr>
 </tbody></table>
 
@@ -753,27 +1090,68 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
 <p>JSON Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"month"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"period_improvements"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"chart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"x_axis"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"L"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"J"</span><span class="p">,</span><span class="w"> </span><span class="s2">"V"</span><span class="p">,</span><span class="w"> </span><span class="s2">"S"</span><span class="p">,</span><span class="w"> </span><span class="s2">"D"</span><span class="p">],</span><span class="w">
-        </span><span class="s2">"y_axis"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="err">&lt;Event&gt;</span><span class="p">,</span><span class="w"> 
-        </span><span class="err">&lt;Event&gt;</span><span class="p">,</span><span class="w">
-        </span><span class="err">&lt;Event&gt;</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="err">&lt;Application&gt;</span><span class="p">,</span><span class="w">
+      </span><span class="err">&lt;Application&gt;</span><span class="w">
+      </span><span class="err">&lt;Application&gt;</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<div class="public-endpoint"></div>
+<h2 id='fetch-application'>Fetch application</h2>
+<p>Get an application&#39;s information.</p>
+<pre class="highlight shell tab-shell"><code>  curl <span class="s2">"/v1/applications/1"</span>
+</code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET /v1/applications/:id</code></p>
+<h3 id='url-arguments'>URL Arguments</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><code>integer</code></td>
+<td>true</td>
+<td>1</td>
+<td>The application&#39;s id</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;Application&gt;</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<div class="public-endpoint"></div>
+<h2 id='list-categories'>List categories</h2>
+<p>Get a list of all categories that have applications.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET /v1/applications/categories</code></p>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"mobility"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"consumption"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"health"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <div class="public-endpoint"></div>
 <h2 id='my-connected-apps'>My Connected Apps</h2>
 <p>List of all apps the user has connected.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET /v1/me/apps</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
 <div class="params-table"></div>
@@ -846,14 +1224,14 @@ Here are some libraries that you can use: </p>
 </div>
 
 <blockquote>
-<p>Request</p>
+<p>Request Body</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
       </span><span class="s2">"application_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
       </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"george@gmail.com"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"encrypted_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WJKZHcAzH9Ee8iavMUvYSKGkSXCcaTthalXTIrUKmjnV1gXgHoPg9/mXR4/fyP/pG87Z1EGPXyM1rUzRWYIlvBSHsLa+EQnFimNGr8NhFNs52AfzsHRM1/BQumTK6Q/ThsMIqbsKnnfYO8NQKbjPprT9NkzWqgpAzuH9XvXGyg0="</span><span class="p">,</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
 <p><code>POST /v1/me/apps</code></p>
 <h3 id='parameters'>Parameters</h3>
 <div class="params-table"></div>
@@ -902,11 +1280,15 @@ Here are some libraries that you can use: </p>
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <div class="public-endpoint"></div>
-<h2 id='my-available-perks'>My Available Perks</h2>
-<p>List of all the perks available to the current user.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h2 id='disconnect-an-app'>Disconnect an app</h2><h3 id='http-request-6'>HTTP Request</h3>
+<p><code>PUT /v1/me/apps/:id</code></p>
+<h1 id='perks'>Perks</h1>
+<div class="public-endpoint"></div>
+<h2 id='perks-2'>Perks</h2>
+<div class="public-endpoint"></div>
+<h2 id='my-available-perks'>My available perks</h2><h3 id='http-request'>HTTP Request</h3>
 <p><code>GET /v1/me/perks</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
+<h3 id='query-parameters'>Query Parameters</h3>
 <div class="params-table"></div>
 
 <table><thead>
@@ -958,97 +1340,6 @@ Here are some libraries that you can use: </p>
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='users'>Users</h1>
-<div class="public-endpoint"></div>
-<h2 id='count'>Count</h2>
-<p>Gets the number of users registered on the Poi Network.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /v1/users/count</code></p>
-
-<blockquote>
-<p>JSON Response</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='applications'>Applications</h1>
-<div class="public-endpoint"></div>
-<h2 id='list-applications'>List applications</h2>
-<p>Get a list of all applications registered on the Poi Network.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /v1/applications</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<div class="params-table"></div>
-
-<table><thead>
-<tr>
-<th>name</th>
-<th>type</th>
-<th>required</th>
-<th>default</th>
-<th>description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>page</td>
-<td><code>integer</code></td>
-<td></td>
-<td>1</td>
-<td>Page number</td>
-</tr>
-<tr>
-<td>per_page</td>
-<td><code>integer</code></td>
-<td></td>
-<td>10</td>
-<td>Number of events per page</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>JSON Response</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="err">&lt;Application&gt;</span><span class="p">,</span><span class="w">
-      </span><span class="err">&lt;Application&gt;</span><span class="w">
-      </span><span class="err">&lt;Application&gt;</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<div class="public-endpoint"></div>
-<h2 id='fetch-application'>Fetch application</h2>
-<p>Get an application&#39;s information.</p>
-<pre class="highlight shell tab-shell"><code>  curl <span class="s2">"/v1/applications/1"</span>
-</code></pre><h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET /v1/applications/:id</code></p>
-<h3 id='url-arguments'>URL Arguments</h3>
-<div class="params-table"></div>
-
-<table><thead>
-<tr>
-<th>name</th>
-<th>type</th>
-<th>required</th>
-<th>default</th>
-<th>description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td><code>integer</code></td>
-<td>true</td>
-<td>1</td>
-<td>The application&#39;s id</td>
-</tr>
-</tbody></table>
-
-<blockquote>
-<p>JSON Response</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;Application&gt;</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='challenges'>Challenges</h1>
 <div class="public-endpoint"></div>
@@ -1103,9 +1394,68 @@ It is the primary way for sending impact data to the Poi Protocol, but is also u
 If an event is emitted too often for a same authentified user it will be ignored as a security measure. 
 Onboarding events can only be called once per account.
 </aside>
-<h2 id='emit-an-event'>Emit an event</h2>
-<p>(W.I.P)</p>
-<h1 id='impact'>Impact</h1>
+
+<div class="public-endpoint"></div>
+<h2 id='my-events'>My Events</h2>
+<p>List of all actions the user has taken on the Poi Network.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v1/me/events</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>period</td>
+<td><code>string</code></td>
+<td></td>
+<td>global</td>
+<td>A time period: <code>week</code>, <code>month</code> or <code>global</code></td>
+</tr>
+<tr>
+<td>page</td>
+<td><code>integer</code></td>
+<td></td>
+<td>1</td>
+<td>Page number for the history</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td><code>integer</code></td>
+<td></td>
+<td>50</td>
+<td>Number of events per page in the history</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"month"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"period_improvements"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"chart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"x_axis"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"L"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"J"</span><span class="p">,</span><span class="w"> </span><span class="s2">"V"</span><span class="p">,</span><span class="w"> </span><span class="s2">"S"</span><span class="p">,</span><span class="w"> </span><span class="s2">"D"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"y_axis"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"history"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="err">&lt;Event&gt;</span><span class="p">,</span><span class="w"> 
+        </span><span class="err">&lt;Event&gt;</span><span class="p">,</span><span class="w">
+        </span><span class="err">&lt;Event&gt;</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='emit-an-event'>Emit an event</h2>
 <p>(W.I.P)</p>
 <h1 id='errors'>Errors</h1>
 <p>The Poi Internal API uses the following error codes:</p>
@@ -1174,6 +1524,7 @@ Onboarding events can only be called once per account.
             </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
             </span><span class="s2">"earned_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">4327.3</span><span class="p">,</span><span class="w">
             </span><span class="s2">"spent_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">2137.5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"current_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">2198.8</span><span class="p">,</span><span class="w">
             </span><span class="s2">"last_action"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;Event&gt;</span><span class="p">,</span><span class="w">
             </span><span class="s2">"current_cycle"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"points"</span><span class="p">:</span><span class="w"> </span><span class="mf">137.5</span><span class="p">,</span><span class="w">
@@ -1308,6 +1659,7 @@ Onboarding events can only be called once per account.
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobility"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum, dolor es scoot amet"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.90</span><span class="p">,</span><span class="w">
         </span><span class="s2">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://youtube.com?v=ZF269O8"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pictures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz1"</span><span class="w"> </span><span class="p">},</span><span class="w">
@@ -1317,6 +1669,10 @@ Onboarding events can only be called once per account.
         </span><span class="s2">"android_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://play.google.com/store/apps/details?id=743082"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ios_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://itunes.apple.com/app/id378458261"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"web_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cityscoot.fr"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"requested_permissions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"Mesurer ton impact en matière de déplacements"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Te récompenser en fonction de ton usage"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:16.477Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:18.477Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1350,6 +1706,11 @@ Onboarding events can only be called once per account.
 <td>The application&#39;s description.</td>
 </tr>
 <tr>
+<td><strong>rating</strong></td>
+<td><code>decimal</code></td>
+<td>The application&#39;s average rating on the Play and App stores.</td>
+</tr>
+<tr>
 <td><strong>pictures</strong></td>
 <td><code>array</code></td>
 <td>An array of pictures.</td>
@@ -1375,6 +1736,11 @@ Onboarding events can only be called once per account.
 <td>The application&#39;s website url.</td>
 </tr>
 <tr>
+<td><strong>requested_permissions</strong></td>
+<td><code>array</code></td>
+<td>A list of things the user will consent to when connecting this application to his account.</td>
+</tr>
+<tr>
 <td><strong>created_at</strong></td>
 <td><code>datetime</code></td>
 <td>The application&#39;s creation date.</td>
@@ -1390,7 +1756,10 @@ Onboarding events can only be called once per account.
 <pre class="highlight json tab-json"><code><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"action"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gaby@poi.app"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
         </span><span class="s2">"application"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;Application&gt;</span><span class="p">,</span><span class="w">
         </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"consumption"</span><span class="p">,</span><span class="w"> 
         </span><span class="s2">"total_impact"</span><span class="p">:</span><span class="w"> </span><span class="mf">30.0</span><span class="p">,</span><span class="w">
@@ -1516,23 +1885,57 @@ Onboarding events can only be called once per account.
 </tr>
 <tr>
 <td><strong>quality_labels</strong></td>
-<td><code>array[String]</code></td>
+<td><code>array</code></td>
 <td>A list of quality labels like <code>Local</code>, <code>Zero waste</code>, etc...</td>
 </tr>
 <tr>
 <td><strong>categories</strong></td>
-<td><code>array[String]</code></td>
+<td><code>array</code></td>
 <td>A list of categories like <code>Restaurant</code>, <code>Vegan</code>, etc...</td>
 </tr>
 <tr>
 <td><strong>pictures</strong></td>
-<td><code>array[Object]</code></td>
+<td><code>array</code></td>
 <td>An array of pictures objects: <code>{ kind: &quot;banner&quot;, url: &quot;http://aws.s3.com/xyz&quot; }</code>. <code>kind</code> can either be: <code>banner</code> or <code>photo</code>.</td>
 </tr>
 <tr>
 <td><strong>phone_number</strong></td>
 <td><code>string</code></td>
 <td>Merchant&#39;s phone number.</td>
+</tr>
+</tbody></table>
+<h2 id='categories'>Categories</h2>
+<p>Here is a list of all available categories.</p>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Mobility</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Consumption</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Recycling</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Citizenship</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Investiments</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Bonus</strong></td>
+<td>All user actions that helped the Poi Network, this includes sign up, challenges, etc...</td>
 </tr>
 </tbody></table>
 

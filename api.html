@@ -278,6 +278,9 @@
                   <li>
                     <a href="#merchant" class="toc-h2 toc-link" data-title="Merchant">Merchant</a>
                   </li>
+                  <li>
+                    <a href="#categories" class="toc-h2 toc-link" data-title="Categories">Categories</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -346,7 +349,7 @@ This is done by passing the following headers:</p>
   -H <span class="s2">"app-token: e5k0al9TBvA3Vgo4fvcgd6mDgWah0sST"</span>
 </code></pre><h2 id='sign-up'>Sign Up</h2>
 <blockquote>
-<p>Request</p>
+<p>Request Body</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="s2">"/v1/auth"</span>
   -H <span class="s2">"app-token: e5k0al9TBvA3Vgo4fvcgd6mDgWah0sST"</span>
@@ -615,6 +618,7 @@ Remember — a happy kitten is an authenticated kitten!
             </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
             </span><span class="s2">"earned_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">4327.3</span><span class="p">,</span><span class="w">
             </span><span class="s2">"spent_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">2137.5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"current_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">2198.8</span><span class="p">,</span><span class="w">
             </span><span class="s2">"last_action"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;Event&gt;</span><span class="p">,</span><span class="w">
             </span><span class="s2">"current_cycle"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"points"</span><span class="p">:</span><span class="w"> </span><span class="mf">137.5</span><span class="p">,</span><span class="w">
@@ -749,6 +753,7 @@ Remember — a happy kitten is an authenticated kitten!
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobility"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum, dolor es scoot amet"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.90</span><span class="p">,</span><span class="w">
         </span><span class="s2">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://youtube.com?v=ZF269O8"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pictures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz1"</span><span class="w"> </span><span class="p">},</span><span class="w">
@@ -758,6 +763,10 @@ Remember — a happy kitten is an authenticated kitten!
         </span><span class="s2">"android_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://play.google.com/store/apps/details?id=743082"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ios_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://itunes.apple.com/app/id378458261"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"web_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cityscoot.fr"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"requested_permissions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"Mesurer ton impact en matière de déplacements"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Te récompenser en fonction de ton usage"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:16.477Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:18.477Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -791,6 +800,11 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The application&#39;s description.</td>
 </tr>
 <tr>
+<td><strong>rating</strong></td>
+<td><code>decimal</code></td>
+<td>The application&#39;s average rating on the Play and App stores.</td>
+</tr>
+<tr>
 <td><strong>pictures</strong></td>
 <td><code>array</code></td>
 <td>An array of pictures.</td>
@@ -816,6 +830,11 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The application&#39;s website url.</td>
 </tr>
 <tr>
+<td><strong>requested_permissions</strong></td>
+<td><code>array</code></td>
+<td>A list of things the user will consent to when connecting this application to his account.</td>
+</tr>
+<tr>
 <td><strong>created_at</strong></td>
 <td><code>datetime</code></td>
 <td>The application&#39;s creation date.</td>
@@ -831,7 +850,10 @@ Remember — a happy kitten is an authenticated kitten!
 <pre class="highlight json tab-json"><code><span class="w">
     </span><span class="p">{</span><span class="w">
         </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"action"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;User&gt;</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gaby@poi.app"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
         </span><span class="s2">"application"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;Application&gt;</span><span class="p">,</span><span class="w">
         </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"consumption"</span><span class="p">,</span><span class="w"> 
         </span><span class="s2">"total_impact"</span><span class="p">:</span><span class="w"> </span><span class="mf">30.0</span><span class="p">,</span><span class="w">
@@ -957,23 +979,57 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 <tr>
 <td><strong>quality_labels</strong></td>
-<td><code>array[String]</code></td>
+<td><code>array</code></td>
 <td>A list of quality labels like <code>Local</code>, <code>Zero waste</code>, etc...</td>
 </tr>
 <tr>
 <td><strong>categories</strong></td>
-<td><code>array[String]</code></td>
+<td><code>array</code></td>
 <td>A list of categories like <code>Restaurant</code>, <code>Vegan</code>, etc...</td>
 </tr>
 <tr>
 <td><strong>pictures</strong></td>
-<td><code>array[Object]</code></td>
+<td><code>array</code></td>
 <td>An array of pictures objects: <code>{ kind: &quot;banner&quot;, url: &quot;http://aws.s3.com/xyz&quot; }</code>. <code>kind</code> can either be: <code>banner</code> or <code>photo</code>.</td>
 </tr>
 <tr>
 <td><strong>phone_number</strong></td>
 <td><code>string</code></td>
 <td>Merchant&#39;s phone number.</td>
+</tr>
+</tbody></table>
+<h2 id='categories'>Categories</h2>
+<p>Here is a list of all available categories.</p>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Mobility</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Consumption</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Recycling</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Citizenship</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Investiments</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Bonus</strong></td>
+<td>All user actions that helped the Poi Network, this includes sign up, challenges, etc...</td>
 </tr>
 </tbody></table>
 
