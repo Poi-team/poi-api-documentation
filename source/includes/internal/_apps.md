@@ -153,6 +153,7 @@ The public key used for encryption is the following
 
 ### URL Arguments
 
+<div class="params-table"></div>
 name          | type      | required | default     | description |
 --------------| --------- | -------- | ----------- | ----------- |
 id            | `integer`  | true         |             | The application id |
@@ -170,6 +171,7 @@ encrypted_password      | `string`  | true     |             | The user's passwo
 
 ```json
   {
+    "success": true,
     "data": {
       "application_id": 3,
       "name": "Cityscoot",
@@ -199,3 +201,135 @@ id                   | `integer` | true     |         | Application's id |
 ```
 
 
+<div class="public-endpoint"></div>
+## List potential applications
+
+### HTTP Request
+
+`GET /v1/potential_applications`
+
+### URL Arguments
+
+<div class="params-table"></div>
+name         | type      | required | default     | description |
+-------------| --------- | -------- | ----------- | ----------- |
+page         | `integer` |          | 1           | Page number |
+per_page     | `integer` |          | 20          | Number of events per page |
+
+>  Response
+
+```json
+  {
+    "data": [
+      {
+        "id": 1,
+        "name": "Yoyo",
+        "description": "Lorem ipsum dolor es recyclette",
+        "icon": "https://amz.co/yoyo.png", 
+        "url": "https://yoyo.com",
+        "status": "reviewing"
+      },
+      {
+        "id": 2,
+        "name": "Lime",
+        "description": null,
+        "icon": null, 
+        "url": "https://lime.com",
+        "status": "pending"
+      }
+    ]
+  }
+```
+
+
+<div class="public-endpoint"></div>
+## Suggest a potential application
+
+Allows an user to suggest a new application to be integrated on the Poi Network. The user will also automaticaly vote for this application.
+
+> Request Body
+
+```json
+  {
+      "name": "Lime",
+      "url": "https://www.lime.com"
+  }
+```
+
+### HTTP Request
+
+`POST /v1/potential_applications`
+
+### Parameters
+
+<div class="params-table"></div>
+name          | type      | required | default     | description |
+--------------| --------- | -------- | ----------- | ----------- |
+name          | `string`  | true     |             | The potential app's name |
+url           | `string`  | true     |             | The potential app's website URL |
+
+
+>  JSON Response
+
+```json
+   {
+      "id": 2,
+      "name": "Lime",
+      "description": null,
+      "icon": null, 
+      "url": "https://lime.com",
+      "status": "pending"
+    }
+```
+
+
+<div class="public-endpoint"></div>
+## Vote for a potential application
+
+Votes for a potential application in stead of the current user. An application can only be voted once.
+
+### HTTP Request
+
+`POST /v1/potential_applications/:id/vote`
+
+### URL Arguments
+
+<div class="params-table"></div>
+name          | type      | required | default     | description |
+--------------| --------- | -------- | ----------- | ----------- |
+id            | `integer`  | true         |             | The potential application's id |
+
+>  JSON Response
+
+```json
+  {
+    "success": true,
+    "data": {
+      "voter_id": 1,
+      "application_id": 1,
+      "name": "Lime"
+    }
+  }
+```
+
+<div class="public-endpoint"></div>
+## Remove vote on a potential application
+
+Removes the previous vote by the current user on a potential application.
+
+### HTTP Request
+
+`DELETE /v1/potential_applications/:id/vote`
+
+### URL Arguments
+
+<div class="params-table"></div>
+name          | type      | required | default     | description |
+--------------| --------- | -------- | ----------- | ----------- |
+id            | `integer`  | true         |             | The potential application's id |
+
+>  Response
+
+```
+  HTTP 204 No Content
+```
