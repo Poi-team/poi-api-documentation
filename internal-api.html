@@ -1095,7 +1095,7 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
 <td><code>category</code></td>
 <td></td>
 <td></td>
-<td>A filter by category (<code>mobility</code>, <code>health</code>, ...)</td>
+<td>A filter by <a href="#categories">category</a> (<code>mobility</code>, <code>health</code>, ...)</td>
 </tr>
 </tbody></table>
 
@@ -1103,6 +1103,7 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
 <p>JSON Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="err">&lt;Application&gt;</span><span class="p">,</span><span class="w">
       </span><span class="err">&lt;Application&gt;</span><span class="w">
@@ -1189,7 +1190,7 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
 <td>per_page</td>
 <td><code>integer</code></td>
 <td></td>
-<td>100</td>
+<td>20</td>
 <td>Number of events per page</td>
 </tr>
 </tbody></table>
@@ -1198,6 +1199,7 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
 <p>JSON Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too Good To Go"</span><span class="p">,</span><span class="w">
@@ -2151,9 +2153,9 @@ This impact data that needs to be provided in the body of the request, varies fr
         </span><span class="s2">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.90</span><span class="p">,</span><span class="w">
         </span><span class="s2">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://youtube.com?v=ZF269O8"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pictures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz1"</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz2"</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz3"</span><span class="w"> </span><span class="p">}</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz1"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz2"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz3"</span><span class="w"> </span><span class="p">}</span><span class="w">
        </span><span class="p">],</span><span class="w">
         </span><span class="s2">"android_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://play.google.com/store/apps/details?id=743082"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"ios_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://itunes.apple.com/app/id378458261"</span><span class="p">,</span><span class="w">
@@ -2323,9 +2325,9 @@ This impact data that needs to be provided in the body of the request, varies fr
             </span><span class="s2">"Food"</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"pictures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"banner"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz"</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"banner"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz"</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"banner"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"banner"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz"</span><span class="w"> </span><span class="p">},</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"petitbordelais@gmail.com"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0732233423"</span><span class="p">,</span><span class="w">
@@ -2391,7 +2393,7 @@ This impact data that needs to be provided in the body of the request, varies fr
 <tr>
 <td><strong>pictures</strong></td>
 <td><code>array</code></td>
-<td>An array of pictures objects: <code>{ kind: &quot;banner&quot;, url: &quot;http://aws.s3.com/xyz&quot; }</code>. <code>kind</code> can either be: <code>banner</code> or <code>photo</code>.</td>
+<td>An array of pictures objects: <code>{ type: &quot;banner&quot;, url: &quot;http://aws.s3.com/xyz&quot; }</code>. <code>type</code> can either be: <code>banner</code> or <code>photo</code>.</td>
 </tr>
 <tr>
 <td><strong>phone_number</strong></td>
