@@ -23,7 +23,7 @@ Once retrieved, you need to store the `access-token`, `client`, `expiry` date an
 ```
 
 <aside class="info">
-Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all requests are user authentifed</b> unless specified otherwise.
+Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all requests are user authentifed</b> unless specified otherwise by the <div class="unauth-endpoint-legend">NO AUTH</div> label, in which case user authentication can be skipped. It is to be noted that <b>the request can be made while authenticated, it just doesn't need it</b>.
 </aside>
 
 <div class="public-endpoint"></div>

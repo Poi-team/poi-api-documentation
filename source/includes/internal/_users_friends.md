@@ -1,6 +1,6 @@
 # Users & Friends
 
-<div class="public-endpoint"></div>
+<div class="public-endpoint"><span class="unauth-endpoint"></span></div>
 ## Users count
 
 Gets the number of users registered on the Poi Network.
