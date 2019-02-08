@@ -491,7 +491,7 @@ It is to note that using your <strong>API Private key</strong> also gives access
   -H <span class="s2">"uid: george@gmail.com"</span>
 </code></pre>
 <aside class="info">
-Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all requests are user authentifed</b> unless specified otherwise.
+Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all requests are user authentifed</b> unless specified otherwise by the <div class="unauth-endpoint-legend">NO AUTH</div> label, in which case user authentication can be skipped. It is to be noted that <b>the request can be made while authenticated, it just doesn't need it</b>.
 </aside>
 
 <div class="public-endpoint"></div>
@@ -858,7 +858,7 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='users-amp-friends'>Users &amp; Friends</h1>
-<div class="public-endpoint"></div>
+<div class="public-endpoint"><span class="unauth-endpoint"></span></div>
 <h2 id='users-count'>Users count</h2>
 <p>Gets the number of users registered on the Poi Network.</p>
 <h3 id='http-request'>HTTP Request</h3>
