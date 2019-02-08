@@ -104,9 +104,9 @@
         "rating": 4.90,
         "video_url": "http://youtube.com?v=ZF269O8",
         "pictures": [
-            { "kind": "photo", "url": "http://aws.s3.com/xyz1" },
-            { "kind": "photo", "url": "http://aws.s3.com/xyz2" },
-            { "kind": "photo", "url": "http://aws.s3.com/xyz3" }
+            { "type": "photo", "url": "http://aws.s3.com/xyz1" },
+            { "type": "photo", "url": "http://aws.s3.com/xyz2" },
+            { "type": "photo", "url": "http://aws.s3.com/xyz3" }
        ],
         "android_url": "http://play.google.com/store/apps/details?id=743082",
         "ios_url": "https://itunes.apple.com/app/id378458261",
@@ -192,9 +192,9 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
             "Food"
         ],
         "pictures": [
-            { "kind": "banner", "url": "http://aws.s3.com/xyz" },
-            { "kind": "banner", "url": "http://aws.s3.com/xyz" },
-            { "kind": "photo", "url": "http://aws.s3.com/xyz" },
+            { "type": "banner", "url": "http://aws.s3.com/xyz" },
+            { "type": "banner", "url": "http://aws.s3.com/xyz" },
+            { "type": "photo", "url": "http://aws.s3.com/xyz" },
         ],
         "email": "petitbordelais@gmail.com",
         "phone_number": "0732233423",
@@ -217,7 +217,7 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 | **longitude**         | `decimal` | Merchant's longitude.                                                                 |                       
 | **quality_labels**    | `array`  | A list of quality labels like `Local`, `Zero waste`, etc...                    |                       
 | **categories**        | `array`  | A list of categories like `Restaurant`, `Vegan`, etc...                        |                       
-| **pictures**          | `array`  | An array of pictures objects: `{ kind: "banner", url: "http://aws.s3.com/xyz" }`. `kind` can either be: `banner` or `photo`. |                       
+| **pictures**          | `array`  | An array of pictures objects: `{ type: "banner", url: "http://aws.s3.com/xyz" }`. `type` can either be: `banner` or `photo`. |                       
 | **phone_number**      | `string`         | Merchant's phone number.                                                         |                       
 
 ## Challenge

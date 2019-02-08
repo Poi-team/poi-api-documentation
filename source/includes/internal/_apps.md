@@ -16,12 +16,13 @@ name         | type      | required | default     | description |
 -------------| --------- | -------- | ----------- | ----------- |
 page         | `integer` |          | 1           | Page number |
 per_page     | `integer` |          | 10          | Number of events per page |
-category     | `category` |         |             | A filter by category (`mobility`, `health`, ...)
+category     | `category` |         |             | A filter by [category](#categories) (`mobility`, `health`, ...)
 
 >  JSON Response
 
 ```json
   {
+    "count": 3,
     "data": [
       <Application>,
       <Application>
@@ -94,12 +95,13 @@ List of all apps the user has connected.
 name         | type      | required | default     | description |
 -------------| --------- | -------- | ----------- | ----------- |
 page         | `integer` |          | 1           | Page number |
-per_page     | `integer` |          | 100         | Number of events per page |
+per_page     | `integer` |          | 20          | Number of events per page |
 
 >  JSON Response
 
 ```json
   {
+    "count": 2,
     "data": [
       {
         "name": "Too Good To Go",
