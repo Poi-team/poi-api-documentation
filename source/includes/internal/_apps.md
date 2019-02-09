@@ -104,12 +104,14 @@ per_page     | `integer` |          | 20          | Number of events per page |
     "count": 2,
     "data": [
       {
+        "application_id": 4,
         "name": "Too Good To Go",
         "icon": "https://aws.bucket.xyz/zwu.png",
         "email": "george@gmail.com",
         "status": "connected"
       },
       {
+        "application_id": 5,
         "name": "Cityscoot",
         "icon": "https://aws.bucket.xyz/cts.png",
         "email": "abitbol.g@gmail.com",
@@ -226,6 +228,7 @@ per_page     | `integer` |          | 20          | Number of events per page |
       {
         "id": 1,
         "name": "Yoyo",
+        "category": "recycling",
         "description": "Lorem ipsum dolor es recyclette",
         "icon": "https://amz.co/yoyo.png", 
         "url": "https://yoyo.com",
@@ -234,6 +237,7 @@ per_page     | `integer` |          | 20          | Number of events per page |
       {
         "id": 2,
         "name": "Lime",
+        "category": "mobility",
         "description": null,
         "icon": null, 
         "url": "https://lime.com",
@@ -253,8 +257,9 @@ Allows an user to suggest a new application to be integrated on the Poi Network.
 
 ```json
   {
-      "name": "Lime",
-      "url": "https://www.lime.com"
+    "name": "Lime",
+    "category": "mobility",
+    "url": "https://www.lime.com"
   }
 ```
 
@@ -268,20 +273,24 @@ Allows an user to suggest a new application to be integrated on the Poi Network.
 name          | type      | required | default     | description |
 --------------| --------- | -------- | ----------- | ----------- |
 name          | `string`  | true     |             | The potential app's name |
+category      | `string`  | true     |             | The potential app's [category](#categories) |
 url           | `string`  | true     |             | The potential app's website URL |
 
 
 >  JSON Response
 
 ```json
-   {
+  {
+    "data": {
       "id": 2,
       "name": "Lime",
+      "category": "mobility",
       "description": null,
       "icon": null, 
       "url": "https://lime.com",
       "status": "pending"
     }
+  }
 ```
 
 
