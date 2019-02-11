@@ -317,7 +317,7 @@ id            | `integer`  | true         |             | The potential applicat
     "success": true,
     "data": {
       "voter_id": 1,
-      "application_id": 1,
+      "potential_application_id": 1,
       "name": "Lime"
     }
   }

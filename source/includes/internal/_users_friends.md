@@ -41,9 +41,18 @@ per_page     | `integer` | true     | 50          | Number of events per page |
     "data": {
       "invited": [
         {
+          "inviter_id": 3,
+          "invitee_id": 12,
           "name": "Nathan",
           "phone_number": "+330809832",
-          "status": "invited"
+          "status": "accepted"
+        },
+        {
+          "inviter_id": 3,
+          "invitee_id": null,
+          "name": "Lisa",
+          "phone_number": "+336809872",
+          "status": "pending"
         }
       ],
       "friends": [
@@ -98,6 +107,8 @@ phone_number | `string`  | true  |         | Contact's phone number |
   {
     "success": true,
     "data": {
+      "inviter_id": 3,
+      "invitee_id": 12,
       "name": "George Abitbol",
       "phone_number": "0732030203",
       "status": "pending"
