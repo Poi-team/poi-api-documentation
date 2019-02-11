@@ -4,4 +4,5 @@ The **Poi Internal API** is architectured in a REST fashion. It returns JSON-enc
 
 **It can and should ONLY be used by the official Poi Application, our Observer and special partners.**
 
-The base URL for calls is `https://api.poi.network/v1`.
+- The *staging* URL for calls is `https://api-poi-network.herokuapp.com/v1`.
+- The *production* URL for calls is `https://api.poi.network/v1`.
