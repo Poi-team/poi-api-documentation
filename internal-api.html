@@ -330,10 +330,30 @@
             <a href="#perks" class="toc-h1 toc-link" data-title="Perks">Perks</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#perks-2" class="toc-h2 toc-link" data-title="Perks">Perks</a>
+                    <a href="#available-perks" class="toc-h2 toc-link" data-title="Available Perks">Available Perks</a>
                   </li>
                   <li>
-                    <a href="#my-available-perks" class="toc-h2 toc-link" data-title="My available perks">My available perks</a>
+                    <a href="#my-perks" class="toc-h2 toc-link" data-title="My perks">My perks</a>
+                  </li>
+                  <li>
+                    <a href="#select-a-perk" class="toc-h2 toc-link" data-title="Select a Perk">Select a Perk</a>
+                  </li>
+                  <li>
+                    <a href="#mark-perk-as-used" class="toc-h2 toc-link" data-title="Mark Perk as used">Mark Perk as used</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#projects" class="toc-h1 toc-link" data-title="Projects">Projects</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#available-projects" class="toc-h2 toc-link" data-title="Available Projects">Available Projects</a>
+                  </li>
+                  <li>
+                    <a href="#my-projects" class="toc-h2 toc-link" data-title="My Projects">My Projects</a>
+                  </li>
+                  <li>
+                    <a href="#fund-a-project" class="toc-h2 toc-link" data-title="Fund a project">Fund a project</a>
                   </li>
               </ul>
           </li>
@@ -388,6 +408,9 @@
                   </li>
                   <li>
                     <a href="#perk" class="toc-h2 toc-link" data-title="Perk">Perk</a>
+                  </li>
+                  <li>
+                    <a href="#project" class="toc-h2 toc-link" data-title="Project">Project</a>
                   </li>
                   <li>
                     <a href="#categories" class="toc-h2 toc-link" data-title="Categories">Categories</a>
@@ -1543,8 +1566,8 @@ Here are some libraries that you can use: </p>
 <pre class="highlight plaintext"><code>  HTTP 204 No Content
 </code></pre><h1 id='perks'>Perks</h1>
 <div class="public-endpoint"></div>
-<h2 id='perks-2'>Perks</h2>
-<p>Lists all available perks on the Poi Network</p>
+<h2 id='available-perks'>Available Perks</h2>
+<p>Lists all available perks on the Poi Network for the current user.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET /v1/perks</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
@@ -1587,8 +1610,8 @@ Here are some libraries that you can use: </p>
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <div class="public-endpoint"></div>
-<h2 id='my-available-perks'>My available perks</h2>
-<p>List all perks available to the user.</p>
+<h2 id='my-perks'>My perks</h2>
+<p>List all perks for the current user, categorized between <code>active</code> and <code>used</code>.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET /v1/me/perks</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
@@ -1623,25 +1646,234 @@ Here are some libraries that you can use: </p>
 <p>JSON Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"used"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"used"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too Good To Go - 30%"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/zwu.png"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"use_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4XV732D"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"application"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too Good To Go"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot - 15%"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/zwu.png"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"use_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7ZV834C"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"application"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">        
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<div class="public-endpoint"></div>
+<h2 id='select-a-perk'>Select a Perk</h2>
+<p>Reserves the right for the current user to use a perk. Returns a <a href="#perk"><Perk></a> with its <code>use_code</code>.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>PUT /v1/me/perks/:id</code></p>
+<h3 id='url-arguments'>URL Arguments</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><code>string</code></td>
+<td>true</td>
+<td></td>
+<td>The perk&#39;s id</td>
+</tr>
+</tbody></table>
+
+<div class="private-endpoint"></div>
+<h2 id='mark-perk-as-used'>Mark Perk as used</h2>
+<p>(W.I.P)</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST /v1/perks/:id</code></p>
+<h3 id='url-arguments-2'>URL Arguments</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><code>string</code></td>
+<td>true</td>
+<td></td>
+<td>The perk&#39;s id</td>
+</tr>
+</tbody></table>
+<h1 id='projects'>Projects</h1>
+<div class="public-endpoint"></div>
+<h2 id='available-projects'>Available Projects</h2>
+<p>Lists all fundable projects on the Poi Network for the current user.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v1/campaigns</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td><code>integer</code></td>
+<td></td>
+<td>1</td>
+<td>Page number</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td><code>integer</code></td>
+<td></td>
+<td>50</td>
+<td>Number of events per page</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too Good To Go - 30%"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/zwu.png"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"application"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too Good To Go"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot - 15%"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/zwu.png"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"application"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+      </span><span class="err">&lt;Project&gt;</span><span class="p">,</span><span class="w">
+      </span><span class="err">&lt;Project&gt;</span><span class="p">,</span><span class="w">
+      </span><span class="err">&lt;Project&gt;</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<div class="public-endpoint"></div>
+<h2 id='my-projects'>My Projects</h2>
+<p>List all projects for the current user, categorized between <code>active</code> and the already successfuly <code>funded</code>.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET /v1/me/campaigns</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td><code>integer</code></td>
+<td></td>
+<td>1</td>
+<td>Page number</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td><code>integer</code></td>
+<td></td>
+<td>50</td>
+<td>Number of events per page</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="err">&lt;Project&gt;</span><span class="p">,</span><span class="w">
+        </span><span class="err">&lt;Project&gt;</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"funded"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="err">&lt;Project&gt;</span><span class="p">,</span><span class="w">
+          </span><span class="err">&lt;Project&gt;</span><span class="w">
+        </span><span class="p">}</span><span class="w">   
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<div class="public-endpoint"></div>
+<h2 id='fund-a-project'>Fund a project</h2>
+<p>Allows a user to give an amount of Pois to a project.</p>
+
+<blockquote>
+<p>Request Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST /v1/me/fundings</code></p>
+<h3 id='parameters'>Parameters</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><code>string</code></td>
+<td>true</td>
+<td></td>
+<td>The project&#39;s id</td>
+</tr>
+<tr>
+<td>amount</td>
+<td><code>string</code></td>
+<td>true</td>
+<td></td>
+<td>Amount of Pois givent to the project.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="err">&lt;Project&gt;</span><span class="p">,</span><span class="w">
+      </span><span class="err">&lt;Project&gt;</span><span class="p">,</span><span class="w">
+      </span><span class="err">&lt;Project&gt;</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='challenges'>Challenges</h1>
@@ -2448,6 +2680,7 @@ This impact data that needs to be provided in the body of the request, varies fr
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobility"</span><span class="p">,</span><span class="w"> 
         </span><span class="s2">"timeframe"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 week"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-10T12:24:18.477Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:18.477Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"goal"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.0</span><span class="p">,</span><span class="w">
         </span><span class="s2">"reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="w">
@@ -2506,6 +2739,11 @@ This impact data that needs to be provided in the body of the request, varies fr
 <td><code>decimal</code></td>
 <td>The challenge&#39;s reward when completed.</td>
 </tr>
+<tr>
+<td><strong>created_at</strong></td>
+<td><code>datetime</code></td>
+<td>The challenge&#39;s creation date.</td>
+</tr>
 </tbody></table>
 <h2 id='perk'>Perk</h2><pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -2561,6 +2799,70 @@ This impact data that needs to be provided in the body of the request, varies fr
 <td><strong>application</strong></td>
 <td><code>object</code></td>
 <td>The application offering the discount.</td>
+</tr>
+</tbody></table>
+<h2 id='project'>Project</h2><pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
+       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Le petit Bordelais"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum dolor es sit amet."</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w"> 
+       </span><span class="s2">"total_funded"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> 
+       </span><span class="s2">"supporters_ount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> 
+       </span><span class="s2">"pictures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"banner"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"banner"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz"</span><span class="w"> </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz"</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-10T12:24:18.477Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:18.477Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td><code>integer</code></td>
+<td>The project&#39;s unique identifier.</td>
+</tr>
+<tr>
+<td><strong>name</strong></td>
+<td><code>string</code></td>
+<td>The project&#39;s name.</td>
+</tr>
+<tr>
+<td><strong>description</strong></td>
+<td><code>string</code></td>
+<td>The project&#39;s description.</td>
+</tr>
+<tr>
+<td><strong>pictures</strong></td>
+<td><code>object</code></td>
+<td>The project&#39;s pictures as an object.</td>
+</tr>
+<tr>
+<td><strong>total_funded</strong></td>
+<td><code>decimal</code></td>
+<td>The total number of Pois funded into the project</td>
+</tr>
+<tr>
+<td><strong>supporters_count</strong></td>
+<td><code>integer</code></td>
+<td>The number of people that participated in funding this project.</td>
+</tr>
+<tr>
+<td><strong>status</strong></td>
+<td><code>string</code></td>
+<td>The status of the project, either <code>funded</code> if it has been successfuly funded and is now done, or <code>active</code>.</td>
+</tr>
+<tr>
+<td><strong>created_at</strong></td>
+<td><code>datetime</code></td>
+<td>The funding campaign&#39;s inception date</td>
 </tr>
 </tbody></table>
 <h2 id='categories'>Categories</h2>
