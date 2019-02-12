@@ -57,7 +57,8 @@ per_page     | `integer` |          | 50          | Number of events per page |
           "status": "used",
           "name": "Too Good To Go - 30%",
           "picture": "https://aws.bucket.xyz/zwu.png",
-          "amount": 10,
+          "amount": 10.0,
+          "price": 20.0,
           "use_code": "4XV732D",
           "application": {
             "id": 4,
@@ -71,7 +72,8 @@ per_page     | `integer` |          | 50          | Number of events per page |
           "status": "active",
           "name": "Cityscoot - 15%",
           "picture": "https://aws.bucket.xyz/zwu.png",
-          "amount": 10,
+          "amount": 10.0,
+          "price": 20.0,
           "use_code": "7ZV834C",
           "application": {
             "id": 5,

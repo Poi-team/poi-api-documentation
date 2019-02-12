@@ -271,6 +271,7 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
         "name": "Too Good To Go - 30%",
         "description": "Get - 30% on your next too good to go purchase!",
         "picture": "https://aws.bucket.xyz/zwu.png",
+        "price": 40.0,
         "amount": 30.0,
         "is_percentage": true,
         "application": {
@@ -286,7 +287,8 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 | **name**                 | `string`        | The perk's name.                     |
 | **description**          | `string`        | The perk's description.              |           
 | **picture**              | `string`        | The perk's picture url.              |
-| **amount**               | `decimal`       | The amount of discount.              |  
+| **amount**               | `decimal`       | The amount of discount.              | 
+| **price**                | `decimal`       | The perk's price in Pois.            |  
 | **is_percentage**        | `boolean`       | Is the discount flat cash or a percent discount? |
 | **application**          | `object`        | The application offering the discount. | 
 
