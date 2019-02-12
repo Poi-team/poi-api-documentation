@@ -273,6 +273,7 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
         "picture": "https://aws.bucket.xyz/zwu.png",
         "price": 40.0,
         "amount": 30.0,
+        "lifespan": "6 months",
         "is_percentage": true,
         "application": {
             "id": 5,
@@ -289,6 +290,7 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 | **picture**              | `string`        | The perk's picture url.              |
 | **amount**               | `decimal`       | The amount of discount.              | 
 | **price**                | `decimal`       | The perk's price in Pois.            |  
+| **lifespan**             | `string`        | For how long can the perk be used before it expires. |
 | **is_percentage**        | `boolean`       | Is the discount flat cash or a percent discount? |
 | **application**          | `object`        | The application offering the discount. | 
 

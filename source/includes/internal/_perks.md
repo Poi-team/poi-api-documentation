@@ -32,7 +32,7 @@ per_page     | `integer` |          | 50          | Number of events per page |
 <div class="public-endpoint"></div>
 ## My perks 
 
-List all perks for the current user, categorized between `active` and `used`.
+List all perks for the current user, categorized between `active` and `used`. Expired perks will be considered `used` but will have a special `expired` status.
 
 ### HTTP Request
 
@@ -60,6 +60,7 @@ per_page     | `integer` |          | 50          | Number of events per page |
           "amount": 10.0,
           "price": 20.0,
           "use_code": "4XV732D",
+          "expire_at": "2018-08-10T12:24:18.477Z",
           "application": {
             "id": 4,
             "name": "Too Good To Go"
@@ -75,6 +76,7 @@ per_page     | `integer` |          | 50          | Number of events per page |
           "amount": 10.0,
           "price": 20.0,
           "use_code": "7ZV834C",
+          "expire_at": "2018-08-10T12:24:18.477Z",
           "application": {
             "id": 5,
             "name": "Cityscoot"
