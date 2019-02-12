@@ -241,6 +241,7 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
         "status": "pending",
         "category": "mobility", 
         "timeframe": "1 week",
+        "created_at": "2018-08-10T12:24:18.477Z",
         "end_date": "2018-08-17T12:24:18.477Z",
         "goal": 50.0,
         "reward": 10.0
@@ -258,7 +259,8 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 | **timeframe**        | `string`       | The challenge's timeframe: `1 week`, `2 weeks`, ...   |
 | **end_date**         | `datetime`     | The challenge's end date | 
 | **goal**             | `decimal`      | The challenge's points goal.   |                       
-| **reward**           | `decimal`      | The challenge's reward when completed.  |                       
+| **reward**           | `decimal`      | The challenge's reward when completed.  |  
+| **created_at**       | `datetime`     | The challenge's creation date.  |              
 
 
 ## Perk
@@ -286,7 +288,39 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 | **picture**              | `string`        | The perk's picture url.              |
 | **amount**               | `decimal`       | The amount of discount.              |  
 | **is_percentage**        | `boolean`       | Is the discount flat cash or a percent discount? |
-| **application**          | `object`     | The application offering the discount. | 
+| **application**          | `object`        | The application offering the discount. | 
+
+
+## Project
+
+```json
+    {
+       "id": 13,
+       "name": "Le petit Bordelais",
+       "description": "Lorem ipsum dolor es sit amet.",
+       "status": "active", 
+       "total_funded": 200, 
+       "supporters_ount": 5, 
+       "pictures": [
+            { "kind": "banner", "url": "http://aws.s3.com/xyz" },
+            { "kind": "banner", "url": "http://aws.s3.com/xyz" },
+            { "kind": "photo", "url": "http://aws.s3.com/xyz" },
+        ],
+        "created_at": "2018-08-10T12:24:18.477Z",
+        "end_date": "2018-08-17T12:24:18.477Z"
+    }
+```
+
+| Attribute                | Type            | Description                          |
+|--------------------------|-----------------|--------------------------------------|
+| **id**                   | `integer`       | The project's unique identifier.        |   
+| **name**                 | `string`        | The project's name.                     |
+| **description**          | `string`        | The project's description.              |         
+| **pictures**              | `object`        | The project's pictures as an object.   |
+| **total_funded**        | `decimal`         | The total number of Pois funded into the project |
+| **supporters_count**          | `integer`  | The number of people that participated in funding this project. | 
+| **status**              | `string` | The status of the project, either `funded` if it has been successfuly funded and is now done, or `active`.
+| **created_at**          | `datetime`        | The funding campaign's inception date | 
 
 ## Categories 
 

@@ -15,6 +15,7 @@ includes:
   - internal/users_friends
   - internal/apps
   - internal/perks
+  - internal/projects
   - internal/challenges
   - internal/events
   - errors
