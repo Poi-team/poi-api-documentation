@@ -58,6 +58,7 @@ per_page     | `integer` |          | 50          | Number of events per page |
           "name": "Too Good To Go - 30%",
           "picture": "https://aws.bucket.xyz/zwu.png",
           "amount": 10.0,
+          "is_percentage": true,
           "price": 20.0,
           "use_code": "4XV732D",
           "expire_at": "2018-08-10T12:24:18.477Z",
@@ -74,6 +75,7 @@ per_page     | `integer` |          | 50          | Number of events per page |
           "name": "Cityscoot - 15%",
           "picture": "https://aws.bucket.xyz/zwu.png",
           "amount": 10.0,
+          "is_percentage": true,
           "price": 20.0,
           "use_code": "7ZV834C",
           "expire_at": "2018-08-10T12:24:18.477Z",
@@ -92,16 +94,46 @@ per_page     | `integer` |          | 50          | Number of events per page |
 
 Reserves the right for the current user to use a perk. Returns a [<Perk>](#perk) with its `use_code`.
 
+> Request Body
+
+```json
+  {
+    "id": 3
+  }
+```
+
 ### HTTP Request
 
-`PUT /v1/me/perks/:id`
+`POST /v1/me/perks`
 
-### URL Arguments
+### Parameters
 
 <div class="params-table"></div>
 name                 | type      | required | default     | description |
 ---------------------| --------- | -------- | ----------- | ----------- |
 id                   | `string`  | true     |         | The perk's id | 
+
+>  JSON Response
+
+```json
+  {
+    "data": {
+      "id": 1,
+      "status": "active",
+      "name": "Too Good To Go - 30%",
+      "picture": "https://aws.bucket.xyz/zwu.png",
+      "amount": 10.0,
+      "is_percentage": true,
+      "price": 20.0,
+      "use_code": "4XV732D",
+      "expire_at": "2018-08-10T12:24:18.477Z",
+      "application": {
+        "id": 4,
+        "name": "Too Good To Go"
+      }
+    }
+  }
+```
 
 <div class="private-endpoint"></div>
 ## Mark Perk as used
