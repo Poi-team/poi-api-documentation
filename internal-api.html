@@ -1654,6 +1654,7 @@ Here are some libraries that you can use: </p>
           </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too Good To Go - 30%"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/zwu.png"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"is_percentage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
           </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span><span class="w">
           </span><span class="s2">"use_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4XV732D"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"expire_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-10T12:24:18.477Z"</span><span class="p">,</span><span class="w">
@@ -1670,6 +1671,7 @@ Here are some libraries that you can use: </p>
           </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot - 15%"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/zwu.png"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"is_percentage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
           </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span><span class="w">
           </span><span class="s2">"use_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7ZV834C"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"expire_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-10T12:24:18.477Z"</span><span class="p">,</span><span class="w">
@@ -1685,9 +1687,16 @@ Here are some libraries that you can use: </p>
 <div class="public-endpoint"></div>
 <h2 id='select-a-perk'>Select a Perk</h2>
 <p>Reserves the right for the current user to use a perk. Returns a <a href="#perk"><Perk></a> with its <code>use_code</code>.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>PUT /v1/me/perks/:id</code></p>
-<h3 id='url-arguments'>URL Arguments</h3>
+
+<blockquote>
+<p>Request Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST /v1/me/perks</code></p>
+<h3 id='parameters'>Parameters</h3>
 <div class="params-table"></div>
 
 <table><thead>
@@ -1708,12 +1717,33 @@ Here are some libraries that you can use: </p>
 </tr>
 </tbody></table>
 
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too Good To Go - 30%"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/zwu.png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_percentage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">20.0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"use_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4XV732D"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expire_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-10T12:24:18.477Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"application"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too Good To Go"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
 <div class="private-endpoint"></div>
 <h2 id='mark-perk-as-used'>Mark Perk as used</h2>
 <p>(W.I.P)</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST /v1/perks/:id</code></p>
-<h3 id='url-arguments-2'>URL Arguments</h3>
+<h3 id='url-arguments'>URL Arguments</h3>
 <div class="params-table"></div>
 
 <table><thead>
