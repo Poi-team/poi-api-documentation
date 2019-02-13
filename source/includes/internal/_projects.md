@@ -30,9 +30,9 @@ per_page     | `integer` |          | 50          | Number of events per page |
 ```
 
 <div class="public-endpoint"></div>
-## My Projects 
+## My fundings 
 
-List all projects for the current user, categorized between `active` and the already successfuly `funded`.
+List all funded projects for the current user, categorized between `active` and the already successfuly `funded`.
 
 ### HTTP Request
 
@@ -87,10 +87,6 @@ amount               | `string`  | true     |         | Amount of Pois givent to
 
 ```json
   {
-    "data": [
-      <Project>,
-      <Project>,
-      <Project>
-    ]
+    "data": <Project>
   }
 ```
