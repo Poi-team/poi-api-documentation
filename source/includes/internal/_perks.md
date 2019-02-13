@@ -38,14 +38,6 @@ List all perks for the current user, categorized between `active` and `used`. Ex
 
 `GET /v1/me/perks`
 
-### Query Parameters
-
-<div class="params-table"></div>
-name         | type      | required | default     | description |
--------------| --------- | -------- | ----------- | ----------- |
-page         | `integer` |          | 1           | Page number |
-per_page     | `integer` |          | 50          | Number of events per page |
-
 >  JSON Response
 
 ```json

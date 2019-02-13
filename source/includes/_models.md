@@ -310,8 +310,7 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
             { "kind": "banner", "url": "http://aws.s3.com/xyz" },
             { "kind": "photo", "url": "http://aws.s3.com/xyz" },
         ],
-        "created_at": "2018-08-10T12:24:18.477Z",
-        "end_date": "2018-08-17T12:24:18.477Z"
+        "created_at": "2018-08-10T12:24:18.477Z"
     }
 ```
 

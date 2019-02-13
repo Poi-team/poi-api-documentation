@@ -38,14 +38,6 @@ List all projects for the current user, categorized between `active` and the alr
 
 `GET /v1/me/campaigns`
 
-### Query Parameters
-
-<div class="params-table"></div>
-name         | type      | required | default     | description |
--------------| --------- | -------- | ----------- | ----------- |
-page         | `integer` |          | 1           | Page number |
-per_page     | `integer` |          | 50          | Number of events per page |
-
 >  JSON Response
 
 ```json
