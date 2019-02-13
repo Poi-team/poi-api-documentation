@@ -350,7 +350,7 @@
                     <a href="#available-projects" class="toc-h2 toc-link" data-title="Available Projects">Available Projects</a>
                   </li>
                   <li>
-                    <a href="#my-projects" class="toc-h2 toc-link" data-title="My Projects">My Projects</a>
+                    <a href="#my-fundings" class="toc-h2 toc-link" data-title="My fundings">My fundings</a>
                   </li>
                   <li>
                     <a href="#fund-a-project" class="toc-h2 toc-link" data-title="Fund a project">Fund a project</a>
@@ -902,33 +902,6 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
 <p>List all the user&#39;s friends and invited persons.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET /v1/me/friends</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<div class="params-table"></div>
-
-<table><thead>
-<tr>
-<th>name</th>
-<th>type</th>
-<th>required</th>
-<th>default</th>
-<th>description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>page</td>
-<td><code>integer</code></td>
-<td>true</td>
-<td>1</td>
-<td>Page number</td>
-</tr>
-<tr>
-<td>per_page</td>
-<td><code>integer</code></td>
-<td>true</td>
-<td>50</td>
-<td>Number of events per page</td>
-</tr>
-</tbody></table>
 
 <blockquote>
 <p>JSON Response</p>
@@ -1614,33 +1587,6 @@ Here are some libraries that you can use: </p>
 <p>List all perks for the current user, categorized between <code>active</code> and <code>used</code>. Expired perks will be considered <code>used</code> but will have a special <code>expired</code> status.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET /v1/me/perks</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
-<div class="params-table"></div>
-
-<table><thead>
-<tr>
-<th>name</th>
-<th>type</th>
-<th>required</th>
-<th>default</th>
-<th>description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>page</td>
-<td><code>integer</code></td>
-<td></td>
-<td>1</td>
-<td>Page number</td>
-</tr>
-<tr>
-<td>per_page</td>
-<td><code>integer</code></td>
-<td></td>
-<td>50</td>
-<td>Number of events per page</td>
-</tr>
-</tbody></table>
 
 <blockquote>
 <p>JSON Response</p>
@@ -1809,37 +1755,10 @@ Here are some libraries that you can use: </p>
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <div class="public-endpoint"></div>
-<h2 id='my-projects'>My Projects</h2>
-<p>List all projects for the current user, categorized between <code>active</code> and the already successfuly <code>funded</code>.</p>
+<h2 id='my-fundings'>My fundings</h2>
+<p>List all funded projects for the current user, categorized between <code>active</code> and the already successfuly <code>funded</code>.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET /v1/me/campaigns</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
-<div class="params-table"></div>
-
-<table><thead>
-<tr>
-<th>name</th>
-<th>type</th>
-<th>required</th>
-<th>default</th>
-<th>description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>page</td>
-<td><code>integer</code></td>
-<td></td>
-<td>1</td>
-<td>Page number</td>
-</tr>
-<tr>
-<td>per_page</td>
-<td><code>integer</code></td>
-<td></td>
-<td>50</td>
-<td>Number of events per page</td>
-</tr>
-</tbody></table>
 
 <blockquote>
 <p>JSON Response</p>
@@ -1904,11 +1823,7 @@ Here are some libraries that you can use: </p>
 <p>JSON Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="err">&lt;Project&gt;</span><span class="p">,</span><span class="w">
-      </span><span class="err">&lt;Project&gt;</span><span class="p">,</span><span class="w">
-      </span><span class="err">&lt;Project&gt;</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;Project&gt;</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='challenges'>Challenges</h1>
 <div class="public-endpoint"></div>
@@ -2859,8 +2774,7 @@ This impact data that needs to be provided in the body of the request, varies fr
             </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"banner"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz"</span><span class="w"> </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz"</span><span class="w"> </span><span class="p">},</span><span class="w">
         </span><span class="p">],</span><span class="w">
-        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-10T12:24:18.477Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:18.477Z"</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-10T12:24:18.477Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
