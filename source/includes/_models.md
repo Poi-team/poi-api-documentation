@@ -56,7 +56,7 @@
                 "amount": 50.0,
             }
         ],
-        "applications": [
+        "suggested_applications": [
             <Application>,
             <Application>
         ]
@@ -93,7 +93,7 @@
 | **phone_number**       | `string`        | User's phone number.                                                                     |                       
 | **impact**             | `object`        | An `Impact` object. Includes impact data, the last taken action, the current gauge cycle's data and the list of all possible statuses.|
 | **funded_project**     | `array`         | List of projects the use has funded.                                                     |                       
-| **applications**       | `array`         | A list of suggested applications, will only be returned after a successful sign in or registration.  |                       
+| **suggested_applications**       | `array`         | A list of suggested applications, will only be returned after a successful sign in or registration.  |                       
 | **connected_apps**     | `array`         | List of all connected apps.                                                              |                       
 | **created_at**         | `date`          | User's inscription date.                                                                 |                       
 | **updated_at**         | `date`          | Last user's update.                                                                      |                       
