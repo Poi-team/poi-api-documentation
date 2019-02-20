@@ -2265,6 +2265,10 @@ This impact data that needs to be provided in the body of the request, varies fr
                 </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.0</span><span class="p">,</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"applications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="err">&lt;Application&gt;</span><span class="p">,</span><span class="w">
+            </span><span class="err">&lt;Application&gt;</span><span class="w">
+        </span><span class="p">]</span><span class="w">
         </span><span class="s2">"connected_apps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
@@ -2338,6 +2342,11 @@ This impact data that needs to be provided in the body of the request, varies fr
 <td><strong>funded_project</strong></td>
 <td><code>array</code></td>
 <td>List of projects the use has funded.</td>
+</tr>
+<tr>
+<td><strong>applications</strong></td>
+<td><code>array</code></td>
+<td>A list of suggested applications, will only be returned after a successful sign in or registration.</td>
 </tr>
 <tr>
 <td><strong>connected_apps</strong></td>
