@@ -2641,7 +2641,14 @@ This impact data that needs to be provided in the body of the request, varies fr
         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-10T12:24:18.477Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:18.477Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"goal"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.0</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="w">
+        </span><span class="s2">"reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tips"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lime"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://poi-api.s3.amazonaws.com/application/icon/246x0w.jpg"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"tip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Faire un trajet"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -2696,6 +2703,11 @@ This impact data that needs to be provided in the body of the request, varies fr
 <td><strong>reward</strong></td>
 <td><code>decimal</code></td>
 <td>The challenge&#39;s reward when completed.</td>
+</tr>
+<tr>
+<td><strong>tips</strong></td>
+<td><code>array</code></td>
+<td>An array of tips and suggested apps (with icons) to help complete the challenge.</td>
 </tr>
 <tr>
 <td><strong>created_at</strong></td>
