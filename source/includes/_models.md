@@ -249,7 +249,14 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
         "created_at": "2018-08-10T12:24:18.477Z",
         "end_date": "2018-08-17T12:24:18.477Z",
         "goal": 50.0,
-        "reward": 10.0
+        "reward": 10.0,
+        "tips": [
+            {
+                "name": "Lime",
+                "picture": "https://poi-api.s3.amazonaws.com/application/icon/246x0w.jpg",
+                "tip": "Faire un trajet"
+            }
+        ]
     }
     
 ```
@@ -265,6 +272,7 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 | **end_date**         | `datetime`     | The challenge's end date | 
 | **goal**             | `decimal`      | The challenge's points goal.   |                       
 | **reward**           | `decimal`      | The challenge's reward when completed.  |  
+| **tips**             | `array`        | An array of tips and suggested apps (with icons) to help complete the challenge.  |  
 | **created_at**       | `datetime`     | The challenge's creation date.  |              
 
 
