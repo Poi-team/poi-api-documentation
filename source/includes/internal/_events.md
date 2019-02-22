@@ -67,6 +67,7 @@ per_page     | `integer` |          | 50          | Number of events per page in
 ```json
   {
     "type": "action",
+    "application_id": 2,
     "category": "mobility",
     "data": {
       "distance": 2,
@@ -85,6 +86,7 @@ per_page     | `integer` |          | 50          | Number of events per page in
 name                 | type      | required | default     | description |
 ---------------------| --------- | -------- | ----------- | ----------- |
 type                 | `string`  | true     |         | Type of the event, usually `action`, see [event types](#event-types) for more details. |
+application_id       | `integer`  |          |         | An optional application id that triggered the event |
 category             | `string`  | true     |         | The event's [category](#categories) |
 data                 | `object`  | true     |         | Impact data, the data you need to send is ruled by the category, see [data by category](#data-by-category). |
  

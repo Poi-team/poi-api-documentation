@@ -134,12 +134,21 @@ Here are some libraries that you can use:
 The public key used for encryption is the following
 
 <div class="rsa-pkey-container">
-  <pre class="rsa-pkey">-----BEGIN PUBLIC KEY-----
-  MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDlOJu6TyygqxfWT7eLtGDwajtN
-  FOb9I5XRb6khyfD1Yt3YiCgQWMNW649887VGJiGr/L5i2osbl8C9+WJTeucF+S76
-  xFxdU6jE0NQ+Z+zEdhUTooNRaY5nZiu5PgDB0ED/ZKBUSLKL7eibMxZtMlUDHjm4
-  gwQco1KRMDSmXSMkDwIDAQAB
-  -----END PUBLIC KEY-----</pre>
+<pre class="rsa-pkey">-----BEGIN PUBLIC KEY-----
+MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAnJafV/BLkTOVPst3v1A1
+7NpM4lpT8yYiVzjwkDpT4RYPiSqvGV+fLImwT7Whi+UPsfmzwA8toZIxeTgdm3rO
+xW8Oa9bHv5VVWi8Bxvz77u5I2EmdbxI6Q3aGBd7dQodl3Pr6ULC0j+Vl4qQHYsb2
+W1qlsUBZaVN7fdwal2yTp+qErnBIilFOC2jVex7gNxXso2HDjHR4ou/w8pChByR1
+duvIga8XF6QavotOiPaalVnY2P60RmjIXSzyqVhgCBTT90DWZUzpH8+3dFLMSbSh
+0q9Bb9wNUi0bzFkQwKwwGY8v1wqi23nh9pfqhGBlIpUkH77qe7HBCjKGzXPNs6gx
+JhRglNRpl9/ufMSCiq7Pt7j4gFOI1BJbNezoQ2fKtC0FPlC0sjtTOHkoA2DINEMG
+VYfrrCo3cNscV0zfdNp859VAmTvYqJS5WzbzCDPi0tbaO/OK7ztUUOLU7SzClpGd
+RRos6yCYOHPeV2hEdN7CzVSEpX+7TdTX1GeqpXy/I7ysKaAHwjJ/1wG4Suic0iam
+44zMyN8F2ZOhIqAq5F7OGqyjFrPtc43tzBaAxK1a3Br749YUnfBQCsc8B7AqNW4m
+x7UFwoQFbmPaUqkBN0O+6jQq91ygo8B/RkXbz1r/pcGdhJJ6xLT+tYucsE456/LS
+d5Wd1kV4SfAc1s0QEtpkXYkCAwEAAQ==
+-----END PUBLIC KEY-----
+</pre>
 </div>
 
 > Request Body
