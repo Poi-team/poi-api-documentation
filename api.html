@@ -671,6 +671,20 @@ Remember — a happy kitten is an authenticated kitten!
             </span><span class="err">&lt;Application&gt;</span><span class="p">,</span><span class="w">
             </span><span class="err">&lt;Application&gt;</span><span class="w">
         </span><span class="p">]</span><span class="w">
+        </span><span class="s2">"apps_to_connect"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.com/icon-cts.png"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobility"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too Good To Go"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.com/icon-tgt.png"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consumption"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
         </span><span class="s2">"connected_apps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
@@ -687,6 +701,16 @@ Remember — a happy kitten is an authenticated kitten!
                 </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consumption"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"challenges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"sent"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="err">&lt;Challenge&gt;</span><span class="p">,</span><span class="w">
+                </span><span class="err">&lt;Challenge&gt;</span><span class="p">,</span><span class="w">
+                </span><span class="err">&lt;Challenge&gt;</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"received"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="err">&lt;Challenge&gt;</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:16.477Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:18.477Z"</span><span class="w">
 
@@ -751,9 +775,19 @@ Remember — a happy kitten is an authenticated kitten!
 <td>A list of suggested applications, will only be returned after a successful sign in or registration.</td>
 </tr>
 <tr>
+<td><strong>apps_to_connect</strong></td>
+<td><code>array</code></td>
+<td>List of 8 apps that can be connected.</td>
+</tr>
+<tr>
 <td><strong>connected_apps</strong></td>
 <td><code>array</code></td>
 <td>List of all connected apps.</td>
+</tr>
+<tr>
+<td><strong>challenges</strong></td>
+<td><code>object</code></td>
+<td>List of sent and received challenges.</td>
 </tr>
 <tr>
 <td><strong>created_at</strong></td>
@@ -875,11 +909,7 @@ Remember — a happy kitten is an authenticated kitten!
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"application"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;Application&gt;</span><span class="p">,</span><span class="w">
         </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"consumption"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"total_impact"</span><span class="p">:</span><span class="w"> </span><span class="mf">30.0</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"impact_detail"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"zero_waste"</span><span class="p">:</span><span class="w"> </span><span class="mf">19.7</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"local"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.3</span><span class="w">
-        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"earned_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">30.0</span><span class="p">,</span><span class="w">
         </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:18.477Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 
@@ -917,14 +947,9 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The category of the event like <code>mobility</code>, <code>poi</code>, <code>health</code>, <code>consumption</code> ...</td>
 </tr>
 <tr>
-<td><strong>total_impact</strong></td>
+<td><strong>earned_points</strong></td>
 <td><code>decimal</code></td>
 <td>The total number of impact points this event generated.</td>
-</tr>
-<tr>
-<td><strong>impact_detail</strong></td>
-<td><code>object</code></td>
-<td>The number of impact points earned by sub-category. For instance maybe your purchase in consumption was <code>zero_waste</code> and <code>local</code> granting you a few points for each category.</td>
 </tr>
 <tr>
 <td><strong>date</strong></td>
