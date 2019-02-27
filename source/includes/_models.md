@@ -131,10 +131,13 @@
     {
         "id": 13,
         "name": "Cityscoot",
+        "tagline": "La mobilité facile",
         "category": "Mobility",
         "description": "Lorem ipsum, dolor es scoot amet",
         "rating": 4.90,
         "video_url": "http://youtube.com?v=ZF269O8",
+        "banner": "http://aws.s3.com/xyz1",
+        "icon": "http://aws.s3.com/xyz1", 
         "pictures": [
             { "type": "photo", "url": "http://aws.s3.com/xyz1" },
             { "type": "photo", "url": "http://aws.s3.com/xyz2" },
@@ -147,6 +150,7 @@
             "Mesurer ton impact en matière de déplacements",
             "Te récompenser en fonction de ton usage"
         ],
+        "poi_earn_tagline": "Roulez plus pour gagner plus de Poi !",
         "created_at": "2018-08-17T12:24:16.477Z",
         "updated_at": "2018-08-17T12:24:18.477Z"
     }
@@ -157,15 +161,19 @@
 |----------------------|-------------------|------------------------------------------------------------------------------------------|
 | **id**               | `integer`       | The application's unique identifier.                                                       |   
 | **name**             | `string`        | The application's name.                                                                  |         
+| **tagline**             | `string`        | The application's tagline.                                                                  |         
 | **category**         | `string`        | The application's category.                                                              |                       
 | **description**      | `string`        | The application's description.                                                           |     
 | **rating**      | `decimal`        | The application's average rating on the Play and App stores.                                                           |     
-| **pictures**         | `array`         | An array of pictures.                                                                    |
+| **icon**         | `string`         | The app's icon image.  |
+| **banner**         | `string`         | The app's banner image.  |
+| **pictures**         | `array`         | An array of pictures, including icons, banners, and in app screenshots.                                                                    |
 | **video_url**        | `string`        | The application's video presentation url.                                                |                       
 | **android_url**      | `string`        | The application's google play store url.                                                 |
 | **ios_url**          | `date`          | The application's app store url.                                                         |                       
 | **web_url**          | `string`        | The application's website url.                                                           |                       
-| **requested_permissions**          | `array`        | A list of things the user will consent to when connecting this application to his account.                                                           |                       
+| **requested_permissions**          | `array`        | A list of things the user will consent to when connecting this application to his account.                                                           |
+| **poi_earn_tagline**   | `string`        | A short text explaining how this application will help you earn more Pois.   |         
 | **created_at**       | `datetime`       | The application's creation date.                                                        |
 | **updated_at**       | `datetime`        | The application's last update date.                                                    |                       
 

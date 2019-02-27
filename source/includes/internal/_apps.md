@@ -23,11 +23,17 @@ category     | `category` |         |             | A filter by [category](#cate
 ```json
   {
     "count": 3,
-    "data": [
-      <Application>,
-      <Application>
-      <Application>
-    ]
+    "data": {
+      "spotlight": [
+        <Application>,
+        <Application>
+      ],
+      "applications": [
+        <Application>,
+        <Application>,
+        <Application>
+      ]
+    }
   }
 ```
 
