@@ -114,8 +114,10 @@ This impact data that needs to be provided in the body of the request, varies fr
 
 | name            | description               |
 | --------------- | ------------------------- |
-| distance        | The distance in `kilometers` |
+| distance        | The distance in `meters` |
 | transport       | The mean of transport: `bus`, `train`, `scooter`, `bike`, ... |
+
+Valids means of transports are the followings: `walk`, `bike`, `kick scooter`, `skate`, `rollerblade`, `metro`, `tram`, `suburban train`, `train`, `electric kick scooter`, `electric skate`, `carpool`, `bus`, `scooter`, `electric car` 
 
 ### Consumption
 

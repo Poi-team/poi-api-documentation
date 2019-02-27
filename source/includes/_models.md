@@ -60,6 +60,20 @@
             <Application>,
             <Application>
         ]
+        "apps_to_connect": [
+            {
+                "id": 5,
+                "name": "Cityscoot",
+                "icon": "https://aws.bucket.com/icon-cts.png",
+                "category": "Mobility"
+            },
+            {
+                "id": 3,
+                "name": "Too Good To Go",
+                "icon": "https://aws.bucket.com/icon-tgt.png",
+                "category": "Consumption"
+            }
+        ],
         "connected_apps": [
             {
                 "id": 5,
@@ -76,6 +90,16 @@
                 "category": "Consumption"
             }
         ],
+        "challenges": {
+            "sent": [
+                <Challenge>,
+                <Challenge>,
+                <Challenge>
+            ],
+            "received": [
+                <Challenge>
+            ]
+        },
         "created_at": "2018-08-17T12:24:16.477Z",
         "updated_at": "2018-08-17T12:24:18.477Z"
 
@@ -94,7 +118,9 @@
 | **impact**             | `object`        | An `Impact` object. Includes impact data, the last taken action, the current gauge cycle's data and the list of all possible statuses.|
 | **funded_project**     | `array`         | List of projects the use has funded.                                                     |                       
 | **suggested_applications**       | `array`         | A list of suggested applications, will only be returned after a successful sign in or registration.  |                       
+| **apps_to_connect**     | `array`         | List of 8 apps that can be connected. |                       
 | **connected_apps**     | `array`         | List of all connected apps.                                                              |                       
+| **challenges**     | `object`         | List of sent and received challenges.                                                              |                       
 | **created_at**         | `date`          | User's inscription date.                                                                 |                       
 | **updated_at**         | `date`          | Last user's update.                                                                      |                       
 
@@ -159,11 +185,7 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
         },
         "application": <Application>,
         "category": "consumption", 
-        "total_impact": 30.0,
-        "impact_detail": {
-            "zero_waste": 19.7,
-            "local": 10.3
-        },
+        "earned_points": 30.0,
         "date": "2018-08-17T12:24:18.477Z"
     }
     
@@ -176,8 +198,7 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 | **user**                   | `object`        | The user that triggered the event.   |           
 | **application**            | `object`        | The application that emitted the event.   |                       
 | **category**               | `string `       | The category of the event like `mobility`, `poi`, `health`, `consumption` ...   |
-| **total_impact**           | `decimal`         | The total number of impact points this event generated.   |  
-| **impact_detail**          | `object`        | The number of impact points earned by sub-category. For instance maybe your purchase in consumption was `zero_waste` and `local` granting you a few points for each category. |             
+| **earned_points**           | `decimal`         | The total number of impact points this event generated.   |  
 | **date**                   | `datetime`      | The moment the event took place.   |                       
 
 ## Merchant
