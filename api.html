@@ -804,10 +804,13 @@ Remember — a happy kitten is an authenticated kitten!
 <h2 id='application'>Application</h2><pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tagline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La mobilité facile"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobility"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum, dolor es scoot amet"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.90</span><span class="p">,</span><span class="w">
         </span><span class="s2">"video_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://youtube.com?v=ZF269O8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"banner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz1"</span><span class="p">,</span><span class="w"> 
         </span><span class="s2">"pictures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz1"</span><span class="w"> </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w"> </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz2"</span><span class="w"> </span><span class="p">},</span><span class="w">
@@ -820,6 +823,7 @@ Remember — a happy kitten is an authenticated kitten!
             </span><span class="s2">"Mesurer ton impact en matière de déplacements"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"Te récompenser en fonction de ton usage"</span><span class="w">
         </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"poi_earn_tagline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Roulez plus pour gagner plus de Poi !"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:16.477Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:18.477Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -843,6 +847,11 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The application&#39;s name.</td>
 </tr>
 <tr>
+<td><strong>tagline</strong></td>
+<td><code>string</code></td>
+<td>The application&#39;s tagline.</td>
+</tr>
+<tr>
 <td><strong>category</strong></td>
 <td><code>string</code></td>
 <td>The application&#39;s category.</td>
@@ -858,9 +867,19 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The application&#39;s average rating on the Play and App stores.</td>
 </tr>
 <tr>
+<td><strong>icon</strong></td>
+<td><code>string</code></td>
+<td>The app&#39;s icon image.</td>
+</tr>
+<tr>
+<td><strong>banner</strong></td>
+<td><code>string</code></td>
+<td>The app&#39;s banner image.</td>
+</tr>
+<tr>
 <td><strong>pictures</strong></td>
 <td><code>array</code></td>
-<td>An array of pictures.</td>
+<td>An array of pictures, including icons, banners, and in app screenshots.</td>
 </tr>
 <tr>
 <td><strong>video_url</strong></td>
@@ -886,6 +905,11 @@ Remember — a happy kitten is an authenticated kitten!
 <td><strong>requested_permissions</strong></td>
 <td><code>array</code></td>
 <td>A list of things the user will consent to when connecting this application to his account.</td>
+</tr>
+<tr>
+<td><strong>poi_earn_tagline</strong></td>
+<td><code>string</code></td>
+<td>A short text explaining how this application will help you earn more Pois.</td>
 </tr>
 <tr>
 <td><strong>created_at</strong></td>
