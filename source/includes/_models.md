@@ -12,6 +12,7 @@
         "referral_code": "84V3C",
         "phone_number": "0732233423",
         "impact": {
+            "status_uid": "baby_poi",
             "status": "Baby Poi",
             "level": 15,
             "earned_points": 4327.3,
