@@ -188,6 +188,7 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
     {
         "id": 1,
         "type": "action",
+        "title": "Trajet effectué",
         "user": {
             "id": 1,
             "email": "gaby@poi.app"
@@ -203,7 +204,8 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 | Attribute                | Type            | Description                                                                              |
 |--------------------------|-----------------|------------------------------------------------------------------------------------------|
 | **id**               | `integer`       | The event's unique identifier.                                                       |   
-| **type**                   | `string`        | The type of event.                    |                       
+| **type**                   | `string`        | The [type of event](#event-types).                    |
+| **title**                  | `string`        | A title describing the event.                    |                       
 | **user**                   | `object`        | The user that triggered the event.   |           
 | **application**            | `object`        | The application that emitted the event.   |                       
 | **category**               | `string `       | The category of the event like `mobility`, `poi`, `health`, `consumption` ...   |
@@ -378,5 +380,5 @@ Here is a list of all available categories.
 | **Consumption** |                  |
 | **Recycling** |                  |
 | **Citizenship** |                  |
-| **Investiments** |                  |
+| **Investments** |                  |
 | **Bonus** | All user actions that helped the Poi Network, this includes sign up, challenges, etc... |
