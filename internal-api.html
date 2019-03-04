@@ -301,6 +301,9 @@
                     <a href="#fetch-application" class="toc-h2 toc-link" data-title="Fetch application">Fetch application</a>
                   </li>
                   <li>
+                    <a href="#application-39-s-connected-users" class="toc-h2 toc-link" data-title="Application's connected users">Application's connected users</a>
+                  </li>
+                  <li>
                     <a href="#list-categories" class="toc-h2 toc-link" data-title="List categories">List categories</a>
                   </li>
                   <li>
@@ -1161,10 +1164,47 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;Application&gt;</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<div class="private-endpoint"></div>
+<h2 id='application-39-s-connected-users'>Application&#39;s connected users</h2>
+<p>Get the list of all users that have the given application connected.</p>
+<pre class="highlight shell tab-shell"><code>  curl <span class="s2">"/v1/applications/1/users"</span>
+</code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET /v1/applications/:id/users</code></p>
+<h3 id='url-arguments-2'>URL Arguments</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><code>integer</code></td>
+<td>true</td>
+<td>1</td>
+<td>The application&#39;s id</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="err">&lt;User&gt;</span><span class="p">,</span><span class="w">
+      </span><span class="err">&lt;User&gt;</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
 <div class="public-endpoint"></div>
 <h2 id='list-categories'>List categories</h2>
 <p>Get a list of all <a href="#categories">categories</a> that have applications.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET /v1/applications/categories</code></p>
 
 <blockquote>
@@ -1181,7 +1221,7 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
 <div class="public-endpoint"></div>
 <h2 id='my-connected-apps'>My Connected Apps</h2>
 <p>List of all apps the user has connected.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET /v1/me/apps</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
 <div class="params-table"></div>
@@ -1272,9 +1312,9 @@ d5Wd1kV4SfAc1s0QEtpkXYkCAwEAAQ==
       </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"george@gmail.com"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"encrypted_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WJKZHcAzH9Ee8iavMUvYSKGkSXCcaTthalXTIrUKmjnV1gXgHoPg9/mXR4/fyP/pG87Z1EGPXyM1rUzRWYIlvBSHsLa+EQnFimNGr8NhFNs52AfzsHRM1/BQumTK6Q/ThsMIqbsKnnfYO8NQKbjPprT9NkzWqgpAzuH9XvXGyg0="</span><span class="p">,</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-6'>HTTP Request</h3>
 <p><code>POST /v1/me/apps/:id</code></p>
-<h3 id='url-arguments-2'>URL Arguments</h3>
+<h3 id='url-arguments-3'>URL Arguments</h3>
 <div class="params-table"></div>
 
 <table><thead>
@@ -1335,9 +1375,9 @@ d5Wd1kV4SfAc1s0QEtpkXYkCAwEAAQ==
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <div class="public-endpoint"></div>
-<h2 id='disconnect-an-app'>Disconnect an app</h2><h3 id='http-request-6'>HTTP Request</h3>
+<h2 id='disconnect-an-app'>Disconnect an app</h2><h3 id='http-request-7'>HTTP Request</h3>
 <p><code>DELETE /v1/me/apps/:id</code></p>
-<h3 id='url-arguments-3'>URL Arguments</h3>
+<h3 id='url-arguments-4'>URL Arguments</h3>
 <div class="params-table"></div>
 
 <table><thead>
@@ -1364,9 +1404,9 @@ d5Wd1kV4SfAc1s0QEtpkXYkCAwEAAQ==
 <pre class="highlight plaintext"><code>  HTTP 204 No Content
 </code></pre>
 <div class="public-endpoint"></div>
-<h2 id='list-potential-applications'>List potential applications</h2><h3 id='http-request-7'>HTTP Request</h3>
+<h2 id='list-potential-applications'>List potential applications</h2><h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET /v1/potential_applications</code></p>
-<h3 id='url-arguments-4'>URL Arguments</h3>
+<h3 id='url-arguments-5'>URL Arguments</h3>
 <div class="params-table"></div>
 
 <table><thead>
@@ -1432,7 +1472,7 @@ d5Wd1kV4SfAc1s0QEtpkXYkCAwEAAQ==
     </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobility"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.lime.com"</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-8'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-9'>HTTP Request</h3>
 <p><code>POST /v1/potential_applications</code></p>
 <h3 id='parameters-2'>Parameters</h3>
 <div class="params-table"></div>
@@ -1487,9 +1527,9 @@ d5Wd1kV4SfAc1s0QEtpkXYkCAwEAAQ==
 <div class="public-endpoint"></div>
 <h2 id='vote-for-a-potential-application'>Vote for a potential application</h2>
 <p>Votes for a potential application in stead of the current user. An application can only be voted once.</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>POST /v1/potential_applications/:id/vote</code></p>
-<h3 id='url-arguments-5'>URL Arguments</h3>
+<h3 id='url-arguments-6'>URL Arguments</h3>
 <div class="params-table"></div>
 
 <table><thead>
@@ -1525,9 +1565,9 @@ d5Wd1kV4SfAc1s0QEtpkXYkCAwEAAQ==
 <div class="public-endpoint"></div>
 <h2 id='remove-vote-on-a-potential-application'>Remove vote on a potential application</h2>
 <p>Removes the previous vote by the current user on a potential application.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>DELETE /v1/potential_applications/:id/vote</code></p>
-<h3 id='url-arguments-6'>URL Arguments</h3>
+<h3 id='url-arguments-7'>URL Arguments</h3>
 <div class="params-table"></div>
 
 <table><thead>
