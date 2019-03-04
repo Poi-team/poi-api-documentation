@@ -65,6 +65,37 @@ id           | `integer` | true     | 1           | The application's id |
   }
 ```
 
+<div class="private-endpoint"></div>
+## Application's connected users
+
+Get the list of all users that have the given application connected.
+
+```shell
+  curl "/v1/applications/1/users"
+```
+
+### HTTP Request
+
+`GET /v1/applications/:id/users`
+
+### URL Arguments
+
+<div class="params-table"></div>
+name         | type      | required | default     | description |
+-------------| --------- | -------- | ----------- | ----------- |
+id           | `integer` | true     | 1           | The application's id |
+
+>  JSON Response
+
+```json
+  {
+    "data": [
+      <User>,
+      <User>
+    ]
+  }
+```
+
 <div class="public-endpoint"></div>
 ## List categories
 
