@@ -89,6 +89,7 @@ id           | `integer` | true     | 1           | The application's id |
 
 ```json
   {
+    "count": 2,
     "data": [
       <User>,
       <User>
