@@ -101,6 +101,45 @@
                 <Challenge>
             ]
         },
+        "friends": {
+            "invited": [
+                {
+                "inviter_id": 3,
+                "invitee_id": 12,
+                "name": "Nathan",
+                "phone_number": "+330809832",
+                "status": "accepted"
+                },
+                {
+                "inviter_id": 3,
+                "invitee_id": null,
+                "name": "Lisa",
+                "phone_number": "+336809872",
+                "status": "pending"
+                }
+            ],
+            "friends": [
+                {
+                "id": 1,
+                "name": "George",
+                "phone_number": "+33732231321",
+                "impact_points": 500,
+                "level": 15,
+                },
+                {
+                "id": 13,
+                "name": "Julien",
+                "phone_number": "+33738231370",
+                "impact_points": 300,
+                "level": 12,
+                }
+            ]  
+        },
+        "categories": [
+            "mobility",
+            "consumption",
+            "health"
+        ],
         "created_at": "2018-08-17T12:24:16.477Z",
         "updated_at": "2018-08-17T12:24:18.477Z"
 
@@ -109,20 +148,22 @@
 ```
 | Attribute            | Type              | Description                                                                              |
 |----------------------|-------------------|------------------------------------------------------------------------------------------|
-| **id**                 | `integer`       | The user's unique identifier.                                                                     |   
-| **uid**                | `string`        | A unique identifier, usually the email used to identify the user.                                                |         
-| **full_name**          | `string`        | User's full name.                                                                        |                       
+| **id**                 | `integer`       | The user's unique identifier.                                                            | 
+| **uid**                | `string`        | A unique identifier, usually the email used to identify the user.      |         
+| **full_name**          | `string`        | User's full name.                                                                        | 
 | **email**              | `string`        | User's email address.                                                                    |
 | **referrer_id**        | `integer`       | The referrer's (user that referred) id.                                                  |
-| **referral_code**      | `string`        | The user's referral code, can be used by other users to register.                        |                       
-| **phone_number**       | `string`        | User's phone number.                                                                     |                       
+| **referral_code**      | `string`        | The user's referral code, can be used by other users to register.                        | 
+| **phone_number**       | `string`        | User's phone number.                                                                     |
 | **impact**             | `object`        | An `Impact` object. Includes impact data, the last taken action, the current gauge cycle's data and the list of all possible statuses.|
-| **funded_project**     | `array`         | List of projects the use has funded.                                                     |                       
+| **funded_project**     | `array`         | List of projects the use has funded.                                                     | 
 | **suggested_applications**       | `array`         | A list of suggested applications, will only be returned after a successful sign in or registration.  |                       
 | **apps_to_connect**     | `array`         | List of 8 apps that can be connected. |                       
-| **connected_apps**     | `array`         | List of all connected apps.                                                              |                       
-| **challenges**     | `object`         | List of sent and received challenges.                                                              |                       
-| **created_at**         | `date`          | User's inscription date.                                                                 |                       
+| **connected_apps**     | `array`         | List of all connected apps.          |                
+| **challenges**     | `object`         | List of sent and received challenges.    |                       
+| **friends**     | `object`         | List of friends and invitations for the user. |                 
+| **categories**     | `array`         | List all available categories.                  |                       
+| **created_at**         | `date`          | User's inscription date.                                                                 | 
 | **updated_at**         | `date`          | Last user's update.                                                                      |                       
 
 ## Application
@@ -131,6 +172,7 @@
     {
         "id": 13,
         "name": "Cityscoot",
+        "uid": "cityscoot",
         "tagline": "La mobilité facile",
         "category": "Mobility",
         "description": "Lorem ipsum, dolor es scoot amet",
@@ -160,11 +202,12 @@
 | Attribute            | Type              | Description                                                                              |
 |----------------------|-------------------|------------------------------------------------------------------------------------------|
 | **id**               | `integer`       | The application's unique identifier.                                                       |   
-| **name**             | `string`        | The application's name.                                                                  |         
-| **tagline**             | `string`        | The application's tagline.                                                                  |         
+| **name**             | `string`        | The application's name.                                                                    |    
+| **uid**               | `string`       | The application's unique name, this will never change even if the application is renamed.  |   
+| **tagline**             | `string`        | The application's tagline.                                                            |         
 | **category**         | `string`        | The application's category.                                                              |                       
 | **description**      | `string`        | The application's description.                                                           |     
-| **rating**      | `decimal`        | The application's average rating on the Play and App stores.                                                           |     
+| **rating**      | `decimal`        | The application's average rating on the Play and App stores.                                 |     
 | **icon**         | `string`         | The app's icon image.  |
 | **banner**         | `string`         | The app's banner image.  |
 | **pictures**         | `array`         | An array of pictures, including icons, banners, and in app screenshots.                                                                    |

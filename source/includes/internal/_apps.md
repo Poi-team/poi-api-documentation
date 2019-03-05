@@ -245,12 +245,29 @@ name                 | type      | required | default     | description |
 ---------------------| --------- | -------- | ----------- | ----------- |
 id                   | `integer` | true     |         | Application's id |
 
->  Response
+>  JSON Response
 
+```json
+  {
+    "count": 2,
+    "data": [
+      {
+        "application_id": 4,
+        "name": "Too Good To Go",
+        "icon": "https://aws.bucket.xyz/zwu.png",
+        "email": "george@gmail.com",
+        "status": "connected"
+      },
+      {
+        "application_id": 5,
+        "name": "Cityscoot",
+        "icon": "https://aws.bucket.xyz/cts.png",
+        "email": "abitbol.g@gmail.com",
+        "status": "disconnected"
+      }
+    ]
+  }
 ```
-  HTTP 204 No Content
-```
-
 
 <div class="public-endpoint"></div>
 ## List potential applications
