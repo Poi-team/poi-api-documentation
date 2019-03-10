@@ -213,12 +213,26 @@ id                   | `integer` | true     |         | Friend's ID |
 ```json
   {
     "success": true,
+    "count": 2,
     "data": {
-      "id": 2,
-      "name": "Julien",
-      "phone_number": "+33738231370",
-      "impact_points": 300,
-      "level": 12,
+      "friends": [
+        {
+          "id": 1,
+          "name": "George",
+          "phone_number": "+33732231321",
+          "impact_points": 500,
+          "level": 15,
+          "status_uid": "master_poi"
+        },
+        {
+          "id": 13,
+          "name": "Julien",
+          "phone_number": "+33738231370",
+          "impact_points": 300,
+          "level": 12,
+          "status_uid": "master_poi"
+        }
+      ]
     }
   }
 ```
@@ -239,9 +253,32 @@ name                 | type      | required | default     | description |
 ---------------------| --------- | -------- | ----------- | ----------- |
 id                   | `integer` | true     |         | Friend's ID |
 
->  Response
+>  JSON Response
 
-```
-  HTTP 204 No Content
+```json
+  {
+    "success": true,
+    "count": 2,
+    "data": {
+      "friends": [
+        {
+          "id": 1,
+          "name": "George",
+          "phone_number": "+33732231321",
+          "impact_points": 500,
+          "level": 15,
+          "status_uid": "master_poi"
+        },
+        {
+          "id": 13,
+          "name": "Julien",
+          "phone_number": "+33738231370",
+          "impact_points": 300,
+          "level": 12,
+          "status_uid": "master_poi"
+        }
+      ]
+    }
+  }
 ```
 
