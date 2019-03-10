@@ -281,6 +281,9 @@
                     <a href="#my-friends" class="toc-h2 toc-link" data-title="My Friends">My Friends</a>
                   </li>
                   <li>
+                    <a href="#register-contacts" class="toc-h2 toc-link" data-title="Register contacts">Register contacts</a>
+                  </li>
+                  <li>
                     <a href="#invite-contact" class="toc-h2 toc-link" data-title="Invite contact">Invite contact</a>
                   </li>
                   <li>
@@ -368,6 +371,9 @@
                   </li>
                   <li>
                     <a href="#challenge-a-friend" class="toc-h2 toc-link" data-title="Challenge a friend">Challenge a friend</a>
+                  </li>
+                  <li>
+                    <a href="#accepte-a-friend-39-s-challenge" class="toc-h2 toc-link" data-title="Accepte a friend's challenge">Accepte a friend's challenge</a>
                   </li>
               </ul>
           </li>
@@ -825,6 +831,10 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
         </span><span class="s2">"current_cycle"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"points"</span><span class="p">:</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w">
             </span><span class="s2">"maximum_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consommation"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poiem ipsum dolor es sit amet."</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"mobility"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -833,14 +843,37 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
         </span><span class="s2">"current_cycle"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"points"</span><span class="p">:</span><span class="w"> </span><span class="mi">350</span><span class="p">,</span><span class="w">
             </span><span class="s2">"maximum_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">800</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobilité"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poiem ipsum dolor es sit amet."</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
-       </span><span class="s2">"health"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="s2">"bonus"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"earned_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="s2">"current_cycle"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"points"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"maximum_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bonus"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poiem ipsum dolor es sit amet non secitur."</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"actions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                  </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Connecter une app"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"reward"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                  </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parrainer un ami"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"reward"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                  </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Défier un ami"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"reward"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+          </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -934,6 +967,7 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
           </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+33732231321"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"impact_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
           </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"status_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"master_poi"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
@@ -941,9 +975,104 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
           </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+33738231370"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"impact_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
           </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"status_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"master_poi"</span><span class="w">
         </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">  
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"suggested_friends"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+33732231321"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"impact_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"status_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"master_poi"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Julien"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+33738231370"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"impact_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"status_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"master_poi"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">    
     </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<div class="public-endpoint"></div>
+<h2 id='register-contacts'>Register contacts</h2>
+<p>This endpoint is used to sent the user&#39;s device contact list so it can be matched against our database, allowing us to suggest friends to the user.</p>
+
+<p>Returns a list of friends suggestions.</p>
+
+<blockquote>
+<p>Request Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George Abitbol"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0732030203"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Martha Abitbol"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0732031204"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST /v1/me/contacts/register</code></p>
+<h3 id='parameters'>Parameters</h3>
+<p>Needs to send an <code>array</code> of <code>objects</code> with those keys:</p>
+
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td><code>string</code></td>
+<td>true</td>
+<td></td>
+<td>Contact&#39;s name</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td><code>string</code></td>
+<td>true</td>
+<td></td>
+<td>Contact&#39;s phone number</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+33732030203"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"impact_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"status_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"master_poi"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Martha"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+33732031204"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"impact_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"master_poi"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <div class="public-endpoint"></div>
@@ -957,9 +1086,9 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George Abitbol"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0732030203"</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST /v1/me/invites</code></p>
-<h3 id='parameters'>Parameters</h3>
+<h3 id='parameters-2'>Parameters</h3>
 <div class="params-table"></div>
 
 <table><thead>
@@ -1004,7 +1133,7 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
 <div class="public-endpoint"></div>
 <h2 id='add-friend'>Add friend</h2>
 <p>Adds an user to the current user&#39;s friend list.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>POST /v1/me/friends/:id</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <div class="params-table"></div>
@@ -1044,7 +1173,7 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
 <div class="public-endpoint"></div>
 <h2 id='remove-friend'>Remove friend</h2>
 <p>Removes an user from the current user&#39;s friend list.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>DELETE /v1/me/friends/:id</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <div class="params-table"></div>
@@ -1212,11 +1341,20 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
 <p>JSON Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"mobility"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"consumption"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"health"</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"mobility"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobilité"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poi détermine ton épargne carbone par km selon les moyens de transport que tu choisis. (Base de référence : émission de CO2 pour une personne seule dans sa voiture à essence)"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"recycling"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Recyclage"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poiem ipsum dolor es sit amet non secitur."</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"consumption"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consommation"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poiem ipsum dolor es sit amet non secitur."</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <div class="public-endpoint"></div>
@@ -1367,12 +1505,23 @@ d5Wd1kV4SfAc1s0QEtpkXYkCAwEAAQ==
 <p>JSON Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"application_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"connected"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"application_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too Good To Go"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/zwu.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"george@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"connected"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"application_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/cts.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abitbol.g@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disconnected"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <div class="public-endpoint"></div>
@@ -2004,6 +2153,40 @@ d5Wd1kV4SfAc1s0QEtpkXYkCAwEAAQ==
 <td>true</td>
 <td></td>
 <td>Number of points to reach to complete the challenge.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;Challenge&gt;</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<div class="public-endpoint"></div>
+<h2 id='accepte-a-friend-39-s-challenge'>Accepte a friend&#39;s challenge</h2>
+<p>Accept a challenge sent to the current user.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>PUT /v1/me/challenges/:id/accept</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><code>integer</code></td>
+<td>true</td>
+<td></td>
+<td>The challenge&#39;s id</td>
 </tr>
 </tbody></table>
 
@@ -2666,6 +2849,7 @@ This impact data that needs to be provided in the body of the request, varies fr
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"action"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trajet effectué"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.xyz/logo.png"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gaby@poi.app"</span><span class="w">
@@ -2698,6 +2882,11 @@ This impact data that needs to be provided in the body of the request, varies fr
 <td><strong>title</strong></td>
 <td><code>string</code></td>
 <td>A title describing the event.</td>
+</tr>
+<tr>
+<td><strong>icon</strong></td>
+<td><code>string</code></td>
+<td>The url of the event&#39;s icon.</td>
 </tr>
 <tr>
 <td><strong>user</strong></td>
