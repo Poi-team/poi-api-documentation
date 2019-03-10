@@ -18,7 +18,7 @@
             "earned_points": 4327.3,
             "spent_points": 2137.5,
             "current_points": 2198.8,
-            "last_action": <Event>,
+            "last_actions": [<Event>, <Event>, <Event>],
             "current_cycle": {
                 "points": 137.5,
                 "maximum_points": 500,
@@ -104,41 +104,68 @@
         "friends": {
             "invited": [
                 {
-                "inviter_id": 3,
-                "invitee_id": 12,
-                "name": "Nathan",
-                "phone_number": "+330809832",
-                "status": "accepted"
+                    "inviter_id": 3,
+                    "invitee_id": 12,
+                    "name": "Nathan",
+                    "phone_number": "+3367809832",
+                    "status": "accepted"
                 },
                 {
-                "inviter_id": 3,
-                "invitee_id": null,
-                "name": "Lisa",
-                "phone_number": "+336809872",
-                "status": "pending"
+                    "inviter_id": 3,
+                    "invitee_id": null,
+                    "name": "Lisa",
+                    "phone_number": "+3376809872",
+                    "status": "pending"
                 }
             ],
             "friends": [
                 {
-                "id": 1,
-                "name": "George",
-                "phone_number": "+33732231321",
-                "impact_points": 500,
-                "level": 15,
+                    "id": 2,
+                    "name": "Jeremy Andre",
+                    "phone_number": "+33683853938",
+                    "impact_points": 0,
+                    "level": 1,
+                    "status_uid": "baby_poi"
                 },
                 {
-                "id": 13,
-                "name": "Julien",
-                "phone_number": "+33738231370",
-                "impact_points": 300,
-                "level": 12,
+                    "id": 2,
+                    "name": "Martha Andre",
+                    "phone_number": "+33683853938",
+                    "impact_points": 0,
+                    "level": 1,
+                    "status_uid": "baby_poi"
                 }
-            ]  
+            ],
+            "suggested_friends": [
+                {
+                    "id": 3,
+                    "name": "Gaby",
+                    "phone_number": "+33683853679",
+                    "impact_points": 3,
+                    "level": 1,
+                    "status_uid": "baby_poi"
+                }
+            ]
         },
         "categories": [
-            "mobility",
-            "consumption",
-            "health"
+            {
+                "mobility": {
+                    "title": "Mobilité",
+                    "description": "Poi détermine ton épargne carbone par km selon les moyens de transport que tu choisis. (Base de référence : émission de CO2 pour une personne seule dans sa voiture à essence)"
+                }
+            },
+            {
+                "recycling": {
+                    "title": "Recyclage",
+                    "description": "Poiem ipsum dolor es sit amet non secitur."
+                }
+            },
+            {
+                "consumption": {
+                    "title": "Consommation",
+                    "description": "Poiem ipsum dolor es sit amet non secitur."
+                }
+            }
         ],
         "created_at": "2018-08-17T12:24:16.477Z",
         "updated_at": "2018-08-17T12:24:18.477Z"
@@ -161,8 +188,8 @@
 | **apps_to_connect**     | `array`         | List of 8 apps that can be connected. |                       
 | **connected_apps**     | `array`         | List of all connected apps.          |                
 | **challenges**     | `object`         | List of sent and received challenges.    |                       
-| **friends**     | `object`         | List of friends and invitations for the user. |                 
-| **categories**     | `array`         | List all available categories.                  |                       
+| **friends**     | `object`         | List of friends, friends suggestions and invitations for the user. |                 
+| **categories**     | `object`         | List all available categories with names and detail.                  |                       
 | **created_at**         | `date`          | User's inscription date.                                                                 | 
 | **updated_at**         | `date`          | Last user's update.                                                                      |                       
 
