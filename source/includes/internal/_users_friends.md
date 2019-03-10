@@ -54,6 +54,7 @@ List all the user's friends and invited persons.
           "phone_number": "+33732231321",
           "impact_points": 500,
           "level": 15,
+          "status_uid": "master_poi"
         },
         {
           "id": 13,
@@ -61,11 +62,94 @@ List all the user's friends and invited persons.
           "phone_number": "+33738231370",
           "impact_points": 300,
           "level": 12,
+          "status_uid": "master_poi"
         }
-      ]  
+      ],
+      "suggested_friends": [
+        {
+          "id": 5,
+          "name": "George",
+          "phone_number": "+33732231321",
+          "impact_points": 500,
+          "level": 15,
+          "status_uid": "master_poi"
+        },
+        {
+          "id": 11,
+          "name": "Julien",
+          "phone_number": "+33738231370",
+          "impact_points": 300,
+          "level": 12,
+          "status_uid": "master_poi"
+        }
+      ]    
     }
   }
 ```
+
+<div class="public-endpoint"></div>
+## Register contacts
+
+This endpoint is used to sent the user's device contact list so it can be matched against our database, allowing us to suggest friends to the user.
+
+Returns a list of friends suggestions.
+
+
+> Request Body
+
+```json
+  [
+    {
+      "name": "George Abitbol",
+      "phone_number": "0732030203"
+    },
+    {
+      "name": "Martha Abitbol",
+      "phone_number": "0732031204"
+    }
+  ]
+```
+
+### HTTP Request
+
+`POST /v1/me/contacts/register`
+
+### Parameters
+
+Needs to send an `array` of `objects` with those keys:
+
+<div class="params-table"></div>
+name                 | type      | required | default     | description |
+---------------------| --------- | -------- | ----------- | ----------- |
+name         | `string`  | true  |         | Contact's name |
+phone_number | `string`  | true  |         | Contact's phone number |
+
+>  JSON Response
+
+```json
+  {
+    "success": true,
+    "data": [
+      {
+          "id": 5,
+          "name": "George",
+          "phone_number": "+33732030203",
+          "impact_points": 500,
+          "level": 15,
+          "status_uid": "master_poi"
+      },
+      {
+        "id": 11,
+        "name": "Martha",
+        "phone_number": "+33732031204",
+        "impact_points": 300,
+        "level": 12,
+        "status_uid": "master_poi"
+      }
+    ]
+  }
+```
+
 
 <div class="public-endpoint"></div>
 ## Invite contact

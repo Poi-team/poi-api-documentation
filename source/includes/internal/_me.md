@@ -48,6 +48,10 @@ Gets the current user's impact data grouped by [categories](#categories).
         "current_cycle": {
             "points": 102,
             "maximum_points": 500
+        },
+        "category": {
+          "title": "Consommation",
+          "description": "Poiem ipsum dolor es sit amet."
         }
       },
       "mobility": {
@@ -56,14 +60,37 @@ Gets the current user's impact data grouped by [categories](#categories).
         "current_cycle": {
             "points": 350,
             "maximum_points": 800
+        },
+        "category": {
+          "title": "Mobilité",
+          "description": "Poiem ipsum dolor es sit amet."
         }
       },
-       "health": {
+       "bonus": {
         "level": 1,
         "earned_points": 0,
         "current_cycle": {
             "points": 0,
             "maximum_points": 500
+        },
+        "category": {
+          "title": "Bonus",
+          "description": "Poiem ipsum dolor es sit amet non secitur.",
+          "actions": [
+              {
+                  "title": "Connecter une app",
+                  "reward": 5
+              },
+              {
+                  "title": "Parrainer un ami",
+                  "reward": 10
+              },
+              {
+                  "title": "Défier un ami",
+                  "reward": 10
+              }
+            ]
+          }
         }
       }
     }

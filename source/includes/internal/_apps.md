@@ -110,11 +110,20 @@ Get a list of all [categories](#categories) that have applications.
 
 ```json
   {
-    "data": [
-      "mobility",
-      "consumption",
-      "health"
-    ]
+    "data": {
+      "mobility": {
+        "title": "Mobilité",
+        "description": "Poi détermine ton épargne carbone par km selon les moyens de transport que tu choisis. (Base de référence : émission de CO2 pour une personne seule dans sa voiture à essence)"
+      },
+      "recycling": {
+        "title": "Recyclage",
+        "description": "Poiem ipsum dolor es sit amet non secitur."
+      },
+      "consumption": {
+        "title": "Consommation",
+        "description": "Poiem ipsum dolor es sit amet non secitur."
+      }
+    }
   }
 ```
 
@@ -222,15 +231,25 @@ encrypted_password      | `string`  | true     |             | The user's passwo
 
 ```json
   {
-    "success": true,
-    "data": {
-      "application_id": 3,
-      "name": "Cityscoot",
-      "connected": true
-    }
+    "count": 2,
+    "data": [
+      {
+        "application_id": 4,
+        "name": "Too Good To Go",
+        "icon": "https://aws.bucket.xyz/zwu.png",
+        "email": "george@gmail.com",
+        "status": "connected"
+      },
+      {
+        "application_id": 5,
+        "name": "Cityscoot",
+        "icon": "https://aws.bucket.xyz/cts.png",
+        "email": "abitbol.g@gmail.com",
+        "status": "disconnected"
+      }
+    ]
   }
 ```
-
 <div class="public-endpoint"></div>
 ## Disconnect an app
 

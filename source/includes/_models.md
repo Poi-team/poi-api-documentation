@@ -232,6 +232,7 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
         "id": 1,
         "type": "action",
         "title": "Trajet effectué",
+        "icon": "https://aws.xyz/logo.png",
         "user": {
             "id": 1,
             "email": "gaby@poi.app"
@@ -249,6 +250,7 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 | **id**               | `integer`       | The event's unique identifier.                                                       |   
 | **type**                   | `string`        | The [type of event](#event-types).                    |
 | **title**                  | `string`        | A title describing the event.                    |                       
+| **icon**                  | `string`        | The url of the event's icon.      |                       
 | **user**                   | `object`        | The user that triggered the event.   |           
 | **application**            | `object`        | The application that emitted the event.   |                       
 | **category**               | `string `       | The category of the event like `mobility`, `poi`, `health`, `consumption` ...   |
