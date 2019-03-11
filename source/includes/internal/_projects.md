@@ -21,11 +21,18 @@ per_page     | `integer` |          | 50          | Number of events per page |
 
 ```json
   {
-    "data": [
-      <Project>,
-      <Project>,
-      <Project>
-    ]
+    "count": 3,
+    "data": {
+      "spotlight": {
+        <Project>,
+        <Project>,
+        <Project>
+      },
+       "projects": {
+        <Project>,
+        <Project>
+      }
+    }
   }
 ```
 

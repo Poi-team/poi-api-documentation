@@ -386,14 +386,17 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
     {
         "id": 1,
         "name": "Too Good To Go - 30%",
+        "tagline": "Lorem ipsum",
         "description": "Get - 30% on your next too good to go purchase!",
-        "picture": "https://aws.bucket.xyz/zwu.png",
+        "icon": "https://aws.bucket.xyz/zwu.png",
+        "banner": "https://aws.bucket.xyz/xwu.png",
         "price": 40.0,
         "amount": 30.0,
         "lifespan": "6 months",
         "is_percentage": true,
         "application": {
             "id": 5,
+            "category": "consumption",
             "name": "Too Good To Go"
         }
     }
@@ -403,8 +406,10 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 |--------------------------|-----------------|--------------------------------------|
 | **id**                   | `integer`       | The perk's unique identifier.        |   
 | **name**                 | `string`        | The perk's name.                     |
+| **tagline**              | `string`        | The perk's tagline.                     |
 | **description**          | `string`        | The perk's description.              |           
-| **picture**              | `string`        | The perk's picture url.              |
+| **icon**              | `string`        | The perk's icon url.              |
+| **banner**              | `string`        | The perk's banner url.              |
 | **amount**               | `decimal`       | The amount of discount.              | 
 | **price**                | `decimal`       | The perk's price in Pois.            |  
 | **lifespan**             | `string`        | For how long can the perk be used before it expires. |
@@ -416,17 +421,15 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 
 ```json
     {
-       "id": 13,
-       "name": "Le petit Bordelais",
-       "description": "Lorem ipsum dolor es sit amet.",
-       "status": "active", 
-       "total_funded": 200, 
-       "supporters_ount": 5, 
-       "pictures": [
-            { "kind": "banner", "url": "http://aws.s3.com/xyz" },
-            { "kind": "banner", "url": "http://aws.s3.com/xyz" },
-            { "kind": "photo", "url": "http://aws.s3.com/xyz" },
-        ],
+        "id": 13,
+        "name": "Le petit Bordelais",
+        "tagline": "Lorem ipsum",
+        "description": "Lorem ipsum dolor es sit amet.",
+        "status": "active", 
+        "total_funded": 200, 
+        "supporters_ount": 5, 
+        "banner": "http://aws.s3.com/xyz",
+        "icon": "http://aws.s3.com/xyz",
         "created_at": "2018-08-10T12:24:18.477Z"
     }
 ```
@@ -434,9 +437,11 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 | Attribute                | Type            | Description                          |
 |--------------------------|-----------------|--------------------------------------|
 | **id**                   | `integer`       | The project's unique identifier.        |   
-| **name**                 | `string`        | The project's name.                     |
+| **name**                 | `string`        | The project's tagline.                     |
+| **tagline**                 | `string`        | The project's tagline.                     |
 | **description**          | `string`        | The project's description.              |         
-| **pictures**              | `object`        | The project's pictures as an object.   |
+| **banner**              | `string`        | The project's banner.   |
+| **icon**              | `string`        | The project's icon.   |
 | **total_funded**        | `decimal`         | The total number of Pois funded into the project |
 | **supporters_count**          | `integer`  | The number of people that participated in funding this project. | 
 | **status**              | `string` | The status of the project, either `funded` if it has been successfuly funded and is now done, or `active`.
