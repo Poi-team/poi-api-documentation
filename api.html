@@ -1264,14 +1264,17 @@ Remember — a happy kitten is an authenticated kitten!
 <h2 id='perk'>Perk</h2><pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too Good To Go - 30%"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tagline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get - 30% on your next too good to go purchase!"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"picture"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/zwu.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/zwu.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"banner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/xwu.png"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">40.0</span><span class="p">,</span><span class="w">
         </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">30.0</span><span class="p">,</span><span class="w">
         </span><span class="s2">"lifespan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6 months"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"is_percentage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"application"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"consumption"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too Good To Go"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1294,14 +1297,24 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The perk&#39;s name.</td>
 </tr>
 <tr>
+<td><strong>tagline</strong></td>
+<td><code>string</code></td>
+<td>The perk&#39;s tagline.</td>
+</tr>
+<tr>
 <td><strong>description</strong></td>
 <td><code>string</code></td>
 <td>The perk&#39;s description.</td>
 </tr>
 <tr>
-<td><strong>picture</strong></td>
+<td><strong>icon</strong></td>
 <td><code>string</code></td>
-<td>The perk&#39;s picture url.</td>
+<td>The perk&#39;s icon url.</td>
+</tr>
+<tr>
+<td><strong>banner</strong></td>
+<td><code>string</code></td>
+<td>The perk&#39;s banner url.</td>
 </tr>
 <tr>
 <td><strong>amount</strong></td>
@@ -1330,17 +1343,15 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </tbody></table>
 <h2 id='project'>Project</h2><pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
-       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Le petit Bordelais"</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum dolor es sit amet."</span><span class="p">,</span><span class="w">
-       </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w"> 
-       </span><span class="s2">"total_funded"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> 
-       </span><span class="s2">"supporters_ount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> 
-       </span><span class="s2">"pictures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"banner"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz"</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"banner"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz"</span><span class="w"> </span><span class="p">},</span><span class="w">
-            </span><span class="p">{</span><span class="w"> </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"photo"</span><span class="p">,</span><span class="w"> </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz"</span><span class="w"> </span><span class="p">},</span><span class="w">
-        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Le petit Bordelais"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tagline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum dolor es sit amet."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"total_funded"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"supporters_ount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"banner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://aws.s3.com/xyz"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-10T12:24:18.477Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1359,7 +1370,12 @@ Remember — a happy kitten is an authenticated kitten!
 <tr>
 <td><strong>name</strong></td>
 <td><code>string</code></td>
-<td>The project&#39;s name.</td>
+<td>The project&#39;s tagline.</td>
+</tr>
+<tr>
+<td><strong>tagline</strong></td>
+<td><code>string</code></td>
+<td>The project&#39;s tagline.</td>
 </tr>
 <tr>
 <td><strong>description</strong></td>
@@ -1367,9 +1383,14 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The project&#39;s description.</td>
 </tr>
 <tr>
-<td><strong>pictures</strong></td>
-<td><code>object</code></td>
-<td>The project&#39;s pictures as an object.</td>
+<td><strong>banner</strong></td>
+<td><code>string</code></td>
+<td>The project&#39;s banner.</td>
+</tr>
+<tr>
+<td><strong>icon</strong></td>
+<td><code>string</code></td>
+<td>The project&#39;s icon.</td>
 </tr>
 <tr>
 <td><strong>total_funded</strong></td>
