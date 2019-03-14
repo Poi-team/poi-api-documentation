@@ -373,7 +373,10 @@
                     <a href="#challenge-a-friend" class="toc-h2 toc-link" data-title="Challenge a friend">Challenge a friend</a>
                   </li>
                   <li>
-                    <a href="#accepte-a-friend-39-s-challenge" class="toc-h2 toc-link" data-title="Accepte a friend's challenge">Accepte a friend's challenge</a>
+                    <a href="#accept-a-friend-39-s-challenge" class="toc-h2 toc-link" data-title="Accept a friend's challenge">Accept a friend's challenge</a>
+                  </li>
+                  <li>
+                    <a href="#deny-a-friend-39-s-challenge" class="toc-h2 toc-link" data-title="Deny a friend's challenge">Deny a friend's challenge</a>
                   </li>
               </ul>
           </li>
@@ -2264,11 +2267,45 @@ d5Wd1kV4SfAc1s0QEtpkXYkCAwEAAQ==
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <div class="public-endpoint"></div>
-<h2 id='accepte-a-friend-39-s-challenge'>Accepte a friend&#39;s challenge</h2>
+<h2 id='accept-a-friend-39-s-challenge'>Accept a friend&#39;s challenge</h2>
 <p>Accept a challenge sent to the current user.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>PUT /v1/me/challenges/:id/accept</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
+<div class="params-table"></div>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>required</th>
+<th>default</th>
+<th>description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><code>integer</code></td>
+<td>true</td>
+<td></td>
+<td>The challenge&#39;s id</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;Challenge&gt;</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<div class="public-endpoint"></div>
+<h2 id='deny-a-friend-39-s-challenge'>Deny a friend&#39;s challenge</h2>
+<p>Deny a challenge sent to the current user.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT /v1/me/challenges/:id/deny</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
 <div class="params-table"></div>
 
 <table><thead>
