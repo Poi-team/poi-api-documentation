@@ -60,7 +60,7 @@
         "suggested_applications": [
             <Application>,
             <Application>
-        ]
+        ],
         "apps_to_connect": [
             {
                 "id": 5,
@@ -80,15 +80,17 @@
                 "id": 5,
                 "name": "Cityscoot",
                 "icon": "https://aws.bucket.com/icon-cts.png",
+                "category": "Mobility",
                 "email": "daniel.pollock@gmail.com",
-                "category": "Mobility"
+                "status": "connected",
             },
             {
                 "id": 3,
                 "name": "Too Good To Go",
                 "icon": "https://aws.bucket.com/icon-tgt.png",
+                "category": "Consumption",
                 "email": "daniel@gmail.com",
-                "category": "Consumption"
+                "status": "disconnected",
             }
         ],
         "challenges": {
@@ -147,6 +149,20 @@
                 }
             ]
         },
+        "perks": [
+            <Perk>,
+            <Perk>
+        ],
+        "projects": {
+            "spotlight": [
+                <Project>,
+                <Project>
+            ],
+            "projects": [
+                <Project>,
+                <Project>
+            ]
+        },
         "categories": [
             {
                 "mobility": {
@@ -183,7 +199,9 @@
 | **referral_code**      | `string`        | The user's referral code, can be used by other users to register.                        | 
 | **phone_number**       | `string`        | User's phone number.                                                                     |
 | **impact**             | `object`        | An `Impact` object. Includes impact data, the last taken action, the current gauge cycle's data and the list of all possible statuses.|
+| **projects**           | `object`         | A list of impact projects that might interest the user. Also returns the current spotlighted projects.     | 
 | **funded_project**     | `array`         | List of projects the use has funded.                                                     | 
+| **perks**           | `array`         | A list of perks that might interest the user.  | 
 | **suggested_applications**       | `array`         | A list of suggested applications, will only be returned after a successful sign in or registration.  |                       
 | **apps_to_connect**     | `array`         | List of 8 apps that can be connected. |                       
 | **connected_apps**     | `array`         | List of all connected apps.          |                
@@ -387,6 +405,7 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
         "id": 1,
         "name": "Too Good To Go - 30%",
         "tagline": "Lorem ipsum",
+        "success_label": "Profitez bien de votre offre Too Good To Go !",
         "description": "Get - 30% on your next too good to go purchase!",
         "icon": "https://aws.bucket.xyz/zwu.png",
         "banner": "https://aws.bucket.xyz/xwu.png",
@@ -407,6 +426,7 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 | **id**                   | `integer`       | The perk's unique identifier.        |   
 | **name**                 | `string`        | The perk's name.                     |
 | **tagline**              | `string`        | The perk's tagline.                     |
+| **success_label**        | `string`        | A text that will be displayed to the user upon purchase.  |
 | **description**          | `string`        | The perk's description.              |           
 | **icon**              | `string`        | The perk's icon url.              |
 | **banner**              | `string`        | The perk's banner url.              |
@@ -424,6 +444,7 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
         "id": 13,
         "name": "Le petit Bordelais",
         "tagline": "Lorem ipsum",
+        "success_label": "L'association Le Petit Bordelais vous remercie !",
         "description": "Lorem ipsum dolor es sit amet.",
         "status": "active", 
         "total_funded": 200, 
@@ -439,6 +460,7 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 | **id**                   | `integer`       | The project's unique identifier.        |   
 | **name**                 | `string`        | The project's tagline.                     |
 | **tagline**                 | `string`        | The project's tagline.                     |
+| **success_label**        | `string`        | A text that will be displayed to the user upon purchase.  |
 | **description**          | `string`        | The project's description.              |         
 | **banner**              | `string`        | The project's banner.   |
 | **icon**              | `string`        | The project's icon.   |

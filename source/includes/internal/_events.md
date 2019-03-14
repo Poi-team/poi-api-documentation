@@ -39,10 +39,10 @@ per_page     | `integer` |          | 50          | Number of events per page in
 
 ```json
   {
-    "count": 15,
+    "count": 18,
     "data": {
       "period": "month",
-      "period_improvements": 15,
+      "actions_count": 15,
       "chart": {
         "type": "bar",
         "x_axis": ["L", "M", "M", "J", "V", "S", "D"],

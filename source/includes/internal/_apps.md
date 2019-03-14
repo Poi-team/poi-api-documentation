@@ -147,25 +147,36 @@ per_page     | `integer` |          | 20          | Number of events per page |
 >  JSON Response
 
 ```json
-  {
-    "count": 2,
-    "data": [
+{
+  "data": {
+    "apps_to_connect": [
       {
-        "application_id": 4,
-        "name": "Too Good To Go",
-        "icon": "https://aws.bucket.xyz/zwu.png",
-        "email": "george@gmail.com",
+        "id": 2,
+        "name": "Yoyo",
+        "icon": "https://poi-api.s3.amazonaws.com/application/icon/logo_yoyo_189ed5d21e.png",
+        "category": "recycling"
+      }
+    ],
+    "connected_apps": [
+      {
+        "id": 1,
+        "name": "Lime",
+        "icon": "https://poi-api.s3.amazonaws.com/application/icon/logo_lime_baafc20747.png",
+        "email": "toto@gmail.com",
+        "category": "mobility",
         "status": "connected"
       },
       {
-        "application_id": 5,
-        "name": "Cityscoot",
-        "icon": "https://aws.bucket.xyz/cts.png",
-        "email": "abitbol.g@gmail.com",
-        "status": "disconnected"
+        "id": 3,
+        "name": "Phenix",
+        "icon": "https://poi-api.s3.amazonaws.com/application/icon/logo_phenix_ba5b6fa137.png",
+        "email": "tech@poi.app",
+        "category": "consumption",
+        "status": "connected"
       }
     ]
   }
+}
 ```
 
 <div class="public-endpoint"></div>
@@ -230,25 +241,36 @@ encrypted_password      | `string`  | true     |             | The user's passwo
 >  JSON Response
 
 ```json
-  {
-    "count": 2,
-    "data": [
+{
+  "data": {
+    "apps_to_connect": [
       {
-        "application_id": 4,
-        "name": "Too Good To Go",
-        "icon": "https://aws.bucket.xyz/zwu.png",
-        "email": "george@gmail.com",
+        "id": 2,
+        "name": "Yoyo",
+        "icon": "https://poi-api.s3.amazonaws.com/application/icon/logo_yoyo_189ed5d21e.png",
+        "category": "recycling"
+      }
+    ],
+    "connected_apps": [
+      {
+        "id": 1,
+        "name": "Lime",
+        "icon": "https://poi-api.s3.amazonaws.com/application/icon/logo_lime_baafc20747.png",
+        "email": "toto@gmail.com",
+        "category": "mobility",
         "status": "connected"
       },
       {
-        "application_id": 5,
-        "name": "Cityscoot",
-        "icon": "https://aws.bucket.xyz/cts.png",
-        "email": "abitbol.g@gmail.com",
-        "status": "disconnected"
+        "id": 3,
+        "name": "Phenix",
+        "icon": "https://poi-api.s3.amazonaws.com/application/icon/logo_phenix_ba5b6fa137.png",
+        "email": "tech@poi.app",
+        "category": "consumption",
+        "status": "connected"
       }
     ]
   }
+}
 ```
 <div class="public-endpoint"></div>
 ## Disconnect an app
@@ -267,25 +289,36 @@ id                   | `integer` | true     |         | Application's id |
 >  JSON Response
 
 ```json
-  {
-    "count": 2,
-    "data": [
+{
+  "data": {
+    "apps_to_connect": [
       {
-        "application_id": 4,
-        "name": "Too Good To Go",
-        "icon": "https://aws.bucket.xyz/zwu.png",
-        "email": "george@gmail.com",
+        "id": 2,
+        "name": "Yoyo",
+        "icon": "https://poi-api.s3.amazonaws.com/application/icon/logo_yoyo_189ed5d21e.png",
+        "category": "recycling"
+      }
+    ],
+    "connected_apps": [
+      {
+        "id": 1,
+        "name": "Lime",
+        "icon": "https://poi-api.s3.amazonaws.com/application/icon/logo_lime_baafc20747.png",
+        "email": "toto@gmail.com",
+        "category": "mobility",
         "status": "connected"
       },
       {
-        "application_id": 5,
-        "name": "Cityscoot",
-        "icon": "https://aws.bucket.xyz/cts.png",
-        "email": "abitbol.g@gmail.com",
-        "status": "disconnected"
+        "id": 3,
+        "name": "Phenix",
+        "icon": "https://poi-api.s3.amazonaws.com/application/icon/logo_phenix_ba5b6fa137.png",
+        "email": "tech@poi.app",
+        "category": "consumption",
+        "status": "connected"
       }
     ]
   }
+}
 ```
 
 <div class="public-endpoint"></div>
