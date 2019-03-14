@@ -76,13 +76,39 @@ goal                 | `integer` | true     |         | Number of points to reac
 ```
 
 <div class="public-endpoint"></div>
-## Accepte a friend's challenge
+## Accept a friend's challenge
 
 Accept a challenge sent to the current user.
 
 ### HTTP Request
 
 `PUT /v1/me/challenges/:id/accept`
+
+### URL Parameters
+
+<div class="params-table"></div>
+name                 | type      | required | default     | description |
+---------------------| --------- | -------- | ----------- | ----------- |
+id                   | `integer` | true     |             | The challenge's id |
+ 
+
+>  JSON Response
+
+```json
+  {
+    "success": true,
+    "data": <Challenge>
+  }
+```
+
+<div class="public-endpoint"></div>
+## Deny a friend's challenge
+
+Deny a challenge sent to the current user.
+
+### HTTP Request
+
+`PUT /v1/me/challenges/:id/deny`
 
 ### URL Parameters
 
