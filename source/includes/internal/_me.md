@@ -93,6 +93,28 @@ Gets the current user's impact data grouped by [categories](#categories).
           }
         }
       }
+    },
+    "statuses_list": {
+      "baby_poi": {
+        "points_threshold": 0,
+        "has_seen_celebration": false
+      },
+      "young_poi": {
+        "points_threshold": 1000,
+        "has_seen_celebration": false
+      },
+      "yogi_poi": {
+        "points_threshold": 2000,
+        "has_seen_celebration": false
+      },
+      "master_poi": {
+        "points_threshold": 3000,
+        "has_seen_celebration": false
+      },
+      "poi_ambassador": {
+        "points_threshold": 4000,
+        "has_seen_celebration": false
+      }
     }
   }
 ```

@@ -352,7 +352,7 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 ```json
 
     {
-        "id":1,
+        "id": 1,
         "challenger": {
             "id": 1,
             "name": "George Abitbol",
@@ -367,10 +367,12 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
         },
         "status": "pending",
         "category": "mobility", 
-        "timeframe": "1 week",
+        "categoryLabel": "Mobilité",
+        "timeframe": "1 semaine",
         "created_at": "2018-08-10T12:24:18.477Z",
         "end_date": "2018-08-17T12:24:18.477Z",
         "goal": 50.0,
+        "score": 0.0,
         "reward": 10.0,
         "tips": [
             {
@@ -387,12 +389,14 @@ An **Event** is an user action that (usually) triggers an impact reward.<br/>
 |--------------------------|-----------------|--------------------------------------|
 | **id**               | `integer`       | The challenge's unique identifier.         |   
 | **challenger**       | `object`        | The user that initiated the challenge.   |
-| **challenged**       | `object`        | The challenged user.                     |           
+| **challenged**       | `object`        | The challenged user.                     |        
 | **status**           | `string`        | One of `pending`, `accepted`, `rejected`, `completed`.   |          
-| **category**         | `string`       | The [category](#categories) of the challenge.   |  
+| **category**         | `string`       | The [category](#categories) of the challenge.   |
+| **categoryLabel**         | `string`       | The translated label for the category.   |  
 | **timeframe**        | `string`       | The challenge's timeframe: `1 week`, `2 weeks`, ...   |
 | **end_date**         | `datetime`     | The challenge's end date | 
-| **goal**             | `decimal`      | The challenge's points goal.   |                       
+| **score**             | `decimal`      | The user's current score.   |                   
+| **goal**             | `decimal`      | The challenge's points goal.   |                   
 | **reward**           | `decimal`      | The challenge's reward when completed.  |  
 | **tips**             | `array`        | An array of tips and suggested apps (with icons) to help complete the challenge.  |  
 | **created_at**       | `datetime`     | The challenge's creation date.  |              
