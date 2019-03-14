@@ -876,6 +876,28 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
           </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"statuses_list"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"baby_poi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_seen_celebration"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"young_poi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_seen_celebration"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"yogi_poi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_seen_celebration"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"master_poi"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_seen_celebration"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"poi_ambassador"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"points_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_seen_celebration"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1430,25 +1452,36 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
 <blockquote>
 <p>JSON Response</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"apps_to_connect"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"application_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too Good To Go"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/zwu.png"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"george@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yoyo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://poi-api.s3.amazonaws.com/application/icon/logo_yoyo_189ed5d21e.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"recycling"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"connected_apps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lime"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://poi-api.s3.amazonaws.com/application/icon/logo_lime_baafc20747.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"toto@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobility"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"connected"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"application_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/cts.png"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abitbol.g@gmail.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disconnected"</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phenix"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://poi-api.s3.amazonaws.com/application/icon/logo_phenix_ba5b6fa137.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tech@poi.app"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"consumption"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"connected"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <div class="public-endpoint"></div>
 <h2 id='connect-an-app'>Connect an app</h2>
@@ -1541,25 +1574,36 @@ d5Wd1kV4SfAc1s0QEtpkXYkCAwEAAQ==
 <blockquote>
 <p>JSON Response</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"apps_to_connect"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"application_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too Good To Go"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/zwu.png"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"george@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yoyo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://poi-api.s3.amazonaws.com/application/icon/logo_yoyo_189ed5d21e.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"recycling"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"connected_apps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lime"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://poi-api.s3.amazonaws.com/application/icon/logo_lime_baafc20747.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"toto@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobility"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"connected"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"application_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/cts.png"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abitbol.g@gmail.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disconnected"</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phenix"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://poi-api.s3.amazonaws.com/application/icon/logo_phenix_ba5b6fa137.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tech@poi.app"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"consumption"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"connected"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <div class="public-endpoint"></div>
 <h2 id='disconnect-an-app'>Disconnect an app</h2><h3 id='http-request-7'>HTTP Request</h3>
@@ -1588,25 +1632,36 @@ d5Wd1kV4SfAc1s0QEtpkXYkCAwEAAQ==
 <blockquote>
 <p>JSON Response</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"apps_to_connect"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"application_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too Good To Go"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/zwu.png"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"george@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yoyo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://poi-api.s3.amazonaws.com/application/icon/logo_yoyo_189ed5d21e.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"recycling"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"connected_apps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lime"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://poi-api.s3.amazonaws.com/application/icon/logo_lime_baafc20747.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"toto@gmail.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobility"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"connected"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"application_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/cts.png"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abitbol.g@gmail.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disconnected"</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phenix"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://poi-api.s3.amazonaws.com/application/icon/logo_phenix_ba5b6fa137.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tech@poi.app"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"consumption"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"connected"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <div class="public-endpoint"></div>
 <h2 id='list-potential-applications'>List potential applications</h2><h3 id='http-request-8'>HTTP Request</h3>
@@ -2327,10 +2382,10 @@ It is the primary way for sending impact data to the Poi Protocol, but is also u
 <p>JSON Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"period"</span><span class="p">:</span><span class="w"> </span><span class="s2">"month"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"period_improvements"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"actions_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
       </span><span class="s2">"chart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"x_axis"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"L"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w"> </span><span class="s2">"J"</span><span class="p">,</span><span class="w"> </span><span class="s2">"V"</span><span class="p">,</span><span class="w"> </span><span class="s2">"S"</span><span class="p">,</span><span class="w"> </span><span class="s2">"D"</span><span class="p">],</span><span class="w">
@@ -2580,7 +2635,7 @@ This impact data that needs to be provided in the body of the request, varies fr
         </span><span class="s2">"suggested_applications"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="err">&lt;Application&gt;</span><span class="p">,</span><span class="w">
             </span><span class="err">&lt;Application&gt;</span><span class="w">
-        </span><span class="p">]</span><span class="w">
+        </span><span class="p">],</span><span class="w">
         </span><span class="s2">"apps_to_connect"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
@@ -2600,15 +2655,17 @@ This impact data that needs to be provided in the body of the request, varies fr
                 </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cityscoot"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.com/icon-cts.png"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobility"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daniel.pollock@gmail.com"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobility"</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"connected"</span><span class="p">,</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too Good To Go"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.com/icon-tgt.png"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consumption"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daniel@gmail.com"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Consumption"</span><span class="w">
+                </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"disconnected"</span><span class="p">,</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"challenges"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2665,6 +2722,20 @@ This impact data that needs to be provided in the body of the request, varies fr
                     </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"status_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"baby_poi"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"perks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="err">&lt;Perk&gt;</span><span class="p">,</span><span class="w">
+            </span><span class="err">&lt;Perk&gt;</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"projects"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"spotlight"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="err">&lt;Project&gt;</span><span class="p">,</span><span class="w">
+                </span><span class="err">&lt;Project&gt;</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"projects"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="err">&lt;Project&gt;</span><span class="p">,</span><span class="w">
+                </span><span class="err">&lt;Project&gt;</span><span class="w">
             </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -2741,9 +2812,19 @@ This impact data that needs to be provided in the body of the request, varies fr
 <td>An <code>Impact</code> object. Includes impact data, the last taken action, the current gauge cycle&#39;s data and the list of all possible statuses.</td>
 </tr>
 <tr>
+<td><strong>projects</strong></td>
+<td><code>object</code></td>
+<td>A list of impact projects that might interest the user. Also returns the current spotlighted projects.</td>
+</tr>
+<tr>
 <td><strong>funded_project</strong></td>
 <td><code>array</code></td>
 <td>List of projects the use has funded.</td>
+</tr>
+<tr>
+<td><strong>perks</strong></td>
+<td><code>array</code></td>
+<td>A list of perks that might interest the user.</td>
 </tr>
 <tr>
 <td><strong>suggested_applications</strong></td>
@@ -3077,7 +3158,7 @@ This impact data that needs to be provided in the body of the request, varies fr
 </tbody></table>
 <h2 id='challenge'>Challenge</h2><pre class="highlight json tab-json"><code><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"challenger"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George Abitbol"</span><span class="p">,</span><span class="w">
@@ -3092,10 +3173,12 @@ This impact data that needs to be provided in the body of the request, varies fr
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobility"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"timeframe"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 week"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"categoryLabel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mobilité"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timeframe"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1 semaine"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-10T12:24:18.477Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:18.477Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"goal"</span><span class="p">:</span><span class="w"> </span><span class="mf">50.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"score"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
         </span><span class="s2">"reward"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.0</span><span class="p">,</span><span class="w">
         </span><span class="s2">"tips"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
@@ -3140,6 +3223,11 @@ This impact data that needs to be provided in the body of the request, varies fr
 <td>The <a href="#categories">category</a> of the challenge.</td>
 </tr>
 <tr>
+<td><strong>categoryLabel</strong></td>
+<td><code>string</code></td>
+<td>The translated label for the category.</td>
+</tr>
+<tr>
 <td><strong>timeframe</strong></td>
 <td><code>string</code></td>
 <td>The challenge&#39;s timeframe: <code>1 week</code>, <code>2 weeks</code>, ...</td>
@@ -3148,6 +3236,11 @@ This impact data that needs to be provided in the body of the request, varies fr
 <td><strong>end_date</strong></td>
 <td><code>datetime</code></td>
 <td>The challenge&#39;s end date</td>
+</tr>
+<tr>
+<td><strong>score</strong></td>
+<td><code>decimal</code></td>
+<td>The user&#39;s current score.</td>
 </tr>
 <tr>
 <td><strong>goal</strong></td>
@@ -3174,6 +3267,7 @@ This impact data that needs to be provided in the body of the request, varies fr
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Too Good To Go - 30%"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"tagline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"success_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Profitez bien de votre offre Too Good To Go !"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Get - 30% on your next too good to go purchase!"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/zwu.png"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"banner"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://aws.bucket.xyz/xwu.png"</span><span class="p">,</span><span class="w">
@@ -3209,6 +3303,11 @@ This impact data that needs to be provided in the body of the request, varies fr
 <td><strong>tagline</strong></td>
 <td><code>string</code></td>
 <td>The perk&#39;s tagline.</td>
+</tr>
+<tr>
+<td><strong>success_label</strong></td>
+<td><code>string</code></td>
+<td>A text that will be displayed to the user upon purchase.</td>
 </tr>
 <tr>
 <td><strong>description</strong></td>
@@ -3255,6 +3354,7 @@ This impact data that needs to be provided in the body of the request, varies fr
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Le petit Bordelais"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"tagline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"success_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L'association Le Petit Bordelais vous remercie !"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lorem ipsum dolor es sit amet."</span><span class="p">,</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w"> 
         </span><span class="s2">"total_funded"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> 
@@ -3285,6 +3385,11 @@ This impact data that needs to be provided in the body of the request, varies fr
 <td><strong>tagline</strong></td>
 <td><code>string</code></td>
 <td>The project&#39;s tagline.</td>
+</tr>
+<tr>
+<td><strong>success_label</strong></td>
+<td><code>string</code></td>
+<td>A text that will be displayed to the user upon purchase.</td>
 </tr>
 <tr>
 <td><strong>description</strong></td>
