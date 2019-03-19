@@ -97,28 +97,23 @@ Gets the current user's impact data grouped by [categories](#categories).
     "statuses_list": {
       "baby_poi": {
         "name": "Baby poi",
-        "points_threshold": 0,
-        "has_seen_celebration": false
+        "level_threshold": 0
       },
       "young_poi": {
         "name": "Young poi",
-        "points_threshold": 1000,
-        "has_seen_celebration": false
+        "level_threshold": 2
       },
       "yogi_poi": {
         "name": "Yogi poi",
-        "points_threshold": 2000,
-        "has_seen_celebration": false
+        "level_threshold": 5
       },
       "master_poi": {
         "name": "Master poi",
-        "points_threshold": 3000,
-        "has_seen_celebration": false
+        "level_threshold": 15
       },
       "poi_ambassador": {
         "name": "Poi ambassador",
-        "points_threshold": 4000,
-        "has_seen_celebration": false
+        "level_threshold": 30
       }
     }
   }
