@@ -258,6 +258,14 @@
               </ul>
           </li>
           <li>
+            <a href="#initial-data" class="toc-h1 toc-link" data-title="Initial Data">Initial Data</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-initial-data" class="toc-h2 toc-link" data-title="Get initial data">Get initial data</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#me" class="toc-h1 toc-link" data-title="Me">Me</a>
               <ul class="toc-list-h2">
                   <li>
@@ -795,7 +803,20 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
 <div class="private-endpoint"></div>
 <h2 id='fetch-credentials'>Fetch credentials</h2>
 <p>[W.I.P]</p>
-<h1 id='me'>Me</h1>
+<h1 id='initial-data'>Initial Data</h1>
+<div class="public-endpoint"></div>
+<h2 id='get-initial-data'>Get initial data</h2>
+<p>Sends the data that the application needs when loading.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v1/me/initial_data</code></p>
+
+<blockquote>
+<p>JSON Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;InitialData&gt;</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='me'>Me</h1>
 <div class="public-endpoint"></div>
 <h2 id='me-2'>Me</h2>
 <p>Gets the current user&#39;s information. See <a href="#user"><User></a> for more details.</p>
