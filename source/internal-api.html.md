@@ -11,6 +11,7 @@ includes:
   - internal/introduction
   - internal/service_auth
   - internal/user_auth
+  - internal/initial_data
   - internal/me
   - internal/users_friends
   - internal/apps
