@@ -92,28 +92,28 @@ Gets the current user's impact data grouped by [categories](#categories).
             ]
           }
         }
-      }
-    },
-    "statuses_list": {
-      "baby_poi": {
-        "name": "Baby poi",
-        "level_threshold": 0
       },
-      "young_poi": {
-        "name": "Young poi",
-        "level_threshold": 2
-      },
-      "yogi_poi": {
-        "name": "Yogi poi",
-        "level_threshold": 5
-      },
-      "master_poi": {
-        "name": "Master poi",
-        "level_threshold": 15
-      },
-      "poi_ambassador": {
-        "name": "Poi ambassador",
-        "level_threshold": 30
+      "statuses_list": {
+        "baby_poi": {
+          "name": "Baby poi",
+          "level_threshold": 0
+        },
+        "young_poi": {
+          "name": "Young poi",
+          "level_threshold": 2
+        },
+        "yogi_poi": {
+          "name": "Yogi poi",
+          "level_threshold": 5
+        },
+        "master_poi": {
+          "name": "Master poi",
+          "level_threshold": 15
+        },
+        "poi_ambassador": {
+          "name": "Poi ambassador",
+          "level_threshold": 30
+        }
       }
     }
   }

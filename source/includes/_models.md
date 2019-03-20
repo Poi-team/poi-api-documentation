@@ -481,3 +481,265 @@ Here is a list of all available categories.
 | **Citizenship** |                  |
 | **Investments** |                  |
 | **Bonus** | All user actions that helped the Poi Network, this includes sign up, challenges, etc... |
+
+## Initial Data
+
+Sends user data along with a lot of information the apps need to draw the initial pages. This is a mix of /me and a bunch of other endpoints, plus the static pages like ToS, FAQ, etc...
+
+```json
+    {
+        "id": 13,
+        "uid": "daniel@gmail.com",
+        "full_name": "Daniel Pollock",
+        "email": "daniel@gmail.com",
+        "referrer_id": 1,
+        "referral_code": "84V3C",
+        "phone_number": "0732233423",
+        "created_at": "2018-08-17T12:24:16.477Z",
+        "updated_at": "2018-08-17T12:24:18.477Z",
+        "impact": {
+            "status_uid": "baby_poi",
+            "status": "Baby Poi",
+            "level": 15,
+            "earned_points": 4327.3,
+            "spent_points": 2137.5,
+            "current_points": 2198.8,
+            "last_actions": [<Event>, <Event>, <Event>],
+            "current_cycle": {
+                "points": 137.5,
+                "maximum_points": 500,
+            },
+           "statuses_list": {
+                "baby_poi": {
+                    "name": "Baby poi",
+                    "level_threshold": 0
+                },
+                "young_poi": {
+                    "name": "Young poi",
+                    "level_threshold": 2
+                },
+                "yogi_poi": {
+                    "name": "Yogi poi",
+                    "level_threshold": 5
+                },
+                "master_poi": {
+                    "name": "Master poi",
+                    "level_threshold": 15
+                },
+                "poi_ambassador": {
+                    "name": "Poi ambassador",
+                    "level_threshold": 30
+                }
+            }   
+        },
+        "funded_projects": [
+            {
+                "id": 3,
+                "name": "New Composer",
+                "amount": 50.0,
+            }
+        ],
+        "suggested_applications": [
+            <Application>,
+            <Application>
+        ],
+        "apps_to_connect": [
+            {
+                "id": 5,
+                "name": "Cityscoot",
+                "icon": "https://aws.bucket.com/icon-cts.png",
+                "category": "Mobility"
+            },
+            {
+                "id": 3,
+                "name": "Too Good To Go",
+                "icon": "https://aws.bucket.com/icon-tgt.png",
+                "category": "Consumption"
+            }
+        ],
+        "connected_apps": [
+            {
+                "id": 5,
+                "name": "Cityscoot",
+                "icon": "https://aws.bucket.com/icon-cts.png",
+                "category": "Mobility",
+                "email": "daniel.pollock@gmail.com",
+                "status": "connected",
+            },
+            {
+                "id": 3,
+                "name": "Too Good To Go",
+                "icon": "https://aws.bucket.com/icon-tgt.png",
+                "category": "Consumption",
+                "email": "daniel@gmail.com",
+                "status": "disconnected",
+            }
+        ],
+        "challenges": {
+            "sent": [
+                <Challenge>,
+                <Challenge>,
+                <Challenge>
+            ],
+            "received": [
+                <Challenge>
+            ]
+        },
+        "friends": {
+            "invited": [
+                {
+                    "inviter_id": 3,
+                    "invitee_id": 12,
+                    "name": "Nathan",
+                    "phone_number": "+3367809832",
+                    "status": "accepted"
+                },
+                {
+                    "inviter_id": 3,
+                    "invitee_id": null,
+                    "name": "Lisa",
+                    "phone_number": "+3376809872",
+                    "status": "pending"
+                }
+            ],
+            "friends": [
+                {
+                    "id": 2,
+                    "name": "Jeremy Andre",
+                    "phone_number": "+33683853938",
+                    "impact_points": 0,
+                    "level": 1,
+                    "status_uid": "baby_poi"
+                },
+                {
+                    "id": 2,
+                    "name": "Martha Andre",
+                    "phone_number": "+33683853938",
+                    "impact_points": 0,
+                    "level": 1,
+                    "status_uid": "baby_poi"
+                }
+            ],
+            "suggested_friends": [
+                {
+                    "id": 3,
+                    "name": "Gaby",
+                    "phone_number": "+33683853679",
+                    "impact_points": 3,
+                    "level": 1,
+                    "status_uid": "baby_poi"
+                }
+            ]
+        },
+        "perks": [
+            <Perk>,
+            <Perk>
+        ],
+        "projects": {
+            "spotlight": [
+                <Project>,
+                <Project>
+            ],
+            "projects": [
+                <Project>,
+                <Project>
+            ]
+        },
+        "categories": [
+            {
+                "mobility": {
+                    "title": "Mobilité",
+                    "description": "Poi détermine ton épargne carbone par km selon les moyens de transport que tu choisis. (Base de référence : émission de CO2 pour une personne seule dans sa voiture à essence)"
+                }
+            },
+            {
+                "recycling": {
+                    "title": "Recyclage",
+                    "description": "Poiem ipsum dolor es sit amet non secitur."
+                }
+            },
+            {
+                "consumption": {
+                    "title": "Consommation",
+                    "description": "Poiem ipsum dolor es sit amet non secitur."
+                }
+            }
+        ],
+       "static_pages": {
+            "faq": [
+                {
+                    "title": "Paiements, annulations et délai de réflexion",
+                    "content": [
+                        {
+                            "subtitle": "Facturation",
+                            "paragraphs": [
+                                "Lorem ipsum dolor es sit amet",
+                                "Lorem ipsum dolor es sit amet"
+                            ]
+                        },
+                        {
+                            "subtitle": "Annulation",
+                            "paragraphs": [
+                                "Lorem ipsum dolor es sit amet",
+                                "Lorem ipsum dolor es sit amet"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "tos": [
+                {
+                    "title": "Qui sommes-nous ?",
+                    "content": [
+                        {
+                            "subtitle": "Qui sommes-nous ?",
+                            "paragraphs": [
+                                "Derrière Poi, il y a la société GIN (Good Impact Network) composée d'une équipe de passionnés venant de l'entrepreneuriat social et de l'économie collaborative. Nous sommes animés par une mission, créer un mouvement massif qui reconnaisse les contributions de chacun à un monde plus durable. À l'opposé du pessimisme écologique ou social actuel, nous militons pour un optimisme contagieux qui donne envie d'agir. C'est la vocation de Poi."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "La jauge d'impact",
+                    "content": [
+                        {
+                            "subtitle": "Comment puis-je gagner des points dans ma jauge d'impact ?",
+                            "paragraphs": [
+                                "Pour gagner des points dans votre jauge, il vous suffit de consommer chez un commerçant détenant des labels validés par la communauté. Pour calculer le nombre de points reçus le montant de la transaction est multiplié par la somme des coefficients des labels détenus par le commerçant. Par exemple si vous dépensez 10€ dans un épicerie ayant les labels bio et local équivalent à 0,5 chacun, vous gagnerez 10x(2x0,5)= 10 points. Vous pouvez également gagnez des points en parrainnant des amis sur l'app."
+                            ]
+                        },
+                        {
+                            "subtitle": "Comment fonctionne ma jauge d'impact ?",
+                            "paragraphs": [
+                                "La jauge contient 1000 points. Pour gagner des points dans vote jauge, il vous suffit de consommer chez un commerçant détenant des labels validés par la communauté. Pour calculer le nombre de points reçus le montant de la transaction est multiplié par la somme des coefficients des labels détenus par le commerçant. Vous pouvez également gagnez des points en parrainnant des amis sur l'app. C'est l'effort sur la qualité de votre consommation quotidienne qui vous permettra de remplir au plus vite votre jauge."
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+    
+```
+| Attribute            | Type              | Description                                                                              |
+|----------------------|-------------------|------------------------------------------------------------------------------------------|
+| **id**                 | `integer`       | The user's unique identifier.                                                            | 
+| **uid**                | `string`        | A unique identifier, usually the email used to identify the user.      |         
+| **full_name**          | `string`        | User's full name.                                                                        | 
+| **email**              | `string`        | User's email address.                                                                    |
+| **referrer_id**        | `integer`       | The referrer's (user that referred) id.                                                  |
+| **referral_code**      | `string`        | The user's referral code, can be used by other users to register.                        | 
+| **phone_number**       | `string`        | User's phone number.    |
+| **created_at**         | `date`          | User's inscription date.          | 
+| **updated_at**         | `date`          | Last user's update. |
+| **impact**             | `object`        | An `Impact` object. Includes impact data, the last taken action, the current gauge cycle's data and the list of all possible statuses.|
+| **projects**           | `object`         | A list of impact projects that might interest the user. Also returns the current spotlighted projects.     | 
+| **funded_project**     | `array`         | List of projects the use has funded.                                                     | 
+| **perks**           | `array`         | A list of perks that might interest the user.  | 
+| **suggested_applications**       | `array`         | A list of suggested applications, will only be returned after a successful sign in or registration.  |                       
+| **apps_to_connect**     | `array`         | List of 8 apps that can be connected. |                       
+| **connected_apps**     | `array`         | List of all connected apps.          |                
+| **challenges**     | `object`         | List of sent and received challenges.    |                       
+| **friends**     | `object`         | List of friends, friends suggestions and invitations for the user. |                 
+| **categories**     | `object`         | List all available categories with names and detail.  |
+| **static_pages** | `object` | List of all static pages as objects. The structure is always the same, just look at the examples and you should get it easily. |
