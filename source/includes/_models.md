@@ -482,7 +482,7 @@ Here is a list of all available categories.
 | **Investments** |                  |
 | **Bonus** | All user actions that helped the Poi Network, this includes sign up, challenges, etc... |
 
-## Initial Data
+## InitialData
 
 Sends user data along with a lot of information the apps need to draw the initial pages. This is a mix of /me and a bunch of other endpoints, plus the static pages like ToS, FAQ, etc...
 
