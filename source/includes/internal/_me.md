@@ -34,9 +34,9 @@ Gets the current user's impact data grouped by [categories](#categories).
       "global": {
         "status": "Baby Poi",
         "level": 15,
-        "earned_points": 4327.3,
-        "spent_points": 2137.5,
-        "current_points": 2198.8,
+        "earned_points": 4327,
+        "spent_points": 2137,
+        "current_points": 2198,
         "current_cycle": {
             "points": 137.5,
             "maximum_points": 500,

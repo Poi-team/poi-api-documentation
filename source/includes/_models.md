@@ -506,6 +506,26 @@ Sends user data along with a lot of information the apps need to draw the initia
             "current_points": 2198.8,
             "last_actions": [<Event>, <Event>, <Event>],
             "current_cycle": {
+                "can_challenge": true,
+                "launchable_challenge": {
+                    "goals": [
+                        50,
+                        100,
+                        150
+                    ],
+                    "rewards": [
+                        5,
+                        10,
+                        15
+                    ],
+                    "status_uid": "yogi_poi",
+                    "level_reached": 6,
+                    "level_count_until_next_status": 6,
+                    "category": "mobility",
+                    "category_label": "Mobilité",
+                    "challenge_category": "mobility",
+                    "challenge_category_label": "Mobilité"
+                },
                 "points": 137.5,
                 "maximum_points": 500,
             },
