@@ -50,6 +50,7 @@ List all the user's friends and invited persons.
       "friends": [
         {
           "id": 1,
+          "rank": 3,
           "name": "George",
           "phone_number": "+33732231321",
           "impact_points": 500,
@@ -58,6 +59,7 @@ List all the user's friends and invited persons.
         },
         {
           "id": 13,
+          "rank": "50K",
           "name": "Julien",
           "phone_number": "+33738231370",
           "impact_points": 300,

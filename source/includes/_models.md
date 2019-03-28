@@ -5,6 +5,7 @@
 ```json
     {
         "id": 13,
+        "rank": "12K",
         "uid": "daniel@gmail.com",
         "full_name": "Daniel Pollock",
         "email": "daniel@gmail.com",
@@ -191,6 +192,7 @@
 | **uid**                | `string`        | A unique identifier, usually the email used to identify the user.      |         
 | **full_name**          | `string`        | User's full name.                                                                        | 
 | **email**              | `string`        | User's email address.                                                                    |
+| **rank**              | `string`        | The user's rank depending on his score. |
 | **referrer_id**        | `integer`       | The referrer's (user that referred) id.                                                  |
 | **referral_code**      | `string`        | The user's referral code, can be used by other users to register.                        | 
 | **phone_number**       | `string`        | User's phone number.                                                                     |
