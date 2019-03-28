@@ -339,28 +339,29 @@ per_page     | `integer` |          | 20          | Number of events per page |
 >  Response
 
 ```json
-  {
+ {
+    "count": 3,
     "data": [
-      {
-        "id": 1,
-        "name": "Yoyo",
-        "category": "recycling",
-        "description": "Lorem ipsum dolor es recyclette",
-        "icon": "https://amz.co/yoyo.png", 
-        "url": "https://yoyo.com",
-        "status": "reviewing"
-      },
-      {
-        "id": 2,
-        "name": "Lime",
-        "category": "mobility",
-        "description": null,
-        "icon": null, 
-        "url": "https://lime.com",
-        "status": "pending"
-      }
+        {
+            "id": 7,
+            "name": "Cityscoot",
+            "icon": "https://poi-api.s3.amazonaws.com/potential_application/icon/logo_cityscoot_3d68de5a52.png",
+            "has_voted": false
+        },
+        {
+            "id": 8,
+            "name": "Fitbit",
+            "icon": "https://poi-api.s3.amazonaws.com/potential_application/icon/logo_fitbit_6badc369fd.png",
+            "has_voted": false
+        },
+        {
+            "id": 9,
+            "name": "Lilo",
+            "icon": "https://poi-api.s3.amazonaws.com/potential_application/icon/logo_lilo_792e5ae998.png",
+            "has_voted": true
+        }
     ]
-  }
+}
 ```
 
 
@@ -459,4 +460,57 @@ id            | `integer`  | true         |             | The potential applicat
 
 ```
   HTTP 204 No Content
+```
+
+
+<div class="public-endpoint"></div>
+## Batch vote (wishlist)
+
+Votes for a list of potential applications in stead of the current user. Any application missing from the parameters will be considered removed from the votes of the user.
+
+> Request Body
+
+```json
+  {
+     	"apps_wishlist": [7, 9]
+  }
+```
+
+### HTTP Request
+
+`PUT /v1/me/wishlist`
+
+### URL Arguments
+
+<div class="params-table"></div>
+name          | type      | required | default     | description |
+--------------| --------- | -------- | ----------- | ----------- |
+apps_wishlist | `array`   | true         |         | An array of ids as `Integer`. |
+
+>  JSON Response
+
+```json
+{
+  "count": 3,
+  "data": [
+    {
+      "id": 7,
+      "name": "Cityscoot",
+      "icon": "https://poi-api.s3.amazonaws.com/potential_application/icon/logo_cityscoot_3d68de5a52.png",
+      "has_voted": false
+    },
+    {
+      "id": 8,
+      "name": "Fitbit",
+      "icon": "https://poi-api.s3.amazonaws.com/potential_application/icon/logo_fitbit_6badc369fd.png",
+      "has_voted": false
+    },
+    {
+      "id": 9,
+      "name": "Lilo",
+      "icon": "https://poi-api.s3.amazonaws.com/potential_application/icon/logo_lilo_792e5ae998.png",
+      "has_voted": true
+    }
+  ]
+}
 ```

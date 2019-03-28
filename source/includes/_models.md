@@ -559,6 +559,26 @@ Sends user data along with a lot of information the apps need to draw the initia
                 "amount": 50.0,
             }
         ],
+        "apps_wishlist": [
+            {
+                "id": 7,
+                "name": "Cityscoot",
+                "icon": "https://poi-api.s3.amazonaws.com/potential_application/icon/logo_cityscoot_3d68de5a52.png",
+                "has_voted": false
+            },
+            {
+                "id": 8,
+                "name": "Fitbit",
+                "icon": "https://poi-api.s3.amazonaws.com/potential_application/icon/logo_fitbit_6badc369fd.png",
+                "has_voted": false
+            },
+            {
+                "id": 9,
+                "name": "Lilo",
+                "icon": "https://poi-api.s3.amazonaws.com/potential_application/icon/logo_lilo_792e5ae998.png",
+                "has_voted": true
+            }
+        ],
         "suggested_applications": [
             <Application>,
             <Application>
@@ -756,6 +776,7 @@ Sends user data along with a lot of information the apps need to draw the initia
 | **projects**           | `object`         | A list of impact projects that might interest the user. Also returns the current spotlighted projects.     | 
 | **funded_project**     | `array`         | List of projects the use has funded.                                                     | 
 | **perks**           | `array`         | A list of perks that might interest the user.  | 
+| **apps_wishlist**   | `array`         | A list of all applications that might come to the platform and if the user has voted for them. |
 | **suggested_applications**       | `array`         | A list of suggested applications, will only be returned after a successful sign in or registration.  |                       
 | **apps_to_connect**     | `array`         | List of 8 apps that can be connected. |                       
 | **connected_apps**     | `array`         | List of all connected apps.          |                
