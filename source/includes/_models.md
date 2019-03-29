@@ -58,20 +58,40 @@
             <Application>,
             <Application>
         ],
-        "apps_to_connect": [
+        "apps_wishlist": [
             {
-                "id": 5,
+                "id": 7,
                 "name": "Cityscoot",
-                "icon": "https://aws.bucket.com/icon-cts.png",
-                "category": "Mobility"
+                "icon": "https://poi-api.s3.amazonaws.com/potential_application/icon/logo_cityscoot_3d68de5a52.png",
+                "has_voted": false
             },
             {
-                "id": 3,
-                "name": "Too Good To Go",
-                "icon": "https://aws.bucket.com/icon-tgt.png",
-                "category": "Consumption"
+                "id": 8,
+                "name": "Fitbit",
+                "icon": "https://poi-api.s3.amazonaws.com/potential_application/icon/logo_fitbit_6badc369fd.png",
+                "has_voted": false
+            },
+            {
+                "id": 9,
+                "name": "Lilo",
+                "icon": "https://poi-api.s3.amazonaws.com/potential_application/icon/logo_lilo_792e5ae998.png",
+                "has_voted": true
             }
         ],
+        "applications": {
+            "count": 3,
+            "data": {
+                "spotlight": [
+                    <Application>,
+                    <Application>
+                ],
+                "applications": [
+                    <Application>,
+                    <Application>,
+                    <Application>
+                ]
+            }
+        },
         "connected_apps": [
             {
                 "id": 5,
@@ -200,8 +220,9 @@
 | **projects**           | `object`         | A list of impact projects that might interest the user. Also returns the current spotlighted projects.     | 
 | **funded_project**     | `array`         | List of projects the use has funded.                                                     | 
 | **perks**           | `array`         | A list of perks that might interest the user.  | 
+| **apps_wishlist**   | `array`         | A list of all applications that might come to the platform and if the user has voted for them. |
 | **suggested_applications**       | `array`         | A list of suggested applications, will only be returned after a successful sign in or registration.  |                       
-| **apps_to_connect**     | `array`         | List of 8 apps that can be connected. |                       
+| **applications**     | `object`         | List of all applications and spotlights for applications. |                       
 | **connected_apps**     | `array`         | List of all connected apps.          |                
 | **challenges**     | `object`         | List of sent and received challenges.    |                       
 | **friends**     | `object`         | List of friends, friends suggestions and invitations for the user. |                 
@@ -585,20 +606,20 @@ Sends user data along with a lot of information the apps need to draw the initia
             <Application>,
             <Application>
         ],
-        "apps_to_connect": [
-            {
-                "id": 5,
-                "name": "Cityscoot",
-                "icon": "https://aws.bucket.com/icon-cts.png",
-                "category": "Mobility"
-            },
-            {
-                "id": 3,
-                "name": "Too Good To Go",
-                "icon": "https://aws.bucket.com/icon-tgt.png",
-                "category": "Consumption"
+        "applications": {
+            "count": 3,
+            "data": {
+                "spotlight": [
+                    <Application>,
+                    <Application>
+                ],
+                "applications": [
+                    <Application>,
+                    <Application>,
+                    <Application>
+                ]
             }
-        ],
+        },
         "connected_apps": [
             {
                 "id": 5,
@@ -780,7 +801,7 @@ Sends user data along with a lot of information the apps need to draw the initia
 | **perks**           | `array`         | A list of perks that might interest the user.  | 
 | **apps_wishlist**   | `array`         | A list of all applications that might come to the platform and if the user has voted for them. |
 | **suggested_applications**       | `array`         | A list of suggested applications, will only be returned after a successful sign in or registration.  |                       
-| **apps_to_connect**     | `array`         | List of 8 apps that can be connected. |                       
+| **applications**     | `object`         | List of all applications and spotlights for applications. |    
 | **connected_apps**     | `array`         | List of all connected apps.          |                
 | **challenges**     | `object`         | List of sent and received challenges.    |                       
 | **friends**     | `object`         | List of friends, friends suggestions and invitations for the user. |                 
