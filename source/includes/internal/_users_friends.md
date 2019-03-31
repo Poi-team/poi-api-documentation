@@ -162,8 +162,62 @@ Invites a contact. This is primarly used to keep track of already invited contac
 
 ```json
   {
-    "name": "George Abitbol",
-    "phone_number": "0732030203"
+    "data": {
+      "invited": [
+        {
+          "inviter_id": 3,
+          "invitee_id": 12,
+          "name": "Nathan",
+          "phone_number": "+330809832",
+          "status": "accepted"
+        },
+        {
+          "inviter_id": 3,
+          "invitee_id": null,
+          "name": "Lisa",
+          "phone_number": "+336809872",
+          "status": "pending"
+        }
+      ],
+      "friends": [
+        {
+          "id": 1,
+          "rank": 3,
+          "name": "George",
+          "phone_number": "+33732231321",
+          "impact_points": 500,
+          "level": 15,
+          "status_uid": "master_poi"
+        },
+        {
+          "id": 13,
+          "rank": "50K",
+          "name": "Julien",
+          "phone_number": "+33738231370",
+          "impact_points": 300,
+          "level": 12,
+          "status_uid": "master_poi"
+        }
+      ],
+      "suggested_friends": [
+        {
+          "id": 5,
+          "name": "George",
+          "phone_number": "+33732231321",
+          "impact_points": 500,
+          "level": 15,
+          "status_uid": "master_poi"
+        },
+        {
+          "id": 11,
+          "name": "Julien",
+          "phone_number": "+33738231370",
+          "impact_points": 300,
+          "level": 12,
+          "status_uid": "master_poi"
+        }
+      ]    
+    }
   }
 ```
 
