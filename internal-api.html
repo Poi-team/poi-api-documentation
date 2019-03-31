@@ -1137,8 +1137,62 @@ Apart from <i>Sign in</i>, <i>Sign up</i> and <i>Fetch credentials</i>, <b>all r
 <p>Request Body</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George Abitbol"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0732030203"</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"invited"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"inviter_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"invitee_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nathan"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+330809832"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accepted"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"inviter_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"invitee_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lisa"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+336809872"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"friends"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+33732231321"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"impact_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"status_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"master_poi"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50K"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Julien"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+33738231370"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"impact_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"status_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"master_poi"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"suggested_friends"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"George"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+33732231321"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"impact_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"status_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"master_poi"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Julien"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+33738231370"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"impact_points"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"status_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"master_poi"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">    
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST /v1/me/invites</code></p>
@@ -2718,6 +2772,7 @@ This impact data that needs to be provided in the body of the request, varies fr
             </span><span class="s2">"status_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"baby_poi"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Baby Poi"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"server_level_ceiling"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
             </span><span class="s2">"earned_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">4327.3</span><span class="p">,</span><span class="w">
             </span><span class="s2">"spent_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">2137.5</span><span class="p">,</span><span class="w">
             </span><span class="s2">"current_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">2198.8</span><span class="p">,</span><span class="w">
@@ -3631,6 +3686,7 @@ This impact data that needs to be provided in the body of the request, varies fr
             </span><span class="s2">"status_uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"baby_poi"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Baby Poi"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"server_level_ceiling"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
             </span><span class="s2">"earned_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">4327.3</span><span class="p">,</span><span class="w">
             </span><span class="s2">"spent_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">2137.5</span><span class="p">,</span><span class="w">
             </span><span class="s2">"current_points"</span><span class="p">:</span><span class="w"> </span><span class="mf">2198.8</span><span class="p">,</span><span class="w">
