@@ -258,6 +258,15 @@
             "Te récompenser en fonction de ton usage"
         ],
         "poi_earn_tagline": "Roulez plus pour gagner plus de Poi !",
+        "config": {
+            "auth": {
+                "needs_password": true,
+                "auth_providers": [
+                    "facebook",
+                    "google"
+                ]
+            }
+        },
         "created_at": "2018-08-17T12:24:16.477Z",
         "updated_at": "2018-08-17T12:24:18.477Z"
     }
@@ -282,6 +291,7 @@
 | **web_url**          | `string`        | The application's website url.                                                           |                       
 | **requested_permissions**          | `array`        | A list of things the user will consent to when connecting this application to his account.                                                           |
 | **poi_earn_tagline**   | `string`        | A short text explaining how this application will help you earn more Pois.   |         
+| **config**   | `object`        | Contains information about authentication methods used by this partner app.   |         
 | **created_at**       | `datetime`       | The application's creation date.                                                        |
 | **updated_at**       | `datetime`        | The application's last update date.                                                    |                       
 
@@ -731,7 +741,7 @@ Sends user data along with a lot of information the apps need to draw the initia
             }
         ],
        "static_pages": {
-            "faq": [
+            "tos": [
                 {
                     "title": "Paiements, annulations et délai de réflexion",
                     "content": [
@@ -752,7 +762,7 @@ Sends user data along with a lot of information the apps need to draw the initia
                     ]
                 }
             ],
-            "tos": [
+            "faq": [
                 {
                     "title": "Qui sommes-nous ?",
                     "content": [
