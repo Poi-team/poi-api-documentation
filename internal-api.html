@@ -3100,6 +3100,15 @@ This impact data that needs to be provided in the body of the request, varies fr
             </span><span class="s2">"Te récompenser en fonction de ton usage"</span><span class="w">
         </span><span class="p">],</span><span class="w">
         </span><span class="s2">"poi_earn_tagline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Roulez plus pour gagner plus de Poi !"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"auth"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"needs_password"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"auth_providers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="s2">"facebook"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"google"</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:16.477Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T12:24:18.477Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -3191,6 +3200,11 @@ This impact data that needs to be provided in the body of the request, varies fr
 <td><strong>poi_earn_tagline</strong></td>
 <td><code>string</code></td>
 <td>A short text explaining how this application will help you earn more Pois.</td>
+</tr>
+<tr>
+<td><strong>config</strong></td>
+<td><code>object</code></td>
+<td>Contains information about authentication methods used by this partner app.</td>
 </tr>
 <tr>
 <td><strong>created_at</strong></td>
@@ -3892,7 +3906,7 @@ This impact data that needs to be provided in the body of the request, varies fr
             </span><span class="p">}</span><span class="w">
         </span><span class="p">],</span><span class="w">
        </span><span class="s2">"static_pages"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"faq"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"tos"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paiements, annulations et délai de réflexion"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -3913,7 +3927,7 @@ This impact data that needs to be provided in the body of the request, varies fr
                     </span><span class="p">]</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
-            </span><span class="s2">"tos"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"faq"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Qui sommes-nous ?"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
